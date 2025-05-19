@@ -1,0 +1,5 @@
+DESENVOLVIMENTO DE UM AMBIENTE COLABORATIVO PARA GERENCIAMENTO DE PROJETOS ACADÊMICOS
+Este trabalho propõe um ambiente colaborativo de apoio ao desenvolvimento de projetos acadêmicos, baseado no Modelo 3C de colaboração. Esse ambiente, denominado Colab-UFV, oferece suporte ao trabalho de equipes multidisciplinares, no que compete à coordenação das atividades e tarefas desenvolvidas, à produção cooperativa de artefatos e à comunicação entre os membros de um projeto.
+O ambiente consiste em uma ferramenta computacional para apoio ao trabalho em grupo e ao aprendizado colaborativo, construída com base nos princípios de CSCW e CSCL. Enquanto ferramenta de apoio à educação, o Colab-UFV favorece o aprendizado por experimentação, estimulando o trabalho em equipe e a comunicação entre os envolvidos. O ambiente também abrange a análise do desempenho dos membros das equipes, através de medições quantitativas sobre dados colaborativos.
+Colaboração, CSCW, CSCL.
+
