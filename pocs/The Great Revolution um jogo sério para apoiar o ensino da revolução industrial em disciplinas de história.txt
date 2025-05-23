@@ -1,0 +1,38 @@
+The Great Revolution um jogo sério para apoiar o ensino da revolução industrial em disciplinas de história
+Com a inclusao digital, cada vez mais as pessoas ˜
+comec¸am a utilizar os jogos eletronicos como meio de entreten- ˆ
+imento. Esta plataforma pode ser utilizada de diversas formas
+diferentes, inclusive como um metodo de ensino, mesclando o ´
+entretenimento e o conteudo, para que o aluno possa aprender ´
+algum conteudo de forma interativa e podendo tamb ´ em desen- ´
+volver outras habilidades dependendo do estilo do jogo. Mas
+ha uma grande complexidade na criac¸ ´ ao de jogos educativos, ˜
+como a definic¸ao do conte ˜ udo que ser ´ a ensinado, da jogabilidade ´
+que sera utilizada, das tecnologias que estar ´ ao envolvidas, do ˜
+processo de avaliac¸ao da qualidade do jogo, entre outros pontos ˜
+importantes. Por isso e fundamental analisar diversos fatores ´
+para comec¸ar um projeto que tenha o objetivo de ensinar algum
+conteudo ´ a partir de jogos. Este trabalho mostra todo o processo `
+que foi realizado para a criac¸ao do escopo, do desenvolvimento ˜
+e da avaliac¸ao de um jogo s ˜ erio, chamado ´ The Great Revolution,
+com o objetivo de ensinar sobre a Revoluc¸ao Industrial. Para ˜
+isso, foram utilizadas ferramentas de desenvolvimento de jogos,
+como o Tiled e o Unity, alem de alguns padr ´ oes para desenvolver ˜
+roteiros e scripts para a criac¸ao da hist ˜ oria do jogo. Foi aplicado ´
+ainda um metodo de avaliac¸ ´ ao para medir a qualidade do ˜
+jogo. O jogo desenvolvido foi aplicado em turmas do ensino
+medio do Campus UFV Florestal e foi avaliado utilizando o ´
+Metodo MEEGA+ e a escala Likert, por meio de um formul ´ ario ´
+para que os alunos avaliassem o jogo e suas caracter´ısticas.
+Desta forma, conseguimos uma taxa de 83,64% de respostas
+positivas e 10,30% de respostas negativas. No geral, tivemos
+resultados bem satisfatorios e conseguimos abordar todo o fluxo ´
+de criac¸ao de um jogo para ser utilizado no aprendizado de algum ˜
+conteudo espec ´ ´ıfico, desde a criac¸ao da hist ˜ oria do jogo, at ´ e o ´
+seu desenvolvimento e aplicac¸ao nas turmas. Tamb ˜ em tivemos ´
+como resultado, a criac¸ao de um fluxograma para o melhor ˜
+entendimento do processo de desenvolvimento de um jogo, o qual
+pode ser utilizado como base para facilitar na criac¸ao de outros ˜
+projetos.
+jogo educativo, jornada do heroi, roteiro de ´
+jogos, revoluc¸ao industrial, ensino m ˜ edio, unity, meega+, likert
