@@ -51,11 +51,11 @@ void receberArquivo(){
         while(fgets(linha, sizeof(linha), arquivoAtual) != NULL){
             //remover possíveis '\n' do final da palavra e trocar por '\0' (fim da palavra)
             linha[strcspn(linha, "\n")] = '\0';
-            char *palavra = strtok(linha, " .,:;()-/");
+            char *palavra = strtok(linha, " .,:;()-/?\n");
 
             while(palavra != NULL){
                 printf("%s\n", palavra);
-                palavra = strtok(NULL, " .,:;()-/");
+                palavra = strtok(NULL, " .,:;()-/?\n");
             }
         }
 
