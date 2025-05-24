@@ -1,0 +1,18 @@
+Um fórum de discussão gamificado para o UFV Virtual Labs afim de melhorar a interação e o engajamento dos estudantes
+Resumo
+Este trabalho apresenta o desenvolvimento de um fórum de discussão para o UFV Virtual Labs, uma plataforma de
+Laboratórios Virtuais de apoio ao processo de ensino-aprendizagem que pode ser utilizada no contexto presencial ou
+remoto. Em ambientes desse tipo, é necessário que haja alguma funcionalidade que promova a comunicação entre
+professores e alunos. Assim, fóruns de discussão vêm se mostrando ser bastante eficazes para isso, além de que
+permitem aos alunos compartilharem seus conhecimentos entre si, de maneira a enriquecer os temas com diferentes
+ideias e experiências. Entretanto, para um fórum promover esses benefícios é necessário que os estudantes interajam
+mais efetivamente nele. Assim, para melhorar a interação e o engajamento dos estudantes, foi implementado um
+sistema de reputação gamificado com uma distribuição de pontos conforme o tipo de interação do aluno no fórum.
+Por fim, para avaliar o fórum, foi realizado um teste com usuários, em que 6 pessoas, membros da própria equipe do
+UFV Virtual Labs, participaram de uma discussão acerca do sistema de reputação e da usabilidade da ferramenta.
+Como resultados, na visão dos usuários (testadores), o fórum foi considerado uma funcionalidade intuitiva e de
+fácil uso, porém, houve uma dificuldade para entender como funciona a atualização da pontuação ao se fazer uma
+interação no fórum, visto que esta não acontece automaticamente. Além disso, através do resultado do ranking
+gerado na prova de conceito, foi possível visualizar que os participantes que mais interagiram, principalmente entre
+si, e com menor tempo de resposta ficaram nas posições mais altas.
+Palavras-chave: Fórum de Discussão; Fórum Educacional; Gamificação; Sistema de Pontuação.

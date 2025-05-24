@@ -1,0 +1,26 @@
+Impacto da relevância temática e outros atributos relacionados à comunicação em issue tracking no tempo de resolução das issues
+RESUMO
+Contexto: Em um projeto de desenvolvimento de software, a reso-
+lução de uma issue pode ser influenciada por diversos fatores, como,
+o número de desenvolvedores envolvidos, a complexidade da issue,
+a experiências dos desenvolvedores, a multitarefa e os comentários
+educados. Assim, entender quais fatores influenciam o seu tempo
+de resolução é crucial para diminuí-lo e, consequentemente, para os
+resultados de um projeto. Objetivo: Este trabalho objetiva avaliar o
+impacto de atributos extraídos de repositórios de issue tracking do
+GitHub no tempo de resolução das issues. Esses atributos abrangem
+a relevância temática dos comentários postados, a quantidade de
+comentários e de desenvolvedores em uma issue, e a participação
+de top-devs, seja na criação, na discussão ou na resolução das issues.
+Materiais e Métodos: A organização Ruby on Rails foi alvo de
+estudo deste trabalho, devido à sua alta atividade em issue tracking.
+A partir dos dados obtidos, foi aplicado o método de correlação de
+Spearman para quantificar a relação entre dois atributos, e testes
+de hipótese para analisar as amostras. Resultados: Os resultados
+mostram que issues e pull requests criadas por top-devs possuem
+um tempo médio menor de resolução. Além disso, foi encontrada
+uma tendência de aumento no tempo de resolução das issues e pull
+requests, e apenas issues, respectivamente, quando a quantidade de
+comentários e de desenvolvedores aumentam. Por fim, observou-se
+que a relevância temática dos comentários possuem valores baixos,
+em sua maioria, entre 0 e 0,1.
