@@ -1,3 +1,4 @@
+Algoritmo genético aplicado à otimização de um perfil aerodinâmico de uma aeronave rádio controlada
 O projeto de uma aeronave rádio controlada é constituído de uma série de fatores que
 exigem do projetista decisões minuciosas acerca de cada parte da aeronave. Em grande parte das
 vezes, tais decisões estão diretamente relacionadas à experiência do projetista, de forma que o
