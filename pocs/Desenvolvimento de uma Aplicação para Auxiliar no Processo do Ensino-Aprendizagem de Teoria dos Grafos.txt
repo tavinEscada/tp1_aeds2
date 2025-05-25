@@ -1,0 +1,10 @@
+Este trabalho apresenta o processo de desenvolvimento de uma aplicação para
+auxílio no ensino-aprendizado da disciplina Teoria dos Grafos, com o intuito de
+incentivar e facilitar a forma do aprendizado, utilizando uma interface gráfica de
+usuário que respeite os padrões de UI/UX e possa ser executada em múltiplas
+plataformas. A ideia é que o estudante possa utilizá-lo para fixar o conteúdo aprendido através de sala de aula e consiga entender o funcionamento de algoritmos sendo executados sobre grafos desenhados na aplicação. Ademais, a aplicação ainda
+mostra propriedades relevantes sobre o grafo que podem transparecer informações
+que ajudam o estudante a identificar uma determinada característica de um dado
+grafo. 
+Teoria dos Grafos, Software, Aplicação, Ensino, Aprendizado, PAAD-Grafos. 
+

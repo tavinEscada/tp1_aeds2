@@ -1,0 +1,6 @@
+O câncer de pele é um dos mais comuns tipos de câncer no Brasil, dentre
+ele se encontra o melanoma um dos tipos de tumor maligno responsável por
+muitas mortes. O presente trabalho visa realizar a detecção de melanomas por
+meio do processamento digital de imagens realizando análise sobre a simetria,
+cor, irregularidade de bordas e classificando por meio de redes neurais
+artificiais.

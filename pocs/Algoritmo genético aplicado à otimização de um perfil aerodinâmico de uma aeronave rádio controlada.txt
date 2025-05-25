@@ -1,0 +1,13 @@
+O projeto de uma aeronave rádio controlada é constituído de uma série de fatores que
+exigem do projetista decisões minuciosas acerca de cada parte da aeronave. Em grande parte das
+vezes, tais decisões estão diretamente relacionadas à experiência do projetista, de forma que o
+sucesso do projeto depende muito do conhecimento deste desenvolvedor. Neste trabalho é proposto
+o uso de um algoritmo genético na otimização de um perfil aerodinâmico de asa, com o objetivo
+de auxiliar nas decisões de projeto da aeronave para maximizar a carga transportada pelo veículo
+aéreo, considerando as regras da competição SAE BRASIL AeroDesign. Os dados gerados foram
+obtidos por meio da equação analítica original da distância e por uma expressão aproximada
+gerada por programação genética. Como resultado são realizadas comparações dos valores
+obtidos tanto com a equação analítica quanto com a expressão aproximada. Os resultados obtidos
+apresentaram configurações de perfis aerodinâmicos satisfatórios capazes de transportar massas
+cujos valores superam alguns perfis aerodinâmicos conhecidos na literatura.
+Algoritmo genético; Otimização; AeroDesign.
