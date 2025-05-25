@@ -1,0 +1,24 @@
+ANIN: Investment Analysis Environment
+Abstract— Due to the availability and ease of handling our financial
+resources by applications, investments in variable income have
+become popular and have become, over the last few years, one of the
+first options for people looking for alternatives to monetize their
+capital. However, many applications that have tools of interest to
+investors are paid or depend on some level of knowledge in
+programming languages. In this context, we present the present work
+that provides a free interactive dashboard created from the Shiny
+package of the R language that applies the Machine Learning
+algorithm called XGBoost to predict the closing price of assets. Our
+application also provides asset price charts by periods of interest to
+the investor, price boxplot, candlestick charts and has a screen that
+provides results from the Markowitz Theory. Thus, we believe that the
+application created has the potential to help investors, especially
+beginners, to make more assertive decisions about investments in
+variable income on the São Paulo Stock Exchange. Finally, we
+present comparisons of the prediction results observed using the
+XGBoost algorithm and an artificial neural network used in the areas
+of artificial intelligence and deep learning called Long Short-Term
+Memory (LSTM). We observed that the results obtained by applying
+the XGBoost algorithm present better results in most cases.
+Keywords— Investments, Machine Learning, Markowitz Theory,
+Stock Exchange, XGBoost
