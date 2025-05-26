@@ -108,10 +108,9 @@ int menu(){
 
 int main(){
     
-    if(menu() == 0){
-        return 0;
-    }else{
+    if(menu() != 0){
         menu();
     }
+    return 0;
 
 }
