@@ -73,7 +73,7 @@ int main(){
     int op = -1;
 
     do{
-        printf("--- Menu ---\n 1 - Ler o arquivo com os textos\n 2 - Construir os indices invertidos\n 3 - Escrever os indices invertidos\n 4 - Busca\n 0 - Fechar\n");
+        printf("--- Menu ---\n1 - Ler o arquivo com os textos\n2 - Construir os indices invertidos\n3 - Escrever os indices invertidos\n4 - Busca\n0 - Fechar\n");
         scanf("%d", &op);
 
         switch(op){
