@@ -1,0 +1,19 @@
+Obstacle-Aware On-Track Bus Routing
+
+The great advances achieved in very large scale
+integrated technology cause an increase in the difficulty for
+routing the buses through the spacing while minimizing the cost.
+The term bus defines a communication system that connects
+internal components in an integrated circuit. The routing process
+consists in placing the wires from the bus on space. There are
+some rules, related to wire width, the spacing between obstacles,
+routing direction, and others, we need to respect. The routing
+process can be separated in global routing and detailed routing.
+This paper presents a solution passing in both processes. In the
+global routing, we use a differential evolution based approach
+in a graph representation of the area to find a brute path of
+minimum length to guide the following step. By the next, we use a
+greedy selection to place the wires on the tracks. We compare the
+results achieved using a classic flux algorithm and three different
+mutation operators in differential evolution in global routing.
+VLSI, IC, routing, bus, differential evolution
