@@ -1,0 +1,17 @@
+EVOLUÇÃO DIFERENCIAL APLICADA AO PROBLEMA DO
+DESPACHO ECONÔMICO ROBUSTO DE ENERGIA ELÉTRICA
+
+A geração de energia a partir de termoelétricas tem um alto custo de produção em relação
+a outras formas, por exemplo, hidroelétricas. Há itens relacionadas à geração de energia, como
+pressão, umidade, temperatura, entre outros, que podem apresentar incertezas. Neste contexto,
+este trabalho propõe a resolução do Problema de Despacho Econômico Robusto de Energia
+Elétrica (RPDEEE), considerando o carregamento de ponto de válvula e incertezas paramétricas
+utilizando a meta-heurística Evolução Diferencial (ED). A ED proposta foi implementada
+utilizando a linguagem C, sendo testada nas instâncias do RPDEEE com 13 e 40 unidades
+geradoras (UGs). Para validar a qualidade do algoritmo proposto, os resultados foram
+comparados com as soluções de três trabalhos presentes na literatura. Pode-se concluir que o
+algoritmo desenvolvido é válido e com resultados nominais próximos aos encontrados na
+literatura, bem como apresenta um custo computacional menor na versão robusta em relação aos
+outros trabalhos.
+
+Evolução Diferencial, Otimização, Despacho Econômico.

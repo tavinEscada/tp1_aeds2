@@ -1,0 +1,28 @@
+UMA METODOLOGIA PARA COLETA E ANÁLISE
+DE DADOS DE REDES SOCIAIS
+
+A facilidade de uso das redes sociais, seja em um computador pessoal ou por meio de aplicativos em smartphones, juntamente com algoritmos cada vez mais eficazes em mostrar às
+pessoas os seus interesses, fez com que elas sejam usadas atualmente até por pessoas que
+não possuíam tanto contato com a tecnologia, como pessoas da terceira idade, por exemplo. Esse crescimento no número de usuários das redes sociais provocou uma revolução na
+maneira com que as pessoas se comunicam, interagem e consequentemente se influenciam
+com as opiniões expressadas nesses ambientes. Isso foi rapidamente percebido pelos mais
+diversos tipos de organizações, que passaram a buscar nesse meio eletrônico formas de
+atingir novos clientes interessados em consumir seus produtos ou serviços. Muitas dessas
+organizações possuem setores responsáveis por atualizar seus perfis ou páginas nas redes
+sociais com as novidades, criando-se diversas publicações diariamente. Além disso, para
+se entender melhor o público-alvo, seus desejos e suas opiniões sobre produtos e serviços
+já existentes, bem como a imagem da organização perante os usuários da rede, faz-se
+necessária uma análise dos dados disponíveis. Atualmente, existem vários estudos sobre
+como analisar o conteúdo dessas publicações, por serem em linguagem natural e por possuírem em muitos casos elementos complexos como ironia ou sarcasmo, ao mesmo tempo
+que existem poucos trabalhos em português e que sejam direcionados a iniciantes. Por
+essa razão, este trabalho tem como objetivo auxiliar pesquisadores que queiram começar
+a trabalhar nesta área, trazendo alguns dos principais conceitos envolvidos, bem como sua
+aplicação prática, através da definição de um método para se fazer a coleta e a análise
+dos dados. Como resultados do trabalho, destacam-se o levantamento e exemplificação
+detalhada do uso de bibliotecas disponíveis para a coleta de dados de duas das principais
+redes sociais da atualidade, como também de ferramentas disponíveis para a análise dos
+dados coletados. Durante todo esse processo, também foi necessária a construção de códigos específicos para se filtrar os dados desejados e para a conversão de formatos de saída
+de aplicações de coleta para formatos de entrada de ferramentas de análise, obtendo-se os
+passos que podem agora ser facilmente entendidos e replicados por outros pesquisadores
+em seus trabalhos, mesmo que não tenham experiências prévias na área.
+Coleta de dados, Redes sociais, Análise de dados, Análise de sentimento.

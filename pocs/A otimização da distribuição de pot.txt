@@ -1,0 +1,10 @@
+A otimização da distribuição de potência em sistema de energia termoelétrica e vital,
+pois os custos de geração são altos, tornando-a cara. O problema do despacho econômico busca
+justamente resolver o problema, por meio da modelagem de um problema de otimização contínuo,
+em uma tentativa de minimizar estes custos. Visando buscar mais realismo, este trabalho traz uma
+proposta utilizando o Bee Algorithm, denominado PDEZOPs-BA, para resolver o problema com
+a variante de Zonas de Operação Proibida (ZOP), que adiciona descontinuidade ao problema do ˜
+despacho econômico. Este trabalho apresenta resultados obtidos por meio de estudos de casos ˆ
+baseados no problema do despacho econômico com ZOPs, com o intuito de validar o PDEZOPs-
+BA.
+Despacho Econômico, Zonas Proibidas de Operação, Bee Algorithm

@@ -1,0 +1,8 @@
+DCluster: Um sistema para analise exploratória de grandes volumes de dados georreferenciados
+
+O crescimento e a diversificação do uso de dispositivos móveis, especialmente smartphones, fez surgir um grande volume de dados georreferenciados oriundos de aplicativos moveis. Como consequência, as empresas estão
+cada vez mais interessadas em analisar tais dados para conhecer melhor seus
+usuários e, assim, oferecer melhores serviços. A análise de dados georreferenciados e uma área ainda pouco explorada, e que pode trazer informações mais úteis que os dados puros. Em geral, as ferramentas atuais de análise de dados não tratam atributos georreferenciados e exigem conhecimento prévio dos
+usuários para a utilização de técnicas avançadas. Este trabalho propõe um
+sistema que visa auxiliar analistas de dados na exploração e visualização de
+grandes volumes de tipos variados de dados, incluindo os georreferenciados.

@@ -1,0 +1,26 @@
+Robust Evolutionary Optimization Algorithm for
+Multi-objective Environmental/Economic Dispatch
+Problem with Uncertainties
+
+The economic load dispatch problem has been
+formulated as the minimization of total fuel cost needed to
+generate electricity in power plants. Due to the environmental
+issues that arise from the emissions of polluting gases produced
+by fossil-fueled electric power plants, it becomes the environmental/economic dispatch (EED) multi-objective optimization
+problem. EED problems have been most commonly solved using
+deterministic models (without considering uncertainties). In this
+context, a robust model to cope with uncertainties is necessary,
+because the deterministic model is not able to reflect some real
+condition in practical applications, since fuel cost and emission
+coefficients may be subjected to inaccuracies, for instance. In
+this paper, both deterministic and robust EED problem models
+are first formulated, and the Robust Evolutionary Optimization
+Algorithm - REOA is proposed. For the robust model, the
+worst case scenario is estimated, to find reliable solutions that
+still feasible and have a good performance under the action of
+parametric uncertainties. Comparative studies are carried out to
+examine the effectiveness of the proposed approach. Simulation
+results are presented for the standard IEEE 30-bus system. The
+obtained results are satisfactory compared to the best solutions
+found in the literature.
+Index Terms—Evolutionary Computation, Environmental/Economic Dispatch Problem, Robust Optimization, MultiObjective Optimization

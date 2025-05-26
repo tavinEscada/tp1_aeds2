@@ -1,0 +1,12 @@
+Uma Avaliação do Consumo Energético de Protocolos de
+Acesso ao Meio para Redes Corporais sem Fio
+
+As redes corporais sem fio (WBANs) são amplamente utilizadas em
+ambientes médicos no auxílio à comunicação entre dispositivos e à transmissão dos dados coletados, tais como os sinais vitais de pacientes. Como servem
+de suporte às aplicações médicas, as WBANs utilizadas neste ambiente requerem confiabilidade na comunicação entre os dispositivos sensores e as estações
+base. Entretanto, diante das vulnerabilidades natas da comunicação sem fio,
+tais como inferências e perdas, as soluções precisam contornar possíveis problemas enfrentados em uma comunicação sem fio. Neste trabalho, nós avaliamos o consumo energético de dispositivos em um cenário similar a um ambiente hospitalar para comparar os protocolos DCAA e PDAC, ambos projetados
+especificamente para redes corporais sem fio. Os experimentos apontam um
+consumo energético levemente superior para o PDAC em relação ao DCAA.
+Contudo, por ser dotado de um controle e alocação de canais mais robusto e
+eficiente, o PDAC apresenta características que favorecem a qualidade da comunicação, credenciando-o como um protocolo propício para WBANs

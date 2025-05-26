@@ -1,0 +1,22 @@
+Avaliação do Impacto das Vulnerabilidades
+Meltdown e Spectre em Processadores Modernos
+
+Os processadores modernos passaram a adotar novas medidas para aperfeiçoar seu desempenho. A primeira, execução fora de ordem, permite que instruções mais abaixo do fluxo
+sejam executadas em paralelo com anteriores. Outra saída foi a
+execução especulativa, que executa instruções supondo que são
+realmente necessárias posteriormente. Entretanto, recentemente,
+foi descoberto que ambas permitem acesso a lugares na memória
+que não deveriam ter alcance. Assim, grandes empresas do ramo,
+como Intel, AMD, ARM, entre outras, desenvolveram patchs para
+corrigir estas vulnerabilidades geradas. Mesmo amenizando os
+impactos gerados com as tentativas de acesso aos lugares privados
+da memória, os patchs impactam diretamente no desempenho
+dos sistemas atuais. Este artigo apresenta um estudo sobre
+estas vulnerabilidades, conhecidas como Meltdown e Spectre.
+Verificamos o efeito e eficácia da execução especulativa e, ao
+obter sucesso, conseguimos calcular o impacto do desempenho
+computacional com e sem patch de segurança. A partir de testes
+feitos em benchmarks, obtemos uma perda de desempenho um
+pouco acima 10% em sistemas protegidos.
+Index Terms—Execução fora de ordem, Execução especulativa,
+Memória cache, Meltdown, Spectre.
