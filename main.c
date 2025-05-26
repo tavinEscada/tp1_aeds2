@@ -68,10 +68,9 @@ void receberArquivo(){
     fclose(arq);
 }
 
-
-int main(){
-    int op = -1;
-
+int menu(){
+    
+    int op = 0;
     do{
         printf("--- Menu ---\n1 - Ler o arquivo com os textos\n2 - Construir os indices invertidos\n3 - Escrever os indices invertidos\n4 - Busca\n0 - Fechar\n");
         scanf("%d", &op);
@@ -102,6 +101,17 @@ int main(){
                 printf("Entrada invalida.\n");
                 break;
         }
-
     }while(op != 0);
+    return 0;
+}
+
+
+int main(){
+    
+    if(menu() == 0){
+        return 0;
+    }else{
+        menu();
+    }
+
 }
