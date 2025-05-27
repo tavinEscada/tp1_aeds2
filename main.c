@@ -68,7 +68,7 @@ void receberArquivo(){
     fclose(arq);
 }
 
-int menu(){
+void menu(){
     
     int op = 0;
     do{
@@ -94,7 +94,7 @@ int menu(){
 
                 break;
             case 0:
-                return 0;
+                return;
                 break;
 
             default:
@@ -102,15 +102,13 @@ int menu(){
                 break;
         }
     }while(op != 0);
-    return 0;
+    return;
 }
 
 
 int main(){
     
-    if(menu() != 0){
-        menu();
-    }
+    menu();
     return 0;
 
 }
