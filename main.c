@@ -1,14 +1,15 @@
-/*Alunos:
-Heitor Porto - 5895
-Beatriz Queiroz - 5890
-Pâmela Lúcia - 5898
-Julio Cesar - 5903
-Otávio Tavares - 5912*/
-
+/**
+ * @author Heitor Porto - 5895
+ * @author Beatriz Queiroz - 5890
+ * @author Pâmela Lúcia - 5898
+ * @author Júlio César - 5903
+ * @author Otávio Tavares - 5912
+ */
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
+/**leitura do arquivo de entrada e dos arquivos contidos nele*/
 void receberArquivo(){
     char nome[100];
 
@@ -68,6 +69,7 @@ void receberArquivo(){
     fclose(arq);
 }
 
+/**função que faz o loop do menu até que o usuário digite 0*/
 void menu(){
     
     int op = 0;
