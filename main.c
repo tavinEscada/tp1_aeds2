@@ -1,6 +1,6 @@
 /**
- * @author Heitor Porto - 5895
  * @author Beatriz Queiroz - 5890
+ * @author Heitor Porto - 5895
  * @author Pâmela Lúcia - 5898
  * @author Júlio César - 5903
  * @author Otávio Tavares - 5912
@@ -19,7 +19,7 @@ void receberArquivo(){
     FILE *arq = fopen(nome, "r");
 
     if(arq == NULL){
-        printf("Erro ao abrir o arquivo");
+        printf("Erro ao abrir o arquivo\n");
         return;
     }
     int nArq = 0;
@@ -28,11 +28,13 @@ void receberArquivo(){
     fgetc(arq);
 
     if(nArq <= 0){
-        printf("N de arquivos invalido");
+        printf("N de arquivos invalido\n");
         return;
     }
 
     for(int i = 0; i < nArq; i++){
+
+        int nPalavras = 0;
 
         fgets(nome, 256, arq);
 
@@ -48,19 +50,23 @@ void receberArquivo(){
         char linha[256];
 
         //testando o print de cada palavra de cada arquivo
-        printf("\nPalavras do arquivo %d:\n", i+1);
+        printf("Palavras do arquivo %d:\n", i+1);
         while(fgets(linha, sizeof(linha), arquivoAtual) != NULL){
             //remover possíveis '\n' do final da palavra e trocar por '\0' (fim da palavra)
             linha[strcspn(linha, "\n")] = '\0';
 
             
             char *palavra = strtok(linha, " .,:;()-/?\n");
+            
 
             while(palavra != NULL){
                 printf("%s\n", palavra);
+                nPalavras++;
                 palavra = strtok(NULL, " .,:;()-/?\n");
             }
+            
         }
+        printf("\nO arquivo %d tem %d palavras.\n\n", i+1, nPalavras);
 
         fclose(arquivoAtual);
 
@@ -104,7 +110,6 @@ void menu(){
                 break;
         }
     }while(op != 0);
-    return;
 }
 
 
