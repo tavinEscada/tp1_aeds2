@@ -1,5 +1,5 @@
+#include "../include/patricia.h"
 
-#include ".\patricia.h"
 
 TipoDib Bit(TipoIndexAmp i, TipoChave k[])
 { /* Retorna o i-esimo bit da chave k a partir da esquerda */
