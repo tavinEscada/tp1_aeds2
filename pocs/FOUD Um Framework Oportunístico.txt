@@ -17,4 +17,4 @@ disponíveis. A implementação desse modelo para o Android
 mostrou que é possível desenvolve-lo para um sistema concreto em particular, e que o mesmo pode contemplar particularidades de cada sistema, como os contextos, metadados
 dos arquivos e lógicas de transmissão mais adequados em
 cada caso.
-Upload de Dados M´oveis, Transmissão Oportunística, Sensibilidade ao Contexto
+Upload de Dados Móveis, Transmissão Oportunística, Sensibilidade ao Contexto
