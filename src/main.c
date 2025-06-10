@@ -45,6 +45,7 @@ void receberArquivo(){
 
         char caminho[256];
 
+        //juntando o prefixo do endereço dos arquivos ('.\pocs') com o nome de cada arquivo
         snprintf(caminho, 256, "%s%s", pasta, nome);
 
         FILE *arquivoAtual = fopen(caminho, "r");
