@@ -1,7 +1,6 @@
 Impacto da relevância temática e outros atributos relacionados à comunicação em issue tracking no tempo de resolução das issues
 RESUMO
-Contexto: Em um projeto de desenvolvimento de software, a reso-
-lução de uma issue pode ser influenciada por diversos fatores, como,
+Contexto: Em um projeto de desenvolvimento de software, a resolução de uma issue pode ser influenciada por diversos fatores, como,
 o número de desenvolvedores envolvidos, a complexidade da issue,
 a experiências dos desenvolvedores, a multitarefa e os comentários
 educados. Assim, entender quais fatores influenciam o seu tempo
