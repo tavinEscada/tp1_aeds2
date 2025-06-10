@@ -11,7 +11,9 @@
 
 /**leitura do arquivo de entrada e dos arquivos contidos nele*/
 void receberArquivo(){
-    char nome[100];
+    char nome[256];
+    char pasta[8];
+    strcpy(pasta, "./pocs/");
 
     printf("Nome do arquivo:\n");
     scanf("%s", nome);
@@ -41,7 +43,11 @@ void receberArquivo(){
         //remover possíveis '\n' no final das palavras e trocar por '\0' (fim da palavra)
         nome[strcspn(nome, "\n")] = '\0';
 
-        FILE *arquivoAtual = fopen(nome, "r");
+        char caminho[256];
+
+        snprintf(caminho, 256, "%s%s", pasta, nome);
+
+        FILE *arquivoAtual = fopen(caminho, "r");
 
         if(arquivoAtual == NULL){
             printf("Erro ao abrir o arquivo '%s'\n", nome);
