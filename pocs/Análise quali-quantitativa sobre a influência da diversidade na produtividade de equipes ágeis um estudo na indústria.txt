@@ -1,7 +1,7 @@
 Análise quali-quantitativa sobre a influência da diversidade na produtividade de equipes ágeis um estudo na indústria
-Este artigo investiga a influencia da diversidade na produtividade de ˆ
-equipes que utilizam metodologias ageis e tamb ´ em na qualidade dos artefatos ´
-produzidos. Para isso, foi realizada uma pesquisa quali-quantitativa, no contexto da industria, envolvendo quatro times com diferentes perfis de diversidade. ´
-O estudo utilizou dois metodos de coleta de dados: um question ´ ario organizado ´
-em tres dimens ˆ oes e m ˜ etricas aplicadas a dados de uma ferramenta de apoio ao ´
+Este artigo investiga a influencia da diversidade na produtividade de
+equipes que utilizam metodologias ageis e também na qualidade dos artefatos
+produzidos. Para isso, foi realizada uma pesquisa quali-quantitativa, no contexto da industria, envolvendo quatro times com diferentes perfis de diversidade.
+O estudo utilizou dois metodos de coleta de dados: um questionário organizado
+em tres dimensões e métricas aplicadas a dados de uma ferramenta de apoio ao
 desenvolvimento. Os resultados mostraram que os times mais diversos apresentaram melhores indicadores de produtividade e qualidade em seus produtos.
