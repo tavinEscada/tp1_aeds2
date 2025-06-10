@@ -38,7 +38,7 @@ void receberArquivo(){
 
         fgets(nome, 256, arq);
 
-        //remover possíveis '\n' no final das palavras e trocar por '\0' (fim da palavra)
+        //remover possíveis '\n' nos nomes de arquivos e trocar por '\0' (fim da palavra)
         nome[strcspn(nome, "\n")] = '\0';
 
         FILE *arquivoAtual = fopen(nome, "r");
@@ -52,20 +52,23 @@ void receberArquivo(){
         //testando o print de cada palavra de cada arquivo
         printf("Palavras do arquivo %d:\n", i+1);
         while(fgets(linha, sizeof(linha), arquivoAtual) != NULL){
-            //remover possíveis '\n' do final da palavra e trocar por '\0' (fim da palavra)
+            //remover possíveis '\n' do final de cada linha e trocar por '\0' (fim da palavra)
             linha[strcspn(linha, "\n")] = '\0';
 
-            
+            //obtendo a primeira palavra da linha
             char *palavra = strtok(linha, " .,:;()-/?\n");
             
 
             while(palavra != NULL){
+                //pegando a palavra atual
                 printf("%s\n", palavra);
                 nPalavras++;
+                //passando para a próxima palavra da linha atual
                 palavra = strtok(NULL, " .,:;()-/?\n");
             }
             
         }
+        
         printf("\nO arquivo %d tem %d palavras.\n\n", i+1, nPalavras);
 
         fclose(arquivoAtual);
