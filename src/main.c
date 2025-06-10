@@ -52,16 +52,17 @@ void receberArquivo(){
         //testando o print de cada palavra de cada arquivo
         printf("Palavras do arquivo %d:\n", i+1);
         while(fgets(linha, sizeof(linha), arquivoAtual) != NULL){
-            //remover possíveis '\n' do final da palavra e trocar por '\0' (fim da palavra)
+            //tokenizando cada linha
             linha[strcspn(linha, "\n")] = '\0';
 
-            
+            //pegando a primeira palavra da linha
             char *palavra = strtok(linha, " .,:;()-/?\n");
-            
 
             while(palavra != NULL){
                 printf("%s\n", palavra);
                 nPalavras++;
+
+                //passando para a próxima palavra da linha
                 palavra = strtok(NULL, " .,:;()-/?\n");
             }
             
