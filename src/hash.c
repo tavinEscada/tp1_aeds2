@@ -1,6 +1,13 @@
 #include "../include/hash.h"
 
+TipoDicionario Tabela;
+TipoItem Elemento;
+TipoPesos p;
+TipoApontador i;
 
+
+short Vazia(TipoLista Lista)
+{ return (Lista.Primeiro == Lista.Ultimo); }
 
 void FLVazia(TipoLista *Lista){
 	Lista->Primeiro = (TipoCelula *)malloc(sizeof(TipoCelula));
@@ -28,4 +35,109 @@ TipoIndice h(Tipopalavra palavra, TipoPesos p)
   int comp = strlen(palavra);
   for (i = 0; i < comp; i++) Soma += p[i][(unsigned int)palavra[i]];
   return (Soma % M);
+}
+
+
+//imprimir em ordem alfabética
+
+int comparar_nos_por_palavra(const void *a, const void *b) {
+    // qsort nos dá ponteiros para os elementos do nosso vetor.
+    //vetor é de TipoCelula*(TipoApontador), então qsort nos dá um TipoCelula**(TipoApontador *).
+    TipoApontador noA = *(const TipoApontador *)a;
+    TipoApontador noB = *(const TipoApontador *)b;
+
+    // Compara as palavras
+    return strcmp(noA->Item.palavra, noB->Item.palavra);
+}
+
+
+
+void Imprimir(TipoDicionario tabela) {
+    if (tabela == NULL) {
+        printf("Dicionário não inicializado.\n");
+        return;
+    }
+
+    // contar o numero total de nós na tabela
+    int n = 0;
+    for (int i = 0; i < M; i++) {
+        for (TipoApontador no = tabela[i].Primeiro->Prox; no != NULL; no = no->Prox) {
+            n++;
+        }
+    }
+
+    if (n == 0) {
+        printf("Dicionário está vazio.\n");
+        return;
+    }
+
+    // vetor de ponteiros criado para os nós (TipoCelula*)
+	//aqui como eu preciso guarda nao somente uma palavra mas o seu indice tbm
+	//eu aloco um vetor de pnteiros que aponta cada tipo celula da tabela
+    TipoApontador *vetor_de_nos = malloc(n * sizeof(TipoApontador));
+    if (vetor_de_nos == NULL) {
+        printf("Erro de alocação de memória!\n");
+        return;
+    }
+
+    //Preencher o vetor
+    int k = 0;
+    for (int i = 0; i < M; i++) {
+        for (TipoApontador no = tabela[i].Primeiro->Prox; no != NULL; no = no->Prox) {
+            vetor_de_nos[k++] = no;
+        }
+    }
+
+    //de quicksort qsort(vetor a ser ordenado,n de elementos,tam de um elemento do vetor,o comparador)
+    qsort(vetor_de_nos, n, sizeof(TipoCelula *), comparar_nos_por_palavra);
+
+
+    printf("--- Índice Invertido da Hash ---\n");
+    for (int i = 0; i < n; i++) {
+        // Pega o nó da posição ordenada
+        TipoCelula *no_ordenado = vetor_de_nos[i];
+        // Chama a função de impressão para o item daquele nó
+        imprime_indice_invertido(&no_ordenado->Item);
+    }
+
+
+    free(vetor_de_nos);
+}
+
+
+TipoItem* Busca(Tipopalavra word, TipoLista *lista){
+    TipoApontador no_atual = lista->Primeiro->Prox;
+    while (no_atual != NULL) {
+        if (strcmp(word, no_atual->Item.palavra) == 0) {
+            //se a palavra for encontrada retorna o endereço do TipoItem
+            return &no_atual->Item;
+        }
+        no_atual = no_atual->Prox;
+    }
+    return NULL;
+}
+
+
+void Insere(Tipopalavra word, int idDoc, TipoDicionario T, TipoPesos p)
+{ TipoIndice i;
+    i = h(word, p);
+    TipoLista* atalho = &T[i];
+    //busca pra ver se a palavra ja existe
+    TipoItem* item_encontrado = Busca(word, atalho);
+    if (item_encontrado != NULL) {
+        insere_palavra(item_encontrado, idDoc);
+    }
+    else{
+        TipoItem item_inserir;
+        faz_palavra_vazia(&item_inserir, word);
+        insere_palavra(&item_inserir, idDoc);
+        Ins(&item_inserir, atalho);
+    }
+}
+//passa por ponteiro para nao precisar copiar toda a struct
+void Ins(TipoItem *x, TipoLista *Lista){
+    Lista->Ultimo->Prox = (TipoCelula *)malloc(sizeof(TipoCelula));
+    Lista->Ultimo = Lista->Ultimo->Prox;
+    Lista->Ultimo->Item = *x;
+    Lista->Ultimo->Prox = NULL;
 }

@@ -1,0 +1,4 @@
+# Ignorar o arquivo de teste temporário
+src/ttemp.c
+# Executáveis
+teste_final

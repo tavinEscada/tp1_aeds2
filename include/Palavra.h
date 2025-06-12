@@ -15,7 +15,7 @@ typedef struct celula
 
 typedef struct TipoItem
 {
-    char palavra[255] ;
+    char palavra[50] ;
     Ccelula * primeiro;
 
 }TipoItem;
