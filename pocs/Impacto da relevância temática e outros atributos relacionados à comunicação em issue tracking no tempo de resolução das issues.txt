@@ -21,5 +21,4 @@ um tempo médio menor de resolução. Além disso, foi encontrada
 uma tendência de aumento no tempo de resolução das issues e pull
 requests, e apenas issues, respectivamente, quando a quantidade de
 comentários e de desenvolvedores aumentam. Por fim, observou-se
-que a relevância temática dos comentários possuem valores baixos,
-em sua maioria, entre 0 e 0,1.
+que a relevância temática dos comentários possuem valores baixos.
