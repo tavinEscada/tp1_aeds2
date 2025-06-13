@@ -243,7 +243,7 @@ void receberArquivo(){
             linha[strcspn(linha, "\n")] = '\0';
 
             //pegando a primeira palavra da linha
-            char *palavra = strtok(linha, " .,:;()-/?\n");
+            char *palavra = strtok(linha, " .,:;()\"'-/?\n+");
 
             while(palavra != NULL){
 
@@ -253,7 +253,7 @@ void receberArquivo(){
                 nPalavras++;
 
                 //passando para a próxima palavra da linha
-                palavra = strtok(NULL, " .,:;()-/?\n");
+                palavra = strtok(NULL, " .,:;()\"'-/?\n+");
             }
             
         }

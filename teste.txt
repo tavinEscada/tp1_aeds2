@@ -1,3 +1,2 @@
-2
-A Genetic Algorithm for Multi-Component Optimization.txt
-UMA METODOLOGIA PARA COLETA.txt
+1
+Aplicacao de uma abordagem de gamificacao em um aplicativo movel de Rede de Sensoriamento Participativo.txt
