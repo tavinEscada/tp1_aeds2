@@ -5,7 +5,6 @@
 #include<stdlib.h> 
 #include <sys/time.h>
 #define DE 8   /* depende de TipoChave */
-#define max 50 // mudar para receber como parâmetro o numero de pocs
 
 typedef unsigned char TipoChave; /* a definir, dependendo da aplicacao */
 typedef unsigned char TipoIndexAmp;
@@ -27,10 +26,10 @@ typedef struct TipoPatNo {
     struct {
       TipoChave caractere;
       TipoIndexAmp Index;
-      TipoArvore A,B,C,D,E,F,G,H,I,J,K,L,M,N,o,P,Q,R,S,T,U,V,W,X,Y,Z;
+      TipoArvore Esq,Dir;
     } NInterno ;
     TipoChave Chave[255];
-    par indinv[max];
+    par indinv[20]; //colocar como lista encdeada
   } NO;
 } TipoPatNo;
 

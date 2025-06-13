@@ -1,33 +1,20 @@
-#include "../include/patricia.h"
-
-
-TipoDib Bit(TipoIndexAmp i, TipoChave k[])
-{ /* Retorna o i-esimo bit da chave k a partir da esquerda */
-  int  c, j;
-  if (i == 0)
-  return 0;
-  else { c = k;
-         for (j = 1; j <= DE - i; j++) c /= 2;
-         return (c & 1);
-       }
-} 
-
 short EExterno(TipoArvore p)
 { /* Verifica se p^ e nodo externo */
   return (p->nt == Externo);
 }
 
-TipoArvore CriaNoInt(int i, TipoArvore *Esq,  TipoArvore *Dir)
+TipoArvore CriaNoInt(int i, TipoArvore *Esq,  TipoArvore *Dir, char caractere)
 { TipoArvore p;
   p = (TipoArvore)malloc(sizeof(TipoPatNo));
   p->nt = Interno; p->NO.NInterno.Esq = *Esq;
-  p->NO.NInterno.Dir = *Dir; p->NO.NInterno.Index = i; return p;
+  p->NO.NInterno.Dir = *Dir; p->NO.NInterno.Index = i; p->NO.NInterno.caractere = caractere; return p;
 } 
 
-TipoArvore CriaNoExt(TipoChave k[])
+TipoArvore CriaNoExt(TipoChave k)
 { TipoArvore p;
   p = (TipoArvore)malloc(sizeof(TipoPatNo));
-  p->nt = Externo; strcpy(p->NO.Chave, k); return p;
+  p->nt = Externo; p->NO.Chave = k; return p;
+  //inserir o indice invertido
 }  
 
 void Pesquisa(TipoChave k, TipoArvore t)
@@ -47,12 +34,12 @@ TipoArvore InsereEntre(TipoChave k, TipoArvore *t, int i)
   if (EExterno(*t) || i < (*t)->NO.NInterno.Index) 
   { /* cria um novo no externo */
     p = CriaNoExt(k);
-    if (Bit(i, k) == 1) 
-    return (CriaNoInt(i, t, &p));
-    else return (CriaNoInt(i, &p, t));
+    if (k[i] >= (*t)->NO.NInterno.caractere) 
+    return (CriaNoInt(i, t, &p,k[i]));
+    else return (CriaNoInt(i, &p, t,k[i]));
   } 
   else 
-  { if (Bit((*t)->NO.NInterno.Index, k) == 1)
+  { if (k[i] >= (t*)->NO.NInterno.caractere)
     (*t)->NO.NInterno.Dir = InsereEntre(k,&(*t)->NO.NInterno.Dir,i);
     else
     (*t)->NO.NInterno.Esq = InsereEntre(k,&(*t)->NO.NInterno.Esq,i);
@@ -60,7 +47,7 @@ TipoArvore InsereEntre(TipoChave k, TipoArvore *t, int i)
   }
 }
 
-TipoArvore Insere(TipoChave k[], TipoArvore *t)
+TipoArvore Insere(TipoChave k, TipoArvore *t)
 { TipoArvore p;
   int i;
   if (*t == NULL) 
@@ -68,15 +55,15 @@ TipoArvore Insere(TipoChave k[], TipoArvore *t)
   else 
   { p = *t;
     while (!EExterno(p)) 
-      { if (Bit(p->NO.NInterno.Index, k) == 1)
+      { if (k[p->NO.NInterno.Index] > p->NO.NInterno.caractere)
         p = p->NO.NInterno.Dir;
         else p = p->NO.NInterno.Esq;
       }
     /* acha o primeiro bit diferente */
     i = 1;
-    while ((i <= DE) & (Bit((int)i, k) == Bit((int)i, p->NO.Chave))) 
+    while ((i <= D) & (k[i] == p->NO.Chave[i]))
       i++;
-    if (i > DE) 
+    if (i > D) 
     { printf("Erro: chave ja esta na arvore\n");  return (*t); } 
     else return (InsereEntre(k, t, i));
   }
@@ -117,3 +104,4 @@ int main(int argc, char *argv[])
     }
   return 0;
 } 
+
