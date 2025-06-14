@@ -1,0 +1,14 @@
+OTIMIZAÇÃO MULTIOBJETIVO BASEADA EM ENSINO E
+APRENDIZAGEM APLICADA A VERSÃO ROBUSTA DO PROBLEMA DA VIGA EM SEÇÃO I
+A presença de incertezas, como as paramétricas, em problemas de otimização pode fazer
+com que soluções nominais se tornem inviáveis. Neste artigo é proposto um algoritmo baseado
+na meta-heurística Otimização baseada em Ensino e Aprendizagem (TLBO) que resolve a versão
+robusta do Problema da Viga em Seção I (PVSI), levando em consideração tal tipo de incerteza. A
+implementação possui um algoritmo não robusto chamado NMOTLBO que obtém as soluções que
+desconsideram incertezas (soluções nominais), e um algoritmo robusto com a aplicação de duas
+técnicas para lidar com incertezas, o WCSA (RMOTLBO-WCSA) e o WCE (RMOTLBO-WCE).
+Os experimentos mostram que as soluções nominais, quando na presença de incertezas, possuem
+uma piora drástica nos valores de suas funções objetivos. Além disso, os resultados indicam, por
+meio das métricas Hipervolume e IGD que as soluções robustas encontradas são melhores do que
+as soluções nominais quando submetidas aos piores casos de incertezas.
+Otimização baseada em Ensino e Aprendizagem, Otimização Multiobjetivo, Otimização Robusta.

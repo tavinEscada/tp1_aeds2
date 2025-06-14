@@ -55,14 +55,10 @@ void formataPalavra(char *p){
                 sub = 'c';
             }
 
-            if(sub != 0){
-                //o caractere deve ser alterado
-                p[j] = sub;
-                j++;
-            }else{
-                //manter a string pq nao precisa mudar os caracteres, e avançar para os proximos
-                j += 2;
-            }
+            //alterando o caractere
+            p[j] = sub;
+            j++;
+            
             //pular os 2 bytes do trem ai, o atual e o verificado acima
             i += 2;
         }else{
