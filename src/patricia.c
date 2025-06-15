@@ -30,7 +30,7 @@ TipoArvore Cria_NO_Externo(TipoChave palavra){ //função para inicializar um n�
     return Novo_NO;
 }  
 
-void Pesquisa(TipoChave palavra, TipoArvore NoRaiz) {
+void Pesquisa(TipoChave palavra, TipoArvore NoRaiz,int* visitas) {
 
     TipoArvore NoAtual=NoRaiz;
 
@@ -45,10 +45,12 @@ void Pesquisa(TipoChave palavra, TipoArvore NoRaiz) {
     }
 
     if (palavra[NoAtual->NO.NInterno.indice] >= NoAtual->NO.NInterno.caractere){
-        Pesquisa(palavra, NoAtual->NO.NInterno.dir);
+        (*visitas)+=1;
+        Pesquisa(palavra, NoAtual->NO.NInterno.dir,visitas);
     }
     else{
-        Pesquisa(palavra, NoAtual->NO.NInterno.esq);
+        (*visitas)+=1;
+        Pesquisa(palavra, NoAtual->NO.NInterno.esq,visitas);
     }
 }
 
@@ -133,21 +135,24 @@ void ImprimeOrdem(TipoArvore t){
 
 //     //main teste
 //     TipoArvore x = NULL;
+//     int v=0; 
+//     char *vetor[] = {"arvore","anel", "zoe","casamento", "casa", "ca", "casal", "cachorro"};
 
-//     char *vetor[] = {"arvore","anel", "zoe","casamento", "casa", "ca", "casal", "cachorro", "cacto", "carro", "cavalo", "casario"};
 //     int n = sizeof(vetor) / sizeof(vetor[0]);
 
 //     for (int i = 0; i < n; i++) {
 //         x = Insere((unsigned char*)vetor[i], &x);
 //     }
-
+//     ImprimeArvoreEstruturada(x,0);
 //     ImprimeOrdem(x);
+
 //     printf("\n");
 
 //     for (int i = 0; i < n; i++) {
 //         printf("pesquisa: %s\n", vetor[i]);
-//         Pesquisa((unsigned char*)vetor[i], x);
+//         Pesquisa((unsigned char*)vetor[i], x,&v);
 //     }
+//     printf("visitas =%d",v);
 
 //     return 0;
 // }
