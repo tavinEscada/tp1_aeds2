@@ -3,12 +3,10 @@
 
 #include <string.h>
 #include<stdlib.h> 
+#include <stdio.h>
 #include <sys/time.h>
-#define DE 8   /* depende de TipoChave */
 
-typedef unsigned char TipoChave; /* a definir, dependendo da aplicacao */
-typedef unsigned char TipoIndexAmp;
-typedef unsigned char TipoDib;
+typedef unsigned char* TipoChave; 
 
 typedef struct{
     int qtde;
@@ -19,18 +17,25 @@ typedef enum {
   Interno, Externo
 } TipoNo;
 
-typedef struct TipoPatNo* TipoArvore; 
-typedef struct TipoPatNo {
-  TipoNo nt;
+typedef struct NO_patricia* TipoArvore; 
+typedef struct NO_patricia {
+  TipoNo tipo_no;
   union {
     struct {
-      TipoChave caractere;
-      TipoIndexAmp Index;
-      TipoArvore Esq,Dir;
+      char caractere;
+      int indice;
+      TipoArvore esq,dir;
     } NInterno ;
-    TipoChave Chave[255];
+    TipoChave chave; 
     par indinv[20]; //colocar como lista encdeada
   } NO;
-} TipoPatNo;
+} NO_patricia;
+
+TipoArvore Cria_NO_Externo(TipoChave palavra);
+TipoArvore Cria_NO_Interno(int i, TipoArvore *esq, TipoArvore *dir, char caractere);
+TipoArvore InsereEntre(TipoChave palavra, TipoArvore *NoAtual, int i, char caractere_interno);
+TipoArvore Insere(TipoChave palavra, TipoArvore *t);
+void Pesquisa(TipoChave palavra, TipoArvore NoRaiz);
+short Eh_Externo(TipoArvore p);
 
 #endif
