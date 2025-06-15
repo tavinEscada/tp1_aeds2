@@ -1,107 +1,157 @@
-short EExterno(TipoArvore p)
-{ /* Verifica se p^ e nodo externo */
-  return (p->nt == Externo);
+#include "../include/patricia.h"
+
+short Eh_Externo(TipoArvore NO){ // verifica se NO é um nó externo
+    return (NO->tipo_no == Externo);
 }
 
-TipoArvore CriaNoInt(int i, TipoArvore *Esq,  TipoArvore *Dir, char caractere)
-{ TipoArvore p;
-  p = (TipoArvore)malloc(sizeof(TipoPatNo));
-  p->nt = Interno; p->NO.NInterno.Esq = *Esq;
-  p->NO.NInterno.Dir = *Dir; p->NO.NInterno.Index = i; p->NO.NInterno.caractere = caractere; return p;
+TipoArvore Cria_NO_Interno(int i, TipoArvore *esq,  TipoArvore *dir, char caractere){ //função para inicializar um nó interno
+
+    TipoArvore Novo_NO;
+    Novo_NO = (TipoArvore)malloc(sizeof(NO_patricia));
+
+    Novo_NO->tipo_no = Interno; 
+    Novo_NO->NO.NInterno.esq = *esq;
+    Novo_NO->NO.NInterno.dir = *dir;
+    Novo_NO->NO.NInterno.indice = i;
+    Novo_NO->NO.NInterno.caractere = caractere;
+
+    return Novo_NO;
 } 
 
-TipoArvore CriaNoExt(TipoChave k)
-{ TipoArvore p;
-  p = (TipoArvore)malloc(sizeof(TipoPatNo));
-  p->nt = Externo; p->NO.Chave = k; return p;
-  //inserir o indice invertido
+TipoArvore Cria_NO_Externo(TipoChave palavra){ //função para inicializar um nó externo
+    
+    TipoArvore Novo_NO;
+    Novo_NO = (TipoArvore)malloc(sizeof(NO_patricia));
+    Novo_NO->tipo_no = Externo; 
+
+    //Aloca memória para o tamanho exato da palavra + \0 
+    //(TALVEZ USAR UMM TAD??)
+    Novo_NO->NO.chave = (TipoChave)malloc(strlen((char*)palavra) + 1); 
+
+    strcpy((char *)Novo_NO->NO.chave, (char *)palavra); 
+
+    //inserir o indice invertido
+    return Novo_NO;
 }  
 
-void Pesquisa(TipoChave k, TipoArvore t)
-{ if (EExterno(t)) 
-  { if (k == t->NO.Chave) 
-    printf("Elemento encontrado\n");
-    else printf("Elemento nao encontrado\n");
-    return;
-  }
-  if (Bit(t->NO.NInterno.Index, k) == 0) 
-  Pesquisa(k, t->NO.NInterno.Esq);
-  else Pesquisa(k, t->NO.NInterno.Dir);
-} 
+void Pesquisa(TipoChave palavra, TipoArvore NoRaiz) {
 
-TipoArvore InsereEntre(TipoChave k, TipoArvore *t, int i)
-{ TipoArvore p;
-  if (EExterno(*t) || i < (*t)->NO.NInterno.Index) 
-  { /* cria um novo no externo */
-    p = CriaNoExt(k);
-    if (k[i] >= (*t)->NO.NInterno.caractere) 
-    return (CriaNoInt(i, t, &p,k[i]));
-    else return (CriaNoInt(i, &p, t,k[i]));
-  } 
-  else 
-  { if (k[i] >= (t*)->NO.NInterno.caractere)
-    (*t)->NO.NInterno.Dir = InsereEntre(k,&(*t)->NO.NInterno.Dir,i);
-    else
-    (*t)->NO.NInterno.Esq = InsereEntre(k,&(*t)->NO.NInterno.Esq,i);
-    return (*t);
-  }
+    if (Eh_Externo(NoRaiz)) {
+        if (strcmp((const char*)palavra, (const char*)NoRaiz->NO.chave) == 0){
+            printf("Elemento encontrado\n");
+        }
+        else{
+            printf("Elemento nao encontrado\n");
+        }
+        return;
+    }
+
+    if (palavra[NoRaiz->NO.NInterno.indice] >= NoRaiz->NO.NInterno.caractere){
+        Pesquisa(palavra, NoRaiz->NO.NInterno.dir);
+    }
+    else{
+        Pesquisa(palavra, NoRaiz->NO.NInterno.esq);
+    }
 }
 
-TipoArvore Insere(TipoChave k, TipoArvore *t)
-{ TipoArvore p;
-  int i;
-  if (*t == NULL) 
-  return (CriaNoExt(k));
-  else 
-  { p = *t;
-    while (!EExterno(p)) 
-      { if (k[p->NO.NInterno.Index] > p->NO.NInterno.caractere)
-        p = p->NO.NInterno.Dir;
-        else p = p->NO.NInterno.Esq;
-      }
-    /* acha o primeiro bit diferente */
-    i = 1;
-    while ((i <= D) & (k[i] == p->NO.Chave[i]))
-      i++;
-    if (i > D) 
-    { printf("Erro: chave ja esta na arvore\n");  return (*t); } 
-    else return (InsereEntre(k, t, i));
-  }
+TipoArvore InsereEntre(TipoChave palavra, TipoArvore *NoAtual, int i, char caractere_interno){
+  
+    TipoArvore NoExt;
+    if (Eh_Externo(*NoAtual) || i < (*NoAtual)->NO.NInterno.indice){
+        
+        NoExt = Cria_NO_Externo(palavra);
+        // insere acima
+        if (palavra[i] >= caractere_interno){
+            return (Cria_NO_Interno(i, NoAtual, &NoExt,palavra[i])); //nova palavra a direita
+        }
+        else{
+            return (Cria_NO_Interno(i, &NoExt, NoAtual,caractere_interno)); //nova palavra a esquerda
+        }
+    } 
+    else{
+        //busca local de inserção
+        if (palavra[(*NoAtual)->NO.NInterno.indice] >= (*NoAtual)->NO.NInterno.caractere){
+            (*NoAtual)->NO.NInterno.dir = InsereEntre(palavra,&(*NoAtual)->NO.NInterno.dir,i,caractere_interno);
+        }
+        else{
+            (*NoAtual)->NO.NInterno.esq = InsereEntre(palavra,&(*NoAtual)->NO.NInterno.esq,i,caractere_interno);
+        }
+        return (*NoAtual);
+    }
 }
 
-int main(int argc, char *argv[])
-{ TipoArvore a = NULL;
-  TipoChave c;
-  int  i, j, k, n;
-  int  min = 32, max = 126;
-  TipoChave vetor[95];
-  /* Gera uma permutacao aleatoria de chaves dos caracteres ASCII 32 a  126 */
-  struct timeval semente;
-  gettimeofday(&semente,NULL);
-  srand((int)(semente.tv_sec + 1000000 * semente.tv_usec));  
-  for (i = min; i <= max; i++)
-  vetor[i - 32] = i;
-  for (i = min; i <= max; i++) 
-    { k = min + (int) ((float)(max - min) * rand()/(RAND_MAX + 1.0)); 
-      j = min + (int) ((float)(max - min) * rand()/(RAND_MAX + 1.0));
-      n = vetor[k - 32]; vetor[k - 32] = vetor[j - 32]; vetor[j - 32] = n; 
+TipoArvore Insere(TipoChave palavra, TipoArvore *NoAtual){
+  
+    TipoArvore NoAux;
+    int i;
+    char caractere_dif;
+  
+    if (*NoAtual == NULL) 
+        return (Cria_NO_Externo(palavra));
+
+    else{ 
+        NoAux = *NoAtual;
+
+        while (!Eh_Externo(NoAux)){
+
+            if (palavra[NoAux->NO.NInterno.indice] >= NoAux->NO.NInterno.caractere)
+                NoAux = NoAux->NO.NInterno.dir;
+            else 
+                NoAux = NoAux->NO.NInterno.esq;
+        }
+   
+        i = 0;
+        while (i<= strlen((const char*)palavra) && palavra[i] == NoAux->NO.chave[i])
+            i++;
+    
+        if (i > strlen((const char*)palavra)){
+            printf("Erro: chave ja esta na arvore\n");
+            return (*NoAtual); 
+            //incrementar indice invertido aqui
+        }
+        else{
+            caractere_dif=NoAux->NO.chave[i];
+            //garante que o caractere em nó interno será sempre o maior
+            //prefixos irão sempre para a esquerda pois \0 é menor que todos caracteres
+            return InsereEntre(palavra, NoAtual, i, (palavra[i] > caractere_dif) ? palavra[i] : caractere_dif);
+        }
     }
-  /* Insere cada chave na arvore */
-  for (i = min; i <= max; i++) 
-    { c = vetor[i - 32]; printf("Inserindo chave: %c\n", c);
-      a = Insere(c, &a);
+}
+
+void ImprimeOrdem(TipoArvore t){
+    if (t == NULL) return;
+
+    if (Eh_Externo(t)){
+        printf("%s\n", (char *)t->NO.chave);
+    } 
+    else{
+        ImprimeOrdem(t->NO.NInterno.esq);
+        ImprimeOrdem(t->NO.NInterno.dir);
     }
-  /* Gera outra permutacao aleatoria de chaves */
-  for (i = min; i <= max; i++) 
-    { k = min + (int) ((float)(max-min) * rand()/(RAND_MAX + 1.0));
-      j = min + (int) ((float)(max-min) * rand()/(RAND_MAX + 1.0));
-      n = vetor[k - 32]; vetor[k - 32] = vetor[j - 32]; vetor[j - 32] = n;
-    }
-  /* Pesquisa cada chave na arvore */
-  for (i = min; i <= max; i++) 
-    { c = vetor[i - 32]; printf("Pesquisando chave: %c\n", c);
-      Pesquisa(c, a);
-    }
-  return 0;
-} 
+}
+
+
+// int main() {
+
+//     //main teste
+//     TipoArvore x = NULL;
+
+//     char *vetor[] = {"arvore","anel", "zoe","casamento", "casa", "ca", "casal", "cachorro", "cacto", "carro", "cavalo", "casario"};
+//     int n = sizeof(vetor) / sizeof(vetor[0]);
+
+//     for (int i = 0; i < n; i++) {
+//         x = Insere((TipoChave)vetor[i], &x);
+//     }
+
+//     ImprimeOrdem(x);
+//     printf("\n");
+
+//     for (int i = 0; i < n; i++) {
+//         printf("pesquisa: %s\n", vetor[i]);
+//         Pesquisa((TipoChave)vetor[i], x);
+//     }
+
+//     return 0;
+// }
+
 
