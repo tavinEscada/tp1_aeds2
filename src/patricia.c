@@ -24,10 +24,6 @@ TipoArvore Cria_NO_Externo(TipoChave palavra){ //função para inicializar um n�
     Novo_NO = (TipoArvore)malloc(sizeof(NO_patricia));
     Novo_NO->tipo_no = Externo; 
 
-    //Aloca memória para o tamanho exato da palavra + \0 
-    //(TALVEZ USAR UMM TAD??)
-    Novo_NO->NO.chave = (TipoChave)malloc(strlen((char*)palavra) + 1); 
-
     strcpy((char *)Novo_NO->NO.chave, (char *)palavra); 
 
     //inserir o indice invertido
@@ -140,7 +136,7 @@ void ImprimeOrdem(TipoArvore t){
 //     int n = sizeof(vetor) / sizeof(vetor[0]);
 
 //     for (int i = 0; i < n; i++) {
-//         x = Insere((TipoChave)vetor[i], &x);
+//         x = Insere((unsigned char*)vetor[i], &x);
 //     }
 
 //     ImprimeOrdem(x);
@@ -148,7 +144,7 @@ void ImprimeOrdem(TipoArvore t){
 
 //     for (int i = 0; i < n; i++) {
 //         printf("pesquisa: %s\n", vetor[i]);
-//         Pesquisa((TipoChave)vetor[i], x);
+//         Pesquisa((unsigned char*)vetor[i], x);
 //     }
 
 //     return 0;

@@ -6,7 +6,7 @@
 #include <stdio.h>
 #include <sys/time.h>
 
-typedef unsigned char* TipoChave; 
+typedef unsigned char TipoChave[255]; 
 
 typedef struct{
     int qtde;
