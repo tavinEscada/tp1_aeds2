@@ -34,8 +34,8 @@ typedef struct NO_patricia {
 TipoArvore Cria_NO_Externo(TipoChave palavra);
 TipoArvore Cria_NO_Interno(int i, TipoArvore *esq, TipoArvore *dir, char caractere);
 TipoArvore InsereEntre(TipoChave palavra, TipoArvore *NoAtual, int i, char caractere_interno);
-TipoArvore Insere(TipoChave palavra, TipoArvore *t);
+TipoArvore Insere(TipoChave palavra, TipoArvore *NoRaiz);
 void Pesquisa(TipoChave palavra, TipoArvore NoRaiz);
-short Eh_Externo(TipoArvore p);
+short Eh_Externo(TipoArvore NO);
 
 #endif

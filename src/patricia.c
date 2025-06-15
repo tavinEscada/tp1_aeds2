@@ -32,8 +32,10 @@ TipoArvore Cria_NO_Externo(TipoChave palavra){ //função para inicializar um n�
 
 void Pesquisa(TipoChave palavra, TipoArvore NoRaiz) {
 
-    if (Eh_Externo(NoRaiz)) {
-        if (strcmp((const char*)palavra, (const char*)NoRaiz->NO.chave) == 0){
+    TipoArvore NoAtual=NoRaiz;
+
+    if (Eh_Externo(NoAtual)) {
+        if (strcmp((const char*)palavra, (const char*)NoAtual->NO.chave) == 0){
             printf("Elemento encontrado\n");
         }
         else{
@@ -42,11 +44,11 @@ void Pesquisa(TipoChave palavra, TipoArvore NoRaiz) {
         return;
     }
 
-    if (palavra[NoRaiz->NO.NInterno.indice] >= NoRaiz->NO.NInterno.caractere){
-        Pesquisa(palavra, NoRaiz->NO.NInterno.dir);
+    if (palavra[NoAtual->NO.NInterno.indice] >= NoAtual->NO.NInterno.caractere){
+        Pesquisa(palavra, NoAtual->NO.NInterno.dir);
     }
     else{
-        Pesquisa(palavra, NoRaiz->NO.NInterno.esq);
+        Pesquisa(palavra, NoAtual->NO.NInterno.esq);
     }
 }
 
@@ -76,40 +78,40 @@ TipoArvore InsereEntre(TipoChave palavra, TipoArvore *NoAtual, int i, char carac
     }
 }
 
-TipoArvore Insere(TipoChave palavra, TipoArvore *NoAtual){
+TipoArvore Insere(TipoChave palavra, TipoArvore *NoRaiz){
   
-    TipoArvore NoAux;
+    TipoArvore NoAtual;
     int i;
     char caractere_dif;
   
-    if (*NoAtual == NULL) 
+    if (*NoRaiz == NULL) 
         return (Cria_NO_Externo(palavra));
 
     else{ 
-        NoAux = *NoAtual;
+        NoAtual = *NoRaiz;
 
-        while (!Eh_Externo(NoAux)){
+        while (!Eh_Externo(NoAtual)){
 
-            if (palavra[NoAux->NO.NInterno.indice] >= NoAux->NO.NInterno.caractere)
-                NoAux = NoAux->NO.NInterno.dir;
+            if (palavra[NoAtual->NO.NInterno.indice] >= NoAtual->NO.NInterno.caractere)
+                NoAtual = NoAtual->NO.NInterno.dir;
             else 
-                NoAux = NoAux->NO.NInterno.esq;
+                NoAtual = NoAtual->NO.NInterno.esq;
         }
    
         i = 0;
-        while (i<= strlen((const char*)palavra) && palavra[i] == NoAux->NO.chave[i])
+        while (i<= strlen((const char*)palavra) && palavra[i] == NoAtual->NO.chave[i])
             i++;
     
         if (i > strlen((const char*)palavra)){
             printf("Erro: chave ja esta na arvore\n");
-            return (*NoAtual); 
+            return (*NoRaiz); 
             //incrementar indice invertido aqui
         }
         else{
-            caractere_dif=NoAux->NO.chave[i];
+            caractere_dif=NoAtual->NO.chave[i];
             //garante que o caractere em nó interno será sempre o maior
             //prefixos irão sempre para a esquerda pois \0 é menor que todos caracteres
-            return InsereEntre(palavra, NoAtual, i, (palavra[i] > caractere_dif) ? palavra[i] : caractere_dif);
+            return InsereEntre(palavra, NoRaiz, i, (palavra[i] > caractere_dif) ? palavra[i] : caractere_dif);
         }
     }
 }
