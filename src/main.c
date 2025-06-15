@@ -9,19 +9,28 @@
 #include <stdlib.h>
 #include <string.h>
 
+/**
+ * Dada uma palavra, substitui letras maiúsculas e 
+ * caracteres especiais (letras com acentos e cedilha) 
+ * por minúsculas sem acento
+ * 
+ * @param p vetor de caracteres com a palavra que será adaptada
+ * 
+ */
 void formataPalavra(char *p){
     int j = 0;
     
     for(int i = 0; p[i];){
 
-        unsigned char proxC = (unsigned char)p[i+1];
         char sub = 0;
 
         //UTF-8 pra acentos e tal no alfabeto latino (basic latin)
         //com 0xC3 sendo prefixo para elementos fora dos ascii normais 
         //(C3 + A1 -> 'á', por exemplo, com 0x na frente para indicar hex)
         if((unsigned char)p[i] == 0xC3){
-                
+              
+            unsigned char proxC = (unsigned char)p[i+1];
+
             //á à ã â, o mesmo pro maiusculo com acentos
             if(proxC == 0xA1 || proxC == 0xA0 || proxC == 0xA3 || proxC == 0xA2 
                 || proxC == 0x81 || proxC == 0x80 || proxC == 0x83 || proxC == 0x82){
@@ -55,125 +64,124 @@ void formataPalavra(char *p){
                 sub = 'c';
             }
 
-            if(sub != 0){
-                //o caractere deve ser alterado
-                p[j] = sub;
-                j++;
-            }else{
-                //manter a string pq nao precisa mudar os caracteres, e avançar para os proximos
-                j += 2;
-            }
+            //alterando o caractere
+            p[j] = sub;
+            j++;
+            
             //pular os 2 bytes do trem ai, o atual e o verificado acima
             i += 2;
         }else{
             //ascii normal, alterando as maiusculas
             switch(p[i]){
-            case 0x41:
-                sub = 'a';
-                break;
-
-            case 0x42:
-                sub = 'b';
-                break;
-
-            case 0x43:
-                sub = 'c';
-                break;
-
-            case 0x44:
-                sub = 'd';
-                break;
-
-            case 0x45:
-                sub = 'e';
-                break;
-
-            case 0x46:
-                sub = 'f';
-                break;
-
-            case 0x47:
-                sub = 'g';
-                break;
-            
-            case 0x48:
-                sub = 'h';
-                break;
                 
-            case 0x49:
-                sub = 'i';
-                break;
+                //A
+                case 0x41:
+                    sub = 'a';
+                    break;
+                //B
+                case 0x42:
+                    sub = 'b';
+                    break;
+                //C
+                case 0x43:
+                    sub = 'c';
+                    break;
+                //D
+                case 0x44:
+                    sub = 'd';
+                    break;
+                //E
+                case 0x45:
+                    sub = 'e';
+                    break;
+                //F
+                case 0x46:
+                    sub = 'f';
+                    break;
+                //G
+                case 0x47:
+                    sub = 'g';
+                    break;
+                //H
+                case 0x48:
+                    sub = 'h';
+                    break;
+                //I
+                case 0x49:
+                    sub = 'i';
+                    break;
+                //J
+                case 0x4A:
+                    sub = 'j';
+                    break;
+                //K
+                case 0x4B:
+                    sub = 'k';
+                    break;
+                //L
+                case 0x4C:
+                    sub = 'l';
+                    break;
+                //M
+                case 0x4D:
+                    sub = 'm';
+                    break;
+                //N
+                case 0x4E:
+                    sub = 'n';
+                    break;
+                //O
+                case 0x4F:
+                    sub = 'o';
+                    break;
+                //P
+                case 0x50:
+                    sub = 'p';
+                    break;
+                //Q
+                case 0x51:
+                    sub = 'q';
+                    break;
+                //R
+                case 0x52:
+                    sub = 'r';
+                    break;
+                //S
+                case 0x53:
+                    sub = 's';
+                    break;
+                //T
+                case 0x54:
+                    sub = 't';
+                    break;
+                //U
+                case 0x55:
+                    sub = 'u';
+                    break;
+                //V
+                case 0x56:
+                    sub = 'v';
+                    break;
+                //W
+                case 0x57:
+                    sub = 'w';
+                    break;
+                //X
+                case 0x58:
+                    sub = 'x';
+                    break;
+                //Y
+                case 0x59:
+                    sub = 'y';
+                    break;
+                //Z
+                case 0x5A:
+                    sub = 'z';
+                    break;
 
-            case 0x4A:
-                sub = 'j';
-                break;
-
-            case 0x4B:
-                sub = 'k';
-                break;
-
-            case 0x4C:
-                sub = 'l';
-                break;
-
-            case 0x4D:
-                sub = 'm';
-                break;
-
-            case 0x4E:
-                sub = 'n';
-                break;
-
-            case 0x4F:
-                sub = 'o';
-                break;
-
-            case 0x50:
-                sub = 'p';
-                break;
-
-            case 0x51:
-                sub = 'q';
-                break;
-
-            case 0x52:
-                sub = 'r';
-                break;
-
-            case 0x53:
-                sub = 's';
-                break;
-
-            case 0x54:
-                sub = 't';
-                break;
-
-            case 0x55:
-                sub = 'u';
-                break;
-
-            case 0x56:
-                sub = 'v';
-                break;
-
-            case 0x57:
-                sub = 'w';
-                break;
-
-            case 0x58:
-                sub = 'x';
-                break;
-
-            case 0x59:
-                sub = 'y';
-                break;
-
-            case 0x5A:
-                sub = 'z';
-                break;
-
-            default:
-                break;
+                default:
+                    break;
+                    
             }
             if(sub != 0){
                 p[j] = sub;
@@ -243,7 +251,7 @@ void receberArquivo(){
             linha[strcspn(linha, "\n")] = '\0';
 
             //pegando a primeira palavra da linha
-            char *palavra = strtok(linha, " .,:;()-/?\n");
+            char *palavra = strtok(linha, " .,:;()\"'-/?\n");
 
             while(palavra != NULL){
 
@@ -253,7 +261,7 @@ void receberArquivo(){
                 nPalavras++;
 
                 //passando para a próxima palavra da linha
-                palavra = strtok(NULL, " .,:;()-/?\n");
+                palavra = strtok(NULL, " .,:;()\"'-/?\n");
             }
             
         }

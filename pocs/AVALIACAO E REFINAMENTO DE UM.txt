@@ -1,0 +1,10 @@
+AVALIAÇÃO E REFINAMENTO DE UM ALGORITMO GENÉTICO
+PARA PROBLEMAS DE OTIMIZAÇÃO MULTICOMPONENTE
+
+Recentemente um novo problema foi proposto para melhor contemplar a interdependência existente entre as componentes de problemas reais, o Travelling Thief Problem. Este problema
+e resultante da junção de dois problemas clássicos da computação, o TSP(Traveling Salesman Problem) e o KP (Knapsack Problem). Por se tratar de um problema multicomponente, a solução ótima dos subproblemas não garante a solução ótima do problema como um todo. Diferentes abordagens surgiram para solucionar esse problema. Os algoritmos propostos geralmente fazem uso de Meta
+Heurísticas e, devido a isso, possuem um grande numero de parâmetros a serem definidos. No entanto escolher esses parâmetros adequadamente não e uma tarefa simples, já que os mesmos afetam
+diretamente a qualidade das soluções encontradas. Para auxiliar nesse processo algumas ferramentas de configuração automática surgiram e se baseiam em pesquisar no espaço de parâmetros as
+configurações que melhorem o desempenho dos algoritmos de optimização. Esse trabalho tem por objetivo encontrar os melhores parâmetros para um algoritmo genético utilizado na resolução do Travelling Thief Problem, fazendo para isso o uso dessas ferramentas.
+
+Travelling Thief Problem, Algoritmo Genético, Configuração Automática. 

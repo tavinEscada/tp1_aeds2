@@ -1,3 +1,2 @@
-2
-A Genetic Algorithm for Multi-Component Optimization.txt
-UMA METODOLOGIA PARA COLETA.txt
+1
+Analise de satisfacao de uso de.txt

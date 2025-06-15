@@ -1,0 +1,13 @@
+Avaliação de Padrões de Migração de Aves Utilizando Dados
+de Repositórios Públicos de Ciência Cidadã
+
+A carência de dados sempre foi um obstáculo para o entendimento dos movimentos migratórios das aves, especialmente nos trópicos. O desenvolvimento recente e a crescente popularidade de diversos projetos de Ciência
+Cidadã disponibilizaram para a comunidade científica um enorme conjunto de
+dados, que tem crescido exponencialmente. Tais dados, por terem sido coletados e tabulados por pessoas sem treinamento acadêmico, requerem gerenciamento e validação diferenciados, pois, caso contrário, podem levar a conclusões equivocadas. Um bom exemplo de uso da Ciência Cidadã tem sido o estudo dos padrões migratórios de espécies de aves, pois a crescente popularidade do birdwatching em regiões tropicais tem permitido um acúmulo de dados sobre espécies e regiões até então nunca amostradas satisfatoriamente
+pela comunidade científica. O objetivo deste trabalho e utilizar a Ciência dos
+Dados conjuntamente com a Ciência Cidadã para avaliar a confiabilidade dos
+dados disponibilizados por duas bases de dados com características distintas,
+uma baseada em Vouchers (WikiAves) e outra em observações não documentadas (eBird). Para isso, foram investigados os movimentos migratórios de quatro
+espécies de aves com distintos padrões de migração: Amazona pretrei, Attila
+phoenicurus, Casiornis fuscus e Tangara peruviana. Concluiu-se que a base de dados WikiAves, após análises, se mostrou mais satisfatória e condizente com
+os padrões, comparada ao eBird. 

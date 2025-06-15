@@ -1,0 +1,10 @@
+Testes de Segurança em Aplicações Web Open Source: Um
+Estudo Comparativo entre Ferramentas de Issue Tracking
+
+Este estudo tem como objetivo avaliar as vulnerabilidades de segurança em ferramentas de código aberto da Web para rastreamento de problemas, com base nos critérios propostos
+pelas normas da série ISO/IEC e pela comunidade OWASP. O
+Owasp Guide foi usado para realizar os testes considerando 10 vulnerabilidades mais frequentes e a ferramenta Owasp Zap foi usada para automatizar
+os testes. Os testes foram aplicados em três ferramentas de rastreamento de problemas de código aberto: Redmine, Mantis Bug Tracker e Bugzilla. Os testes
+revelaram poucas vulnerabilidades de segurança na ferramenta Redmine, mas muitas delas no contexto do Mantis Bug Tracker e do Bugzilla.
+
+Vulnerabilidades de Segurança, Owasp, Ferramentas de Teste

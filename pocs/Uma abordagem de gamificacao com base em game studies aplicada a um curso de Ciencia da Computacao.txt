@@ -1,0 +1,5 @@
+Uma abordagem de gamificação com base em game studies aplicada a um curso de Ciência da Computação
+Este trabalho avalia a aplicação de uma abordagem de gamificação com base em pesquisas na área de game studies, cuja conexão na literatura é pouco frequente, em uma turma de primeiro período de Ciência da Computação.
+Com esta finalidade, é proposta uma abordagem com características que visam gerar diversão em jogos, em conjunto com características que buscam aumentar a motivação dos envolvidos em aplicações de gamificação.
+A abordagem desenvolvida se deu durante todo o semestre letivo, e os alunos com participação ativa apresentaram melhores níveis de desempenho, socialização e interesse no curso e no campus da universidade, bem como observou-se uma diminuição no nível esperado de evasão do curso em questão.
+

@@ -1,0 +1,11 @@
+Avaliação da atuação colaborativa de membros de um projeto
+acadêmico com foco nas responsabilidades definidas
+
+Este trabalho utiliza os dados de um projeto acadêmico para o ensino
+de Engenharia de Software como estudo de caso para avaliar a participação
+colaborativa dos envolvidos. Para isso, os dados dos repositórios das ferramentas computacionais de apoio ao projeto são representados por meio de grafos e submetidos a aplicação de métricas de centralidade. A intenção e buscar
+uma relação entre os nós mais centrais, segundo duas das dimensões do Modelo 3C de Colaboração (Coordenação e Cooperação), em função dos papéis
+assumidos pelos alunos. Os resultados obtidos mostraram que há uma grande
+participação dos papéis gerenciais nas tarefas de Coordenação, assim como
+um maior numero de atividades de Cooperação realizadas por alguns dos Programadores e Testadores. Além disso, foi possível perceber que alguns alunos
+tiveram baixo envolvimento, não condizente com o papel assumido.

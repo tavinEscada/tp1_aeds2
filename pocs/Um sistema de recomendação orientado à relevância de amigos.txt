@@ -1,4 +1,0 @@
-Um sistema de recomendação orientado à relevância de amigos
-Participantes de eventos têm dificuldade em conciliar o tempo nas atividades do evento com atividades extras e refeições. Para resolver esses problemas, este trabalho tem como intuito modelar uma solução em que o usuário seja direcionado a um restaurante que o satisfaça e que esteja próximo ao evento.
-Para escolher o restaurante, um ponto fundamental da solução é a identificação de amigos relevantes, que serão mais influentes na indicação.
-

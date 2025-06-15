@@ -1,7 +1,0 @@
-Uma abordagem de gamificação baseada em game studies com
-o uso de um jogo de cartas digital
-
-A utilização de elementos presentes em jogos no âmbito acadêmico vem sendo constantemente estudada pela literatura. Este trabalho tem como
-objetivo avaliar a aplicação de uma abordagem de gamificação baseada em game studies, a qual utiliza um jogo de cartas digital como ferramenta auxiliar, sendo aplicada a alunos do primeiro período de um curso de Ciência da
-Computação. Por meio de formulários aplicados aos envolvidos no inicio e ao fim da abordagem, e com a coleta dos dados gerados pela utilização do jogo,
-foi possível constatar que os elementos utilizados na abordagem geraram resultados positivos no que diz respeito a motivação dos alunos.

@@ -1,0 +1,17 @@
+Avaliação Conjunta de Facilidade de Uso em Aplicativos Móveis
+para Apoio à Participação em Eventos
+Atualmente o mercado tem abrangido uma vasta gama de aplicativos móveis. Por estarem em contato direto com usuários que muitas
+vezes não possuem conhecimentos técnicos, a usabilidade de tais
+aplicativos é um fator importante e decisivo para que estes possam
+ser amplamente utilizados. Entretanto, a literatura ainda não provê
+embasamento suficiente para que sistemas dessa classe possam ser
+devidamente testados e avaliados. Este trabalho propõe a avaliação
+de facilidade de uso em aplicativos móveis de uma classe específica,
+através da utilização de uma metodologia estruturada para avaliação de usabilidade conjunta, formada pela utilização combinada de
+teste de usabilidade e avaliação heurística. Para os experimentos
+foram selecionados 4 aplicativos de apoio à eventos (myMobiConf,
+Whova, mConference e Event Cadence). Os resultados mostram que a
+avaliação conjunta de usabilidade apresenta resultados satisfatórios,
+além de oferecer uma visão mais ampla das falhas técnicas e de
+usabilidade de aplicativos móveis.
+Teste de Usabilidade, Avaliação Heurística, Aplicativo Móvel
