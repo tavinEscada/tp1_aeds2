@@ -89,6 +89,12 @@ void removeAcentos(char *p){
     p[j] = '\0';
 }
 
+/**
+ * Dada uma palavra, substitui letras maiúsculas por minúsculas
+ * 
+ * @param p vetor de caracteres com a palavra que será adaptada
+ * 
+ */
 void removeMaiusculas(char *p){
     for(int i = 0; p[i]; i++){
         char sub = 0;
