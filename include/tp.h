@@ -5,16 +5,13 @@
  * @author Júlio César - 5903
  * @author Otávio Tavares - 5912
  */
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <ctype.h>
+#ifndef TP_H
+#define TP_H
 
-#include "../include/tp.h"
+void removeAcentos(char *p);
+void removeMaiusculas(char *p);
+void receberArquivo();
+void menu();
 
-int main(){
-    
-    menu();
-    return 0;
+#endif
 
-}
