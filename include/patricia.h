@@ -5,13 +5,15 @@
 #include<stdlib.h> 
 #include <stdio.h>
 #include <sys/time.h>
+#include "patricia_indice.h"
+ 
 
-typedef unsigned char TipoChave[255]; 
+typedef struct TipoItem
+{
+    char word[255] ;
+    Lista_Indice_Invertido lista;
 
-typedef struct{
-    int qtde;
-    int iddoc;
-}par;
+}TipoItem;
 
 typedef enum {
   Interno, Externo
@@ -25,17 +27,16 @@ typedef struct NO_patricia {
       char caractere;
       int indice;
       TipoArvore esq,dir;
-    } NInterno ;
-    TipoChave chave; 
-    par indinv[20]; //colocar como lista encdeada
+    } NInterno;
+    TipoItem chave; 
   } NO;
 } NO_patricia;
 
-TipoArvore Cria_NO_Externo(TipoChave palavra);
+TipoArvore Cria_NO_Externo(char* palavra,int idDoc);
 TipoArvore Cria_NO_Interno(int i, TipoArvore *esq, TipoArvore *dir, char caractere);
-TipoArvore InsereEntrePat(TipoChave palavra, TipoArvore *NoAtual, int i, char caractere_interno);
-TipoArvore InserePat(TipoChave palavra, TipoArvore *NoRaiz);
-void PesquisaPat(TipoChave palavra, TipoArvore NoRaiz,int* visitas);
+TipoArvore InsereEntrePat(char* palavra, int idDoc, TipoArvore *NoAtual, int i, char caractere_interno);
+TipoArvore InserePat(char* palavra,int idDoc, TipoArvore *NoRaiz);
+void PesquisaPat(char* palavra, TipoArvore NoRaiz,int* visitas);
 short Eh_Externo(TipoArvore NO);
 void ImprimeOrdemPat(TipoArvore t);
 
