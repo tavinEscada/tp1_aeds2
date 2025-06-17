@@ -9,6 +9,9 @@
 #include <stdlib.h>
 #include <string.h>
 
+// Variavies Globais para comparaçao da Hash
+unsigned long long int comp_insercao_hash = 0;
+unsigned long long int comp_busca_hash = 0;
 /**
  * Dada uma palavra, substitui letras maiúsculas e 
  * caracteres especiais (letras com acentos e cedilha) 
