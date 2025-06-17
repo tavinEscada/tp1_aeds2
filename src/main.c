@@ -8,16 +8,17 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <ctype.h>
 
 /**
- * Dada uma palavra, substitui letras maiúsculas e 
+ * Dada uma palavra, substitui 
  * caracteres especiais (letras com acentos e cedilha) 
  * por minúsculas sem acento
  * 
  * @param p vetor de caracteres com a palavra que será adaptada
  * 
  */
-void formataPalavra(char *p){
+void removeAcentos(char *p){
     int j = 0;
     
     for(int i = 0; p[i];){
@@ -64,130 +65,19 @@ void formataPalavra(char *p){
                 sub = 'c';
             }
 
-            //alterando o caractere
-            p[j] = sub;
-            j++;
+            if(sub){
+                //alterando o caractere
+                p[j] = sub;
+                j++;
+            }
+            
             
             //pular os 2 bytes do trem ai, o atual e o verificado acima
             i += 2;
         }else{
-            //ascii normal, alterando as maiusculas
-            switch(p[i]){
-                
-                //A
-                case 0x41:
-                    sub = 'a';
-                    break;
-                //B
-                case 0x42:
-                    sub = 'b';
-                    break;
-                //C
-                case 0x43:
-                    sub = 'c';
-                    break;
-                //D
-                case 0x44:
-                    sub = 'd';
-                    break;
-                //E
-                case 0x45:
-                    sub = 'e';
-                    break;
-                //F
-                case 0x46:
-                    sub = 'f';
-                    break;
-                //G
-                case 0x47:
-                    sub = 'g';
-                    break;
-                //H
-                case 0x48:
-                    sub = 'h';
-                    break;
-                //I
-                case 0x49:
-                    sub = 'i';
-                    break;
-                //J
-                case 0x4A:
-                    sub = 'j';
-                    break;
-                //K
-                case 0x4B:
-                    sub = 'k';
-                    break;
-                //L
-                case 0x4C:
-                    sub = 'l';
-                    break;
-                //M
-                case 0x4D:
-                    sub = 'm';
-                    break;
-                //N
-                case 0x4E:
-                    sub = 'n';
-                    break;
-                //O
-                case 0x4F:
-                    sub = 'o';
-                    break;
-                //P
-                case 0x50:
-                    sub = 'p';
-                    break;
-                //Q
-                case 0x51:
-                    sub = 'q';
-                    break;
-                //R
-                case 0x52:
-                    sub = 'r';
-                    break;
-                //S
-                case 0x53:
-                    sub = 's';
-                    break;
-                //T
-                case 0x54:
-                    sub = 't';
-                    break;
-                //U
-                case 0x55:
-                    sub = 'u';
-                    break;
-                //V
-                case 0x56:
-                    sub = 'v';
-                    break;
-                //W
-                case 0x57:
-                    sub = 'w';
-                    break;
-                //X
-                case 0x58:
-                    sub = 'x';
-                    break;
-                //Y
-                case 0x59:
-                    sub = 'y';
-                    break;
-                //Z
-                case 0x5A:
-                    sub = 'z';
-                    break;
-
-                default:
-                    break;
-                    
-            }
-            if(sub != 0){
-                p[j] = sub;
-            }else{
-                p[j] = p[i];
-            }
+            
+            p[j] = p[i];
+            
             i++;
             j++;
             
@@ -196,6 +86,127 @@ void formataPalavra(char *p){
     //acabou a palavra com o fim do for
     p[j] = '\0';
 }
+
+void removeMaiusculas(char *p){
+    for(int i = 0; p[i]; i++){
+        char sub = 0;
+        switch(p[i]){
+                
+            //A
+            case 0x41:
+                sub = 'a';
+                break;
+            //B
+            case 0x42:
+                sub = 'b';
+                break;
+            //C
+            case 0x43:
+                sub = 'c';
+                break;
+            //D
+            case 0x44:
+                sub = 'd';
+                break;
+            //E
+            case 0x45:
+                sub = 'e';
+                break;
+            //F
+            case 0x46:
+                sub = 'f';
+                break;
+            //G
+            case 0x47:
+                sub = 'g';
+                break;
+            //H
+            case 0x48:
+                sub = 'h';
+                break;
+            //I
+            case 0x49:
+                sub = 'i';
+                break;
+            //J
+            case 0x4A:
+                sub = 'j';
+                break;
+            //K
+            case 0x4B:
+                sub = 'k';
+                break;
+            //L
+            case 0x4C:
+                sub = 'l';
+                break;
+            //M
+            case 0x4D:
+                sub = 'm';
+                break;
+            //N
+            case 0x4E:
+                sub = 'n';
+                break;
+            //O
+            case 0x4F:
+                sub = 'o';
+                break;
+            //P
+            case 0x50:
+                sub = 'p';
+                break;
+            //Q
+            case 0x51:
+                sub = 'q';
+                break;
+            //R
+            case 0x52:
+                sub = 'r';
+                break;
+            //S
+            case 0x53:
+                sub = 's';
+                break;
+            //T
+            case 0x54:
+                sub = 't';
+                break;
+            //U
+            case 0x55:
+                sub = 'u';
+                break;
+            //V
+            case 0x56:
+                sub = 'v';
+                break;
+            //W
+            case 0x57:
+                sub = 'w';
+                break;
+            //X
+            case 0x58:
+                sub = 'x';
+                break;
+            //Y
+            case 0x59:
+                sub = 'y';
+                break;
+            //Z
+            case 0x5A:
+                sub = 'z';
+                break;
+
+            default:
+                break;
+                
+        }
+        if(sub){
+            p[i] = sub;
+        }
+    }
+}
+
 
 /**leitura do arquivo de entrada e dos arquivos contidos nele*/
 void receberArquivo(){
@@ -221,7 +232,7 @@ void receberArquivo(){
         return;
     }
 
-    for(int i = 0; i < nArq; i++){
+    for(int i = 1; i <= nArq; i++){
 
         int nPalavras = 0;
 
@@ -245,7 +256,7 @@ void receberArquivo(){
         char linha[256];
 
         //testando o print de cada palavra de cada arquivo
-        printf("Palavras do arquivo %d:\n", i+1);
+        printf("Palavras do arquivo %d ('%s'):\n", i, nome);
         while(fgets(linha, sizeof(linha), arquivoAtual) != NULL){
             //tokenizando cada linha
             linha[strcspn(linha, "\n")] = '\0';
@@ -255,17 +266,41 @@ void receberArquivo(){
 
             while(palavra != NULL){
 
-                formataPalavra(palavra);
+                removeAcentos(palavra);
                 
-                printf("%s\n", palavra);
-                nPalavras++;
+                //si pa é bom passar para uma funcao
+                int ehPalavra = 1;
 
+                unsigned int tPalavra = strlen(palavra);
+
+                for(unsigned int j = 0; j < tPalavra; j++){
+                    if(!isalpha(palavra[j])){
+                        ehPalavra = 0;
+                        break;
+                    }
+                }
+
+                if(tPalavra <= 2 && ehPalavra){
+                    for(unsigned int j = 0; j < tPalavra; j++){
+                        if(islower(palavra[j]) || tPalavra < 2){
+                            ehPalavra = 0;
+                            break;
+                        }
+                    }
+                }
+
+                if(ehPalavra){
+                    removeMaiusculas(palavra);
+                    printf("%s\n", palavra);
+                    nPalavras++;
+                }
+                
                 //passando para a próxima palavra da linha
                 palavra = strtok(NULL, " .,:;()\"'-/?\n");
             }
             
         }
-        printf("\nO arquivo %d tem %d palavras.\n\n", i+1, nPalavras);
+        printf("\nO arquivo %d ('%s') tem %d palavras.\n\n", i, nome, nPalavras);
 
         fclose(arquivoAtual);
 
