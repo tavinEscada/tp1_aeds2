@@ -6,14 +6,6 @@
 #include <stdio.h>
 #include <sys/time.h>
 #include "patricia_indice.h"
- 
-
-typedef struct TipoItem
-{
-    char word[255] ;
-    Lista_Indice_Invertido lista;
-
-}TipoItem;
 
 typedef enum {
   Interno, Externo
