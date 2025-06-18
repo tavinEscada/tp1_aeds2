@@ -100,108 +100,82 @@ void removeMaiusculas(char *p){
         char sub = 0;
         switch(p[i]){
                 
-            //A
-            case 0x41:
+            case 'A':
                 sub = 'a';
                 break;
-            //B
-            case 0x42:
+            case 'B':
                 sub = 'b';
                 break;
-            //C
-            case 0x43:
+            case 'C':
                 sub = 'c';
                 break;
-            //D
-            case 0x44:
+            case 'D':
                 sub = 'd';
                 break;
-            //E
-            case 0x45:
+            case 'E':
                 sub = 'e';
                 break;
-            //F
-            case 0x46:
+            case 'F':
                 sub = 'f';
                 break;
-            //G
-            case 0x47:
+            case 'G':
                 sub = 'g';
                 break;
-            //H
-            case 0x48:
+            case 'H':
                 sub = 'h';
                 break;
-            //I
-            case 0x49:
+            case 'I':
                 sub = 'i';
                 break;
-            //J
-            case 0x4A:
+            case 'J':
                 sub = 'j';
                 break;
-            //K
-            case 0x4B:
+            case 'K':
                 sub = 'k';
                 break;
-            //L
-            case 0x4C:
+            case 'L':
                 sub = 'l';
                 break;
-            //M
-            case 0x4D:
+            case 'M':
                 sub = 'm';
                 break;
-            //N
-            case 0x4E:
+            case 'N':
                 sub = 'n';
                 break;
-            //O
-            case 0x4F:
+            case 'O':
                 sub = 'o';
                 break;
-            //P
-            case 0x50:
+            case 'P':
                 sub = 'p';
                 break;
-            //Q
-            case 0x51:
+            case 'Q':
                 sub = 'q';
                 break;
-            //R
-            case 0x52:
+            case 'R':
                 sub = 'r';
                 break;
-            //S
-            case 0x53:
+            case 'S':
                 sub = 's';
                 break;
-            //T
-            case 0x54:
+            case 'T':
                 sub = 't';
                 break;
-            //U
-            case 0x55:
+            case 'U':
                 sub = 'u';
                 break;
-            //V
-            case 0x56:
+            case 'V':
                 sub = 'v';
                 break;
-            //W
-            case 0x57:
+            case 'W':
                 sub = 'w';
                 break;
-            //X
-            case 0x58:
+            case 'X':
                 sub = 'x';
                 break;
-            //Y
-            case 0x59:
+            case 'Y':
                 sub = 'y';
                 break;
-            //Z
-            case 0x5A:
+            case 'Z':
                 sub = 'z';
                 break;
 
@@ -281,6 +255,7 @@ void receberArquivo(){
 
                 unsigned int tPalavra = strlen(palavra);
 
+                //verificando a existência de caracteres especiais que possam ter sobrado
                 for(unsigned int j = 0; j < tPalavra; j++){
                     if(!isalpha(palavra[j])){
                         ehPalavra = 0;
@@ -288,6 +263,7 @@ void receberArquivo(){
                     }
                 }
 
+                //removendo palavras de duas letras ou menos que não sejam siglas
                 if(tPalavra <= 2 && ehPalavra){
                     for(unsigned int j = 0; j < tPalavra; j++){
                         if(islower(palavra[j]) || tPalavra < 2){
@@ -297,6 +273,7 @@ void receberArquivo(){
                     }
                 }
 
+                //depois das verificações, pegando apenas as palavra válidas
                 if(ehPalavra){
                     removeMaiusculas(palavra);
                     printf("%s\n", palavra);
