@@ -16,7 +16,6 @@ void Atualiza_Ocorrencia(Lista_Indice_Invertido* lista,int idDoc){
     celula* cel_atual=lista->primeiro;
 
     while(cel_atual!=NULL && cel_atual->idDoc!=idDoc){
-
         cel_atual=cel_atual->prox;
     }
 
@@ -47,14 +46,31 @@ void Imprime_ListaIndice (Lista_Indice_Invertido* lista){
 
     celula* aux;
     aux = lista->primeiro->prox;
-    while (aux != NULL)
-    {
-    if (aux->prox==NULL)
-        printf("< %d , %d >", aux->idDoc,aux->qtde);
-    else
-        printf("< %d , %d > | ", aux->idDoc,aux->qtde);
+    while (aux != NULL){
+        
+        if (aux->prox==NULL)
+            printf("< %d , %d >", aux->idDoc,aux->qtde);
+        else
+            printf("< %d , %d > | ", aux->idDoc,aux->qtde);
 
     aux = aux->prox; 
     }
+
+}
+
+int Contabiliza_Docs(Lista_Indice_Invertido* lista){
+
+    celula* aux=NULL;
+    aux=lista->primeiro->prox;
+    int count=0;
+
+    while(aux!=NULL){
+
+        count+=1;
+        aux=aux->prox;
+
+    }
+
+    return count;
 
 }

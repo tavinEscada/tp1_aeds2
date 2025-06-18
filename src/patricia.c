@@ -130,6 +130,7 @@ void ImprimeOrdemPat(TipoArvore t){
         printf("%s: ", (char *)t->NO.chave.word);
         Imprime_ListaIndice(&t->NO.chave.lista);
         printf("\n");
+    
     } 
     else{
         ImprimeOrdemPat(t->NO.NInterno.esq);
@@ -145,51 +146,29 @@ int main() {
     
     int v=0; 
     char *vetor[] = {
-    "abacate", "abelha", "boi", "bola", "lapis", "mel", "peixe"
+    "abacate", "abacate", "abacate", "abacate", "cachorro", "nabo", "bola", "dado", "mel", "jabuti", "pamela", "zumbi", "olho", "escola", "faca", "gato", "hiena", "ioio",
+    "kaka", "lapis", "queijo", "rabo", "sapo", "tatu", "uva", "vasco", "wellington", "xuxa", "yone", "abacaxi", "cacho", "boliche", "dardo", "melancia",
+    "melodia", "jaboticaba", "jaburu", "panda", "zuleide", "ostra", "organico", "orla", "ornamento", "onda", "esquilo", "especie", "ovo", "avalanche", "bala", "bacana", "mercado", "gota", "doce","arvore","anel", "zoe","casamento", "casa", "ca", "casal", "cachorro", "cacto", "carro", "cavalo", "casario","dado", "dama", "dança", "dedo", "desenho", "deserto", "desligar", "destino", "dia", "diferente"
+
 };
 
-
     int n = sizeof(vetor) / sizeof(vetor[0]);
+    int j=1;
+    for (int i=0;i<n;i++){
+        x=InserePat(vetor[i],j,&x);
+    }
 
-    x = InserePat(vetor[0],1, &x);
-    x = InserePat(vetor[0],1, &x);
-    x = InserePat(vetor[0],1, &x);
+    x=InserePat("abacate",1,&x);
+    x=InserePat("abacate",2,&x);
 
-    x = InserePat(vetor[0],2, &x);
+    x=InserePat("cachorro",2,&x);
+    x=InserePat("bola",2,&x);
+    x=InserePat("bola",3,&x);
+    x=InserePat("bola",4,&x);
 
-    x = InserePat(vetor[0],3, &x);
-    x = InserePat(vetor[0],3, &x);
-
-    x = InserePat(vetor[1],2, &x);
-    x = InserePat(vetor[1],2, &x);
-    x = InserePat(vetor[1],2, &x);
-    x = InserePat(vetor[1],2, &x);
-
-    x = InserePat(vetor[1],3, &x);
-
-
-    x = InserePat(vetor[2],2, &x);
-    x = InserePat(vetor[2],2, &x);
-    x = InserePat(vetor[2],2, &x);
-    x = InserePat(vetor[2],2, &x);
-    x = InserePat(vetor[2],2, &x);
-
-    x = InserePat(vetor[3],3, &x);
-    x = InserePat(vetor[3],3, &x);
-
-    x = InserePat(vetor[4],4, &x);
-    x = InserePat(vetor[4],4, &x);
-
-    x = InserePat(vetor[5],5, &x);
-    x = InserePat(vetor[5],5, &x);
-    x = InserePat(vetor[5],5, &x);
-    x = InserePat(vetor[5],5, &x);
-
-    x = InserePat(vetor[6],6, &x);
-    
     ImprimeOrdemPat(x);
 
-    // printf("\n");
+    printf("\n");
 
     // for (int i = 0; i < n; i++) {
     //     printf("pesquisa: %s\n", vetor[i]);
