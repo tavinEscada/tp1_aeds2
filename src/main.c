@@ -9,12 +9,11 @@
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
+#include "../include/tp.h"
 
 // Variavies Globais para comparaçao da Hash
 unsigned long long int comp_insercao_hash = 0;
 unsigned long long int comp_busca_hash = 0;
-
-#include "../include/tp.h"
 
 int main(){
     
