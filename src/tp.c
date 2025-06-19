@@ -206,6 +206,62 @@ void formataPalavra(char *p){
     removeMaiusculas(p);
 }
 
+//há palavras de mais de 2 caracteres que não precisam ser levadas em conta
+int ehRelevante(char *p){
+    char *irrelevantes[] = {"isso", "uma", "com", "por", "the", "sua", "elas",
+        "seu", "como", "nao", "que", "para", "dos", "ela", "ele", "nem", "eles",
+        "das", "mas", "desse", "dessa", "esta", "esse", "essa", "desta", "tem", "for"};
+
+    int n = sizeof(irrelevantes)/sizeof(irrelevantes[0]);
+
+    for(int i = 0; i < n; i++){
+        if(strcmp(p, irrelevantes[i]) == 0){
+            return 0;
+        }
+    }
+    return 1;
+
+}
+
+int ehValida(char *p){
+
+    removeAcentos(p);
+
+    int t = strlen(p);
+
+    //caracteres especiais que possam ter sobrado (como '20%')
+    for(int j = 0; j < t; j++){
+        if(!isalpha(p[j])){
+            return 0;
+        }
+    }
+
+    
+    if(t < 3){
+
+        //uma letra só
+        if(t == 1){
+            return 0;
+        }
+
+        //duas letras, mas não é sigla
+        for(int i = 0; i < t; i++){
+            if(islower(p[i])){
+                return 0;
+            }
+        }
+    }
+
+    removeMaiusculas(p);
+
+    if(!ehRelevante(p)){
+        return 0;
+    }
+
+    return 1;
+    
+}
+
 /**leitura do arquivo de entrada e dos arquivos contidos nele*/
 void receberArquivo(){
     
@@ -274,7 +330,7 @@ void receberArquivo(){
         char linha[256];
 
         //testando o print de cada palavra de cada arquivo
-        printf("Palavras do arquivo %d ('%s'):\n", i, nome);
+        //printf("Palavras do arquivo %d ('%s'):\n", i, nome);
         while(fgets(linha, sizeof(linha), arquivoAtual) != NULL){
             //tokenizando cada linha
             linha[strcspn(linha, "\n")] = '\0';
@@ -284,33 +340,8 @@ void receberArquivo(){
 
             while(palavra != NULL){
 
-                removeAcentos(palavra);
-                
-                int ehPalavra = 1;
-
-                unsigned int tPalavra = strlen(palavra);
-
-                //retirando caracteres especiais que possam ter sobrado (como '20%')
-                for(unsigned int j = 0; j < tPalavra; j++){
-                    if(!isalpha(palavra[j])){
-                        ehPalavra = 0;
-                        break;
-                    }
-                }
-
-                //removendo palavras de duas letras ou menos que não sejam siglas
-                if(tPalavra <= 2 && ehPalavra){
-                    for(unsigned int j = 0; j < tPalavra; j++){
-                        if(islower(palavra[j]) || tPalavra < 2){
-                            ehPalavra = 0;
-                            break;
-                        }
-                    }
-                }
-
                 //depois das verificações, pegando apenas as palavra válidas
-                if(ehPalavra){
-                    removeMaiusculas(palavra);
+                if(ehValida(palavra)){
 
                     fprintf(saidaAtual, "%s\n", palavra);
 
@@ -350,7 +381,7 @@ void constroiIndices(){
 
 
 
-            //printf("%s", palavra);
+            printf("%s", palavra);
             
         }
         i++;
@@ -358,7 +389,6 @@ void constroiIndices(){
         arqAtual = fopen(nNome, "r");
 
     }
-    //fclose(arqAtual);
 }
 
 /**função que faz o loop do menu até que o usuário digite 0*/
@@ -366,7 +396,7 @@ void menu(){
     
     int op = 0;
     do{
-        printf("--- Menu ---\n1 - Ler o arquivo com os textos\n2 - Construir os indices invertidos\n3 - Escrever os indices invertidos\n4 - Busca\n0 - Fechar\n");
+        printf("--- Menu ---\n1 - Ler o arquivo com os textos\n2 - Construir os indices invertidos\n3 - Exibir os indices invertidos\n4 - Busca\n0 - Fechar\n");
         scanf("%d", &op);
 
         switch(op){
