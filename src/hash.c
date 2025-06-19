@@ -4,7 +4,8 @@ TipoDicionario Tabela;
 TipoItem Elemento;
 TipoPesos p;
 TipoApontador i;
-
+extern unsigned long long int comp_insercao_hash;
+extern unsigned long long int comp_busca_hash;
 
 short Vazia(TipoLista Lista)
 { return (Lista.Primeiro == Lista.Ultimo); }
@@ -108,6 +109,7 @@ void Imprimir(TipoDicionario tabela) {
 TipoItem* Busca(Tipopalavra word, TipoLista *lista){
     TipoApontador no_atual = lista->Primeiro->Prox;
     while (no_atual != NULL) {
+		comp_busca_hash++;
         if (strcmp(word, no_atual->Item.palavra) == 0) {
             //se a palavra for encontrada retorna o endereço do TipoItem
             return &no_atual->Item;
@@ -123,7 +125,16 @@ void Insere(Tipopalavra word, int idDoc, TipoDicionario T, TipoPesos p)
     i = h(word, p);
     TipoLista* atalho = &T[i];
     //busca pra ver se a palavra ja existe
-    TipoItem* item_encontrado = Busca(word, atalho);
+    TipoApontador no_atual = atalho->Primeiro->Prox;
+    TipoItem* item_encontrado = NULL;
+    while (no_atual != NULL) {
+        comp_insercao_hash++;
+        if (strcmp(word, no_atual->Item.palavra) == 0) {
+            item_encontrado = &no_atual->Item;
+            break;
+        }
+        no_atual = no_atual->Prox;
+    }
     if (item_encontrado != NULL) {
         insere_palavra(item_encontrado, idDoc);
     }
@@ -140,4 +151,13 @@ void Ins(TipoItem *x, TipoLista *Lista){
     Lista->Ultimo = Lista->Ultimo->Prox;
     Lista->Ultimo->Item = *x;
     Lista->Ultimo->Prox = NULL;
+}
+void comparacoes(){
+	printf("--- Relatório de Comparações ---\n");
+    printf("HASH - Comparações na Inserção: %llu\n", comp_insercao_hash);
+    printf("HASH - Comparações na Busca: %llu\n", comp_busca_hash);
+    printf("--------------------------------\n");
+    // Zere os contadores para a próxima rodada de testes
+    comp_insercao_hash = 0;
+    comp_busca_hash = 0;
 }

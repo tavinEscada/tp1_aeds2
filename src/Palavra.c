@@ -3,11 +3,15 @@
 #include <string.h>
 #include "../include/Palavra.h"
 
+extern unsigned long long int comp_insercao_hash;
+extern unsigned long long int comp_busca_hash;
+
 
 void faz_palavra_vazia( TipoItem * item, char * palavra){
     item->primeiro = (Ccelula*)malloc(sizeof(Ccelula));
     item->primeiro->prox = NULL;
     strcpy(item->palavra,palavra);
+    item->n_arquivos = 0;
 }
 
 void imprime_indice_invertido( TipoItem * item){
@@ -36,7 +40,7 @@ void insere_palavra (TipoItem * item, int idDoc){
 
 
     while(aux->prox != NULL){
-
+		comp_insercao_hash++;
         if(aux->prox->idDoc == idDoc){ //se esse documento ja teve essa palavra antes, a quantidade só incrementa
             aux->prox->qtde++;
             return;
@@ -50,6 +54,7 @@ void insere_palavra (TipoItem * item, int idDoc){
     aux->prox->prox = NULL;
     aux->prox->idDoc = idDoc;
     aux->prox->qtde = 1;
+    item->n_arquivos++;
     
     return;
     
@@ -74,6 +79,7 @@ int remove_palavra (TipoItem * item, int idDoc){
             }else{
                 anterior->prox = aux->prox;
                 free(aux);
+                item->n_arquivos--;
                 printf("0 restantes \n");
             }
             return 1;
