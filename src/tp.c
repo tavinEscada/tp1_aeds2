@@ -354,7 +354,7 @@ void receberArquivo(){
             }
             
         }
-        printf("\nO arquivo %d ('%s') tem %d palavras.\n\n", i, nome, nPalavras);
+        //printf("\nO arquivo %d ('%s') tem %d palavras.\n\n", i, nome, nPalavras);
 
         fclose(arquivoAtual);
         fclose(saidaAtual);
@@ -381,7 +381,7 @@ void constroiIndices(){
 
 
 
-            printf("%s", palavra);
+            //printf("%s", palavra);
             
         }
         i++;
