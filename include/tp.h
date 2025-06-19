@@ -10,7 +10,9 @@
 
 void removeAcentos(char *p);
 void removeMaiusculas(char *p);
+void formataPalavra(char *p);
 void receberArquivo();
+void constroiIndices();
 void menu();
 
 #endif
