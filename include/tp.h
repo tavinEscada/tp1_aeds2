@@ -11,6 +11,8 @@
 void removeAcentos(char *p);
 void removeMaiusculas(char *p);
 void formataPalavra(char *p);
+int ehRelevante(char *p);
+int ehValida(char *p);
 void receberArquivo();
 void constroiIndices();
 void menu();
