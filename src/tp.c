@@ -9,6 +9,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
+#include <math.h>
 
 #ifdef _WIN32
     #include <direct.h>
@@ -465,4 +466,28 @@ void menu(){
                 break;
         }
     }while(op != 0);
+}
+
+void   tfidf(NO_patricia raiz, input[], doc * docs, int nDOCS){
+
+    for (int i =0; i < nDOCS; i++){
+        doc[i].relevancia = (1/doc[i].total) * sumPtermo(NO_patricia raiz, nDOCS, docs, input);
+    }
+
+}
+
+float sumPtermo(NO_patricia raiz,totalDOCS,doc docx,input[]){
+float res = 0;
+for (int i=0; i< taminput; i++){
+    int ocorrenciaT = getOcorrencia(input[i]->docx);
+    int dj = gettotaldocsocorrencia(input[i]);
+    if (ocorrrenciaT == 0){
+        return 0;
+    }
+    else{
+        res += ocorrenciaT * ((log(totalDOCS) / log(2.0))/dj);
+    }
+
+}
+return res;
 }
