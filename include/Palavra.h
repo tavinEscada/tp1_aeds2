@@ -18,6 +18,7 @@ typedef struct TipoItem
     char palavra[50] ;
     Ccelula * primeiro;
     int n_arquivos;
+    int total_ocorrencias;
 
 }TipoItem;
 

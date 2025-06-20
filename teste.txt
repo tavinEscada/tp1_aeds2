@@ -1,3 +1,4 @@
-2
-Analise de satisfacao de uso de.txt
+3
 A Genetic Algorithm for Multi-Component Optimization.txt
+A otimizacao da distribuicao de pot.txt
+A hardware accelerator implementation for real-time collision detection.txt
