@@ -3,35 +3,33 @@
 
 #include <string.h>
 #include<stdlib.h> 
+#include <stdio.h>
 #include <sys/time.h>
-#define DE 8   /* depende de TipoChave */
-#define max 50 // mudar para receber como parâmetro o numero de pocs
-
-typedef unsigned char TipoChave; /* a definir, dependendo da aplicacao */
-typedef unsigned char TipoIndexAmp;
-typedef unsigned char TipoDib;
-
-typedef struct{
-    int qtde;
-    int iddoc;
-}par;
+#include "patricia_indice.h"
 
 typedef enum {
   Interno, Externo
 } TipoNo;
 
-typedef struct TipoPatNo* TipoArvore; 
-typedef struct TipoPatNo {
-  TipoNo nt;
+typedef struct NO_patricia* TipoArvore; 
+typedef struct NO_patricia {
+  TipoNo tipo_no;
   union {
     struct {
-      TipoChave caractere;
-      TipoIndexAmp Index;
-      TipoArvore A,B,C,D,E,F,G,H,I,J,K,L,M,N,o,P,Q,R,S,T,U,V,W,X,Y,Z;
-    } NInterno ;
-    TipoChave Chave[255];
-    par indinv[max];
+      char caractere;
+      int indice;
+      TipoArvore esq,dir;
+    } NInterno;
+    TipoItem chave; 
   } NO;
-} TipoPatNo;
+} NO_patricia;
+
+TipoArvore Cria_NO_Externo(char* palavra,int idDoc);
+TipoArvore Cria_NO_Interno(int i, TipoArvore *esq, TipoArvore *dir, char caractere);
+TipoArvore InsereEntrePat(char* palavra, int idDoc, TipoArvore *NoAtual, int i, char caractere_interno);
+TipoArvore InserePat(char* palavra,int idDoc, TipoArvore *NoRaiz);
+void PesquisaPat(char* palavra, TipoArvore NoRaiz,int* visitas);
+short Eh_Externo(TipoArvore NO);
+void ImprimeOrdemPat(TipoArvore t);
 
 #endif

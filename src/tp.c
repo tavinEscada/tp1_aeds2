@@ -202,6 +202,7 @@ void removeMaiusculas(char *p){
     }
 }
 
+/**trata tanto acentos quanto maiusculas*/
 void formataPalavra(char *p){
     removeAcentos(p);
     removeMaiusculas(p);
@@ -209,9 +210,9 @@ void formataPalavra(char *p){
 
 //há palavras de mais de 2 caracteres que não precisam ser levadas em conta
 int ehRelevante(char *p){
-    char *irrelevantes[] = {"isso", "uma", "com", "por", "the", "sua", "elas",
-        "seu", "como", "nao", "que", "para", "dos", "ela", "ele", "nem", "eles",
-        "das", "mas", "desse", "dessa", "esta", "esse", "essa", "desta", "tem", "for"};
+    char *irrelevantes[] = {"isso", "uma", "com", "por", "the", "sua", "elas", "that", "not",
+        "seu", "como", "nao", "que", "para", "dos", "ela", "ele", "nem", "eles", "this", "are",
+        "das", "mas", "desse", "dessa", "esta", "esse", "essa", "desta", "tem", "for", "and"};
 
     int n = sizeof(irrelevantes)/sizeof(irrelevantes[0]);
 
@@ -237,7 +238,6 @@ int ehValida(char *p){
         }
     }
 
-    
     if(t < 3){
 
         //uma letra só
@@ -261,6 +261,31 @@ int ehValida(char *p){
 
     return 1;
     
+}
+
+void removerArqs(int nArqAtual) {
+    char nomeArquivo[TMAX];
+    
+    //começa do próximo arquivo após o último lido
+    for(int i = nArqAtual + 1; ; i++){
+        //monta o nome do arquivo a ser removido
+        snprintf(nomeArquivo, sizeof(nomeArquivo), "./arquivosTratados/arquivo%d.txt", i);
+        
+        //testa se o arquivo existe
+        FILE *teste = fopen(nomeArquivo, "r");
+        if(teste == NULL){
+            //não existe
+            break;
+        }
+        
+        fclose(teste);
+        
+        if(remove(nomeArquivo) == 0){
+            printf("Arquivo remanescente removido: arquivo%d.txt\n", i);
+        }else{
+            printf("Erro ao remover arquivo%d.txt\n", i);
+        }
+    }
 }
 
 /**leitura do arquivo de entrada e dos arquivos contidos nele*/
@@ -361,6 +386,8 @@ void receberArquivo(){
         fclose(saidaAtual);
 
     }
+    //removendo arquivos que possam ter sobrado da última execução
+    removerArqs(nArq);
 
     fclose(arq);
 }
@@ -395,6 +422,15 @@ void constroiIndices(){
     }
 }
 
+void imprimeIndices(){
+
+}
+
+//usar a funcao formataPalavra!!!
+void pesquisa(){
+    
+}
+
 /**função que faz o loop do menu até que o usuário digite 0*/
 void menu(){
     
@@ -414,11 +450,11 @@ void menu(){
             case 3:
                 //exibir os indices construidos
                 Imprimir(Tabela);
+                imprimeIndices();
                 break;
 
             case 4:
-                //realizar busca
-
+                pesquisa();
                 break;
             case 0:
                 return;
