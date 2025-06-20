@@ -22,6 +22,7 @@
 
 #include "../include/tp.h"
 #include "../include/hash.h"
+#include "../include/patricia.h"
 
 #define TMAX 1042
 
@@ -212,7 +213,8 @@ void formataPalavra(char *p){
 int ehRelevante(char *p){
     char *irrelevantes[] = {"isso", "uma", "com", "por", "the", "sua", "elas", "that", "not",
         "seu", "como", "nao", "que", "para", "dos", "ela", "ele", "nem", "eles", "this", "are",
-        "das", "mas", "desse", "dessa", "esta", "esse", "essa", "desta", "tem", "for", "and"};
+        "das", "mas", "desse", "dessa", "esta", "esse", "essa", "desta", "tem", "for", "and",
+        "with", "such"};
 
     int n = sizeof(irrelevantes)/sizeof(irrelevantes[0]);
 
@@ -392,7 +394,7 @@ void receberArquivo(){
     fclose(arq);
 }
 
-void constroiIndices(){
+void constroiIndices(TipoArvore *patricia){
     char enderecoTextos[50] = "./arquivosTratados/";
     char nomeCompleto[TMAX];
 
@@ -409,10 +411,10 @@ void constroiIndices(){
         while(fgets(palavra, sizeof(palavra), arqAtual) != NULL){
             //ADICIONAR NA ARVORE E NA TABELA aqui!!! (idDoc pode ser o 'i')
             palavra[strcspn(palavra, "\n")] = '\0';
-            Insere(palavra,i,Tabela,p);
+            Insere(palavra, i, Tabela, p);
 
 
-            //printf("%s", palavra);
+            (*patricia) = InserePat(palavra, i, patricia);
             
         }
         i++;
@@ -422,18 +424,46 @@ void constroiIndices(){
     }
 }
 
-void imprimeIndices(){
+void imprimeIndices(TipoArvore patricia){
+    
+    Imprimir(Tabela);
+
+    printf("\n--- Indice Invertido da Patricia ---\n");
+    ImprimeOrdemPat(patricia);
+
 
 }
 
-//usar a funcao formataPalavra!!!
 void pesquisa(){
-    
+    char entrada[900];
+    char *palavra;
+    printf("Palavras da pesquisa:\n");
+
+    getchar();
+
+    if (fgets(entrada, sizeof(entrada), stdin) != NULL) {
+        //remove \n do final
+        entrada[strcspn(entrada, "\n")] = '\0';
+
+        if(strlen(entrada) > 0){
+            palavra = strtok(entrada, " ");
+
+            while(palavra != NULL){
+
+                removeAcentos(palavra);
+                removeMaiusculas(palavra);
+                printf("Pesquisando: %s\n", palavra);
+
+                palavra = strtok(NULL, " ");
+            }
+        }
+    }
+
 }
 
 /**função que faz o loop do menu até que o usuário digite 0*/
 void menu(){
-    
+    TipoArvore a = NULL;
     int op = 0;
     do{
         printf("--- Menu ---\n1 - Ler o arquivo com os textos\n2 - Construir os indices invertidos\n3 - Exibir os indices invertidos\n4 - Busca\n0 - Fechar\n");
@@ -444,13 +474,11 @@ void menu(){
                 receberArquivo();
                 break;
             case 2:
-                constroiIndices();
+                constroiIndices(&a);
                 break;
 
             case 3:
-                //exibir os indices construidos
-                Imprimir(Tabela);
-                imprimeIndices();
+                imprimeIndices(a);
                 break;
 
             case 4:

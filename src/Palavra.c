@@ -7,7 +7,7 @@ extern unsigned long long int comp_insercao_hash;
 extern unsigned long long int comp_busca_hash;
 
 
-void faz_palavra_vazia( TipoItem * item, char * palavra){
+void faz_palavra_vazia(TipoItemP * item, char * palavra){
     item->primeiro = (Ccelula*)malloc(sizeof(Ccelula));
     item->primeiro->prox = NULL;
     strcpy(item->palavra,palavra);
@@ -15,7 +15,7 @@ void faz_palavra_vazia( TipoItem * item, char * palavra){
     item->total_ocorrencias = 0;
 }
 
-void imprime_indice_invertido( TipoItem * item){
+void imprime_indice_invertido(TipoItemP * item){
     printf("%s: ", item->palavra);
 
     Ccelula * aux;
@@ -24,9 +24,9 @@ void imprime_indice_invertido( TipoItem * item){
     while(aux->prox != NULL){
         
         if(aux->prox->prox != NULL){
-            printf("< %d , %d > | ", aux->prox->qtde, aux->prox->idDoc);
+            printf("<%d , %d> | ", aux->prox->qtde, aux->prox->idDoc);
         }else{
-            printf(" < %d , %d > ", aux->prox->qtde, aux->prox->idDoc);
+            printf(" <%d , %d> ", aux->prox->qtde, aux->prox->idDoc);
         }
 
         aux = aux->prox;
@@ -34,7 +34,7 @@ void imprime_indice_invertido( TipoItem * item){
     printf("\n");
 }
 
-void insere_palavra (TipoItem * item, int idDoc){
+void insere_palavra (TipoItemP * item, int idDoc){
 
     Ccelula * aux;
     aux = item->primeiro;
@@ -63,7 +63,7 @@ void insere_palavra (TipoItem * item, int idDoc){
     
 }
 
-int remove_palavra (TipoItem * item, int idDoc){
+int remove_palavra (TipoItemP * item, int idDoc){
 
     Ccelula * anterior;
     Ccelula * aux;
