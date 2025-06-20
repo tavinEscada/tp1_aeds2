@@ -1,4 +1,4 @@
-2GCMA: Um gerador automático de modelos causais baseado em algoritmo evolutivo
+GCMA: Um gerador automático de modelos causais baseado em algoritmo evolutivo
 Resumo. Apesar da associação ser uma ferramenta poderosa para os negócios, ela nem sempre indica causalidade. Por isso, nos últimos
 anos muito tem se estudado e pesquisado a respeito dessa área. Como consequência, novos problemas surgiram. Dentre eles a geração
 automatizada de modelos causais, parte crucial do estudo da causalidade. Apesar de existirem ferramentas que tentam atender a essa

@@ -10,7 +10,19 @@
 #include <string.h>
 #include <ctype.h>
 
+#ifdef _WIN32
+    #include <direct.h>
+    #define mkdir(dir) _mkdir(dir)
+    #define getcwd _getcwd
+#else
+    #include <unistd.h>
+    #include <sys/stat.h>
+    #define mkdir(dir) mkdir(dir, 0755)
+#endif
+
 #include "../include/tp.h"
+
+#define TMAX 1042
 
 /**
  * Dada uma palavra, substitui 
@@ -189,11 +201,72 @@ void removeMaiusculas(char *p){
     }
 }
 
+void formataPalavra(char *p){
+    removeAcentos(p);
+    removeMaiusculas(p);
+}
+
+//há palavras de mais de 2 caracteres que não precisam ser levadas em conta
+int ehRelevante(char *p){
+    char *irrelevantes[] = {"isso", "uma", "com", "por", "the", "sua", "elas",
+        "seu", "como", "nao", "que", "para", "dos", "ela", "ele", "nem", "eles",
+        "das", "mas", "desse", "dessa", "esta", "esse", "essa", "desta", "tem", "for"};
+
+    int n = sizeof(irrelevantes)/sizeof(irrelevantes[0]);
+
+    for(int i = 0; i < n; i++){
+        if(strcmp(p, irrelevantes[i]) == 0){
+            return 0;
+        }
+    }
+    return 1;
+
+}
+
+int ehValida(char *p){
+
+    removeAcentos(p);
+
+    int t = strlen(p);
+
+    //caracteres especiais que possam ter sobrado (como '20%')
+    for(int j = 0; j < t; j++){
+        if(!isalpha(p[j])){
+            return 0;
+        }
+    }
+
+    
+    if(t < 3){
+
+        //uma letra só
+        if(t == 1){
+            return 0;
+        }
+
+        //duas letras, mas não é sigla
+        for(int i = 0; i < t; i++){
+            if(islower(p[i])){
+                return 0;
+            }
+        }
+    }
+
+    removeMaiusculas(p);
+
+    if(!ehRelevante(p)){
+        return 0;
+    }
+
+    return 1;
+    
+}
 
 /**leitura do arquivo de entrada e dos arquivos contidos nele*/
 void receberArquivo(){
+    
     char nome[256];
-    char pasta[8] = "./pocs/";
+    int nArq = 0;
 
     printf("Nome do arquivo:\n");
     scanf("%s", nome);
@@ -204,15 +277,23 @@ void receberArquivo(){
         printf("Erro ao abrir o arquivo\n");
         return;
     }
-    int nArq = 0;
 
     fscanf(arq, "%d", &nArq);
-    fgetc(arq);
+    fgets(nome, sizeof(nome), arq);
 
     if(nArq <= 0){
         printf("N de arquivos invalido\n");
         return;
     }
+
+    //nenhum problema na leitura (arquivo valido, qtd valida, etc)
+
+    //criando a pasta que armazenará os arquivos com as palavras já separadas e formatadas
+    mkdir("./arquivosTratados");
+
+    char cEntrada[8] = "./pocs/";
+    char cSaida[21] = "./arquivosTratados/";
+
 
     for(int i = 1; i <= nArq; i++){
 
@@ -220,78 +301,94 @@ void receberArquivo(){
 
         fgets(nome, 256, arq);
 
-        //remover possíveis '\n' no final das palavras e trocar por '\0' (fim da palavra)
-        nome[strcspn(nome, "\n")] = '\0';
+        //remover possíveis '\r' (do linux) e '\n' no final das palavras e trocar por '\0' (fim da palavra)
+        nome[strcspn(nome, "\r\n")] = '\0';
 
-        char caminho[256];
+        char entrada[TMAX];
+        char saida[TMAX];
 
         //juntando o prefixo do endereço dos arquivos ('.\pocs') com o nome de cada arquivo
-        snprintf(caminho, 256, "%s%s", pasta, nome);
+        snprintf(entrada, TMAX, "%s%s", cEntrada, nome);
 
-        FILE *arquivoAtual = fopen(caminho, "r");
+
+        snprintf(saida, TMAX, "%sarquivo%d.txt", cSaida, i);
+
+        FILE *arquivoAtual = fopen(entrada, "r");
+        FILE *saidaAtual = fopen(saida, "w");
 
         if(arquivoAtual == NULL){
             printf("Erro ao abrir o arquivo '%s'\n", nome);
             //conferir pra ver se vamos continuar lendo o resto mesmo ou para tudo!!!
             continue;
         }
+        if(saidaAtual == NULL){
+            printf("erro ao criar o arquivo de saida %d\n\n", i);
+            //conferir tbm se continua
+            continue;
+        }
+
         char linha[256];
 
         //testando o print de cada palavra de cada arquivo
-        printf("Palavras do arquivo %d ('%s'):\n", i, nome);
+        //printf("Palavras do arquivo %d ('%s'):\n", i, nome);
         while(fgets(linha, sizeof(linha), arquivoAtual) != NULL){
             //tokenizando cada linha
             linha[strcspn(linha, "\n")] = '\0';
 
             //pegando a primeira palavra da linha
-            char *palavra = strtok(linha, " .,:;()\"'-/?\n");
+            char *palavra = strtok(linha, " .,:;()\"'-/?\r\n");
 
             while(palavra != NULL){
 
-                removeAcentos(palavra);
-                
-                //si pa é bom passar para uma funcao
-                int ehPalavra = 1;
-
-                unsigned int tPalavra = strlen(palavra);
-
-                //verificando a existência de caracteres especiais que possam ter sobrado
-                for(unsigned int j = 0; j < tPalavra; j++){
-                    if(!isalpha(palavra[j])){
-                        ehPalavra = 0;
-                        break;
-                    }
-                }
-
-                //removendo palavras de duas letras ou menos que não sejam siglas
-                if(tPalavra <= 2 && ehPalavra){
-                    for(unsigned int j = 0; j < tPalavra; j++){
-                        if(islower(palavra[j]) || tPalavra < 2){
-                            ehPalavra = 0;
-                            break;
-                        }
-                    }
-                }
-
                 //depois das verificações, pegando apenas as palavra válidas
-                if(ehPalavra){
-                    removeMaiusculas(palavra);
-                    printf("%s\n", palavra);
+                if(ehValida(palavra)){
+
+                    fprintf(saidaAtual, "%s\n", palavra);
+
+                    //printf("%s\n", palavra);
                     nPalavras++;
                 }
                 
                 //passando para a próxima palavra da linha
-                palavra = strtok(NULL, " .,:;()\"'-/?\n");
+                palavra = strtok(NULL, " .,:;()\"'-/?\r\n");
             }
             
         }
-        printf("\nO arquivo %d ('%s') tem %d palavras.\n\n", i, nome, nPalavras);
+        //printf("\nO arquivo %d ('%s') tem %d palavras.\n\n", i, nome, nPalavras);
 
         fclose(arquivoAtual);
+        fclose(saidaAtual);
 
     }
 
     fclose(arq);
+}
+
+void constroiIndices(){
+    char enderecoTextos[50] = "./arquivosTratados/";
+    char nomeCompleto[TMAX];
+
+    snprintf(nomeCompleto, TMAX, "%s%s%d%s", enderecoTextos, "arquivo", 1, ".txt");
+    FILE *arqAtual = fopen(nomeCompleto, "r");
+
+    char palavra[200];
+    
+    for(int i = 1; arqAtual;){
+        char nNome[40];
+        while(fgets(palavra, sizeof(palavra), arqAtual) != NULL){
+            //ADICIONAR NA ARVORE E NA TABELA aqui!!! (idDoc pode ser o 'i')
+
+
+
+
+            //printf("%s", palavra);
+            
+        }
+        i++;
+        snprintf(nNome, TMAX, "%s%s%d%s", enderecoTextos, "arquivo", i, ".txt");
+        arqAtual = fopen(nNome, "r");
+
+    }
 }
 
 /**função que faz o loop do menu até que o usuário digite 0*/
@@ -299,7 +396,7 @@ void menu(){
     
     int op = 0;
     do{
-        printf("--- Menu ---\n1 - Ler o arquivo com os textos\n2 - Construir os indices invertidos\n3 - Escrever os indices invertidos\n4 - Busca\n0 - Fechar\n");
+        printf("--- Menu ---\n1 - Ler o arquivo com os textos\n2 - Construir os indices invertidos\n3 - Exibir os indices invertidos\n4 - Busca\n0 - Fechar\n");
         scanf("%d", &op);
 
         switch(op){
@@ -307,8 +404,7 @@ void menu(){
                 receberArquivo();
                 break;
             case 2:
-                //construcao dos indices
-
+                constroiIndices();
                 break;
 
             case 3:
