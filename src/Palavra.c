@@ -12,6 +12,7 @@ void faz_palavra_vazia( TipoItem * item, char * palavra){
     item->primeiro->prox = NULL;
     strcpy(item->palavra,palavra);
     item->n_arquivos = 0;
+    item->total_ocorrencias = 0;
 }
 
 void imprime_indice_invertido( TipoItem * item){
@@ -43,6 +44,7 @@ void insere_palavra (TipoItem * item, int idDoc){
 		comp_insercao_hash++;
         if(aux->prox->idDoc == idDoc){ //se esse documento ja teve essa palavra antes, a quantidade só incrementa
             aux->prox->qtde++;
+            item->total_ocorrencias++;
             return;
         }
 
@@ -55,6 +57,7 @@ void insere_palavra (TipoItem * item, int idDoc){
     aux->prox->idDoc = idDoc;
     aux->prox->qtde = 1;
     item->n_arquivos++;
+    item->total_ocorrencias++;
     
     return;
     
@@ -75,11 +78,13 @@ int remove_palavra (TipoItem * item, int idDoc){
 
             if(aux->qtde > 1){
                 aux->qtde--;
+                item->total_ocorrencias--;
                 printf("%d restantes \n", aux->qtde);
             }else{
                 anterior->prox = aux->prox;
                 free(aux);
                 item->n_arquivos--;
+                item->total_ocorrencias--;
                 printf("0 restantes \n");
             }
             return 1;
