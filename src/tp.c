@@ -21,6 +21,7 @@
 #endif
 
 #include "../include/tp.h"
+#include "../include/hash.h"
 
 #define TMAX 1042
 
@@ -372,13 +373,16 @@ void constroiIndices(){
     FILE *arqAtual = fopen(nomeCompleto, "r");
 
     char palavra[200];
+
+    Inicializa(Tabela);
+    GeraPesos(p);   
     
     for(int i = 1; arqAtual;){
         char nNome[40];
         while(fgets(palavra, sizeof(palavra), arqAtual) != NULL){
             //ADICIONAR NA ARVORE E NA TABELA aqui!!! (idDoc pode ser o 'i')
-
-
+            palavra[strcspn(palavra, "\n")] = '\0';
+            Insere(palavra,i,Tabela,p);
 
 
             //printf("%s", palavra);
@@ -409,7 +413,7 @@ void menu(){
 
             case 3:
                 //exibir os indices construidos
-
+                Imprimir(Tabela);
                 break;
 
             case 4:
