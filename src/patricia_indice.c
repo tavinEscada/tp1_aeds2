@@ -4,23 +4,23 @@
 #include "../include/patricia_indice.h"
 
 
-void Inicializa_listaIndice(Lista_Indice_Invertido* lista){
+void Inicializa_listaIndice(TipoItem* no_palavra){
 
-    lista->primeiro = (celula*) malloc(sizeof(celula));
-    lista->ultimo = lista->primeiro;
-    lista->primeiro->prox = NULL;
+    no_palavra->lista.primeiro = (celula*) malloc(sizeof(celula));
+    no_palavra->lista.ultimo = no_palavra->lista.primeiro;
+    no_palavra->lista.primeiro->prox = NULL;
 
 }
 
-void Atualiza_Ocorrencia(Lista_Indice_Invertido* lista,int idDoc){
-    celula* cel_atual=lista->primeiro;
+void Atualiza_Ocorrencia(TipoItem* no_palavra,int idDoc){
+    celula* cel_atual=no_palavra->lista.primeiro->prox;
 
     while(cel_atual!=NULL && cel_atual->idDoc!=idDoc){
         cel_atual=cel_atual->prox;
     }
 
     if (cel_atual==NULL){
-        Insere_Ocorrencia(lista,idDoc);
+        Insere_Ocorrencia(no_palavra,idDoc);
     }
     else{
         Incrementa_Ocorrencia(cel_atual);
@@ -28,13 +28,14 @@ void Atualiza_Ocorrencia(Lista_Indice_Invertido* lista,int idDoc){
     
 }
 
-void Insere_Ocorrencia(Lista_Indice_Invertido* lista,int idDoc){
+void Insere_Ocorrencia(TipoItem* no_palavra,int idDoc){
 
-    lista->ultimo->prox = (celula*) malloc(sizeof(celula));
-    lista->ultimo = lista->ultimo->prox;
-    lista->ultimo->idDoc = idDoc;
-    lista->ultimo->qtde = 1;
-    lista->ultimo->prox = NULL;
+    no_palavra->lista.ultimo->prox = (celula*) malloc(sizeof(celula));
+    no_palavra->lista.ultimo = no_palavra->lista.ultimo->prox;
+    no_palavra->lista.ultimo->idDoc = idDoc;
+    no_palavra->lista.ultimo->qtde = 1;
+    no_palavra->n_arquivos+=1;
+    no_palavra->lista.ultimo->prox = NULL;
 
 }
 
@@ -42,10 +43,10 @@ void Incrementa_Ocorrencia(celula* celula){
     celula->qtde+=1;
 }
 
-void Imprime_ListaIndice (Lista_Indice_Invertido* lista){
+void Imprime_ListaIndice (Lista_Indice_Invertido lista){
 
     celula* aux;
-    aux = lista->primeiro->prox;
+    aux = lista.primeiro->prox;
     while (aux != NULL){
         
         if (aux->prox==NULL)

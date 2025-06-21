@@ -25,21 +25,21 @@ TipoArvore Cria_NO_Externo(char* palavra,int idDoc){ //função para inicializar
     Novo_NO = (TipoArvore)malloc(sizeof(NO_patricia));
     Novo_NO->tipo_no = Externo; 
 
-    Inicializa_listaIndice(&Novo_NO->NO.chave.lista);
-    Atualiza_Ocorrencia(&Novo_NO->NO.chave.lista,idDoc);
-
-    strcpy((char *)Novo_NO->NO.chave.word, palavra); 
+    // Novo_NO->NO.chave.primeiro = (Ccelula *)malloc(sizeof(Ccelula));
+    // Novo_NO->NO.chave.primeiro->prox = NULL;
+    faz_palavra_vazia(&Novo_NO->NO.chave,palavra);
+    insere_palavra(&Novo_NO->NO.chave,idDoc);
     
     return Novo_NO;
 }  
 
-void PesquisaPat(char* palavra, TipoArvore NoRaiz,int* visitas) {
+void PesquisaPat(char* palavra, TipoArvore NoRaiz) {
 
     TipoArvore NoAtual=NoRaiz;
 
     if (Eh_Externo(NoAtual)) {
-        if (strcmp((const char*)palavra, (const char*)NoAtual->NO.chave.word) == 0){
-            printf("Elemento encontrado\n");
+        if (strcmp((const char*)palavra, (const char*)NoAtual->NO.chave.palavra) == 0){
+            printf("%s aparece em %d docs\n",NoAtual->NO.chave.palavra,NoAtual->NO.chave.n_arquivos);
         }
         else{
             printf("Elemento nao encontrado\n");
@@ -48,12 +48,10 @@ void PesquisaPat(char* palavra, TipoArvore NoRaiz,int* visitas) {
     }
 
     if (palavra[NoAtual->NO.NInterno.indice] >= NoAtual->NO.NInterno.caractere){
-        (*visitas)+=1;
-        PesquisaPat(palavra, NoAtual->NO.NInterno.dir,visitas);
+        PesquisaPat(palavra, NoAtual->NO.NInterno.dir);
     }
     else{
-        (*visitas)+=1;
-        PesquisaPat(palavra, NoAtual->NO.NInterno.esq,visitas);
+        PesquisaPat(palavra, NoAtual->NO.NInterno.esq);
     }
 }
 
@@ -88,7 +86,7 @@ TipoArvore InserePat(char* palavra, int idDoc, TipoArvore *NoRaiz){
     TipoArvore NoAtual;
     int i;
     char caractere_dif;
-  
+          
     if (*NoRaiz == NULL){
         return (Cria_NO_Externo(palavra,idDoc));
     }
@@ -105,17 +103,17 @@ TipoArvore InserePat(char* palavra, int idDoc, TipoArvore *NoRaiz){
         }
 
         i = 0;
-        while (i<= strlen((const char*)palavra) && palavra[i] == NoAtual->NO.chave.word[i])
+        while (i<= strlen((const char*)palavra) && palavra[i] == NoAtual->NO.chave.palavra[i])
             i++;
 
         if (i > strlen((const char*)palavra)){
 
-            Atualiza_Ocorrencia(&NoAtual->NO.chave.lista,idDoc);
+            insere_palavra(&NoAtual->NO.chave,idDoc);
             return (*NoRaiz); 
             
         }
         else{
-            caractere_dif=NoAtual->NO.chave.word[i];
+            caractere_dif=NoAtual->NO.chave.palavra[i];
             //garante que o caractere em nó interno será sempre o maior
             //prefixos irão sempre para a esquerda pois \0 é menor que todos caracteres
             return InsereEntrePat(palavra, idDoc, NoRaiz, i, (palavra[i] > caractere_dif) ? palavra[i] : caractere_dif);
@@ -127,9 +125,7 @@ void ImprimeOrdemPat(TipoArvore t){
     if (t == NULL) return;
 
     if (Eh_Externo(t)){
-        printf("%s: ", (char *)t->NO.chave.word);
-        Imprime_ListaIndice(&t->NO.chave.lista);
-        printf("\n");
+        imprime_indice_invertido(&t->NO.chave);
     
     } 
     else{
