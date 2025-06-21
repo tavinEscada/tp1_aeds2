@@ -5,6 +5,5 @@ em uma tentativa de minimizar estes custos. Visando buscar mais realismo, este t
 proposta utilizando o Bee Algorithm, denominado PDEZOPs-BA, para resolver o problema com
 a variante de Zonas de Operação Proibida (ZOP), que adiciona descontinuidade ao problema do
 despacho econômico. Este trabalho apresenta resultados obtidos por meio de estudos de casos
-baseados no problema do despacho econômico com ZOPs, com o intuito de validar o PDEZOPs-
-BA.
-Despacho Econômico, Zonas Proibidas de Operação, Bee Algorithm
+baseados no problema do despacho econômico com ZOPs, com o intuito de validar o PDEZOPs-BA.
+Despacho Econômico, Zonas Proibidas de Operação, Bee Algorithm 

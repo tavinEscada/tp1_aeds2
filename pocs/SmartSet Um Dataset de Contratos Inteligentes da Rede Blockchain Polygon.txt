@@ -1,2 +1,13 @@
 SmartSet: Um Dataset de Contratos Inteligentes da Rede Blockchain Polygon
-Resumo. As redes Blockchain vêm ganhando popularidade nos últimos anos. Com a chegada dos contratos inteligentes e da rede Ethereum, diversas sidechains, como a rede Polygon, passaram a ser utilizadas como alternativas devido ao baixo custo de transações e ao ganho de velocidade na mineração de blocos. Dessa forma, diversas pesquisas têm surgido com o objetivo de garantir que os contratos inteligentes presentes nas redes Blockchain estejam livres de vulnerabilidades. Neste trabalho, desenvolvemos um conjunto de dados de contratos inteligentes escritos na linguagem Solidity, extraídos diretamente da rede Polygon. Obtivemos uma amostra de 4.708 contratos inteligentes verificados pela rede e 151.542 não verificados, totalizando 156.250 códigos coletados ao longo de 1,2 dias. Esse conjunto de dados pode servir como base para análises e para o desenvolvimento de modelos voltados à detecção de vulnerabilidades, contribuindo para a criação de contratos inteligentes mais seguros.
+Resumo. As redes Blockchain vêm ganhando popularidade nos últimos anos. Com a 
+chegada dos contratos inteligentes e da rede Ethereum, diversas sidechains, como 
+a rede Polygon, passaram a ser utilizadas como alternativas devido ao baixo custo 
+de transações e ao ganho de velocidade na mineração de blocos. Dessa forma, diversas 
+pesquisas têm surgido com o objetivo de garantir que os contratos inteligentes presentes 
+nas redes Blockchain estejam livres de vulnerabilidades. Neste trabalho, desenvolvemos 
+um conjunto de dados de contratos inteligentes escritos na linguagem Solidity, extraídos 
+diretamente da rede Polygon. Obtivemos uma amostra de 4.708 contratos inteligentes 
+verificados pela rede e 151.542 não verificados, totalizando 156.250 códigos coletados 
+ao longo de 1,2 dias. Esse conjunto de dados pode servir como base para análises e para 
+o desenvolvimento de modelos voltados à detecção de vulnerabilidades, contribuindo para 
+a criação de contratos inteligentes mais seguros.

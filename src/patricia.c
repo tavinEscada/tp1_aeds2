@@ -84,7 +84,7 @@ TipoArvore InsereEntrePat(char* palavra,int idDoc, TipoArvore *NoAtual, int i, c
 TipoArvore InserePat(char* palavra, int idDoc, TipoArvore *NoRaiz){
   
     TipoArvore NoAtual;
-    int i;
+    unsigned int i;
     char caractere_dif;
           
     if (*NoRaiz == NULL){

@@ -7,7 +7,8 @@ que requisitam taxas de transferência alta e baixa latência
 levantam questões como o controle de congestionamento em
 roteadores. Neste trabalho propomos um roteador implementado
 em hardware com políticas de controle de congestionamento
-reconfiguráveis que possibilita a utilização de políticas de congestionamento em tempo de execução sem a necessidade de
+reconfiguráveis que possibilita a utilização de políticas de 
+congestionamento em tempo de execução sem a necessidade de
 recompilar ou reiniciar o roteador quando o usuário altera,
 em tempo de execução, a forma como o congestionamento deve
 ser tratado. Nosso trabalho foi implementado na plataforma

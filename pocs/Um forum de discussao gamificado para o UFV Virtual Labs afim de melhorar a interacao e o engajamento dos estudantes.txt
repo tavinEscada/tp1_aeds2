@@ -1,5 +1,5 @@
 Um fórum de discussão gamificado para o UFV Virtual Labs afim de melhorar a interação e o engajamento dos estudantes
-Resumo
+
 Este trabalho apresenta o desenvolvimento de um fórum de discussão para o UFV Virtual Labs, uma plataforma de
 Laboratórios Virtuais de apoio ao processo de ensino-aprendizagem que pode ser utilizada no contexto presencial ou
 remoto. Em ambientes desse tipo, é necessário que haja alguma funcionalidade que promova a comunicação entre

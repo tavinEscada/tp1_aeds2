@@ -18,3 +18,4 @@ parte de entidades públicas municipais.
 
 Análise de Dados. Portal da Transparência. Município.
 Web Crawler. Selenium.
+ 

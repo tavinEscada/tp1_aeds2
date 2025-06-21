@@ -1,5 +1,11 @@
-ALGORITMO GENéTICO PARA O PROBLEMA DO DESPACHO ECONÔMICO DE ENERGIA ELÉTRICA COM INCERTEZAS
-O Problema de Alocação de Salas (PAS) é um obstáculo recorrente nas instituições de ensino superior de todo o Brasil. O PAS consiste em alocar turmas de disciplinas em salas de aula pré-definidas, buscando atender ao máximo de restrições do modelo.
-Este trabalho tem por objetivo apresentar um algoritmo genético capaz de gerar alocações viáveis e de qualidade para o PAS, baseado na estrutura física da Universidade Federal de Viçosa – Campus Florestal. Os dados utilizados para gerar os experimentos computacionais foram coletados por meio de alocações reais existentes no Campus.
-O uso do algoritmo genético para resolver o PAS gerou soluções em tempo viável e otimizadas, mostrando-se eficiente para ser aplicado na alocação de salas da UFV – Campus Florestal.
+algoritmo genético para o problema do despacho econômico de energia elétrica com incertezas
+O Problema de Alocação de Salas (PAS) é um obstáculo recorrente nas instituições de ensino superior 
+de todo o Brasil. O PAS consiste em alocar turmas de disciplinas em salas de aula pré-definidas, 
+buscando atender ao máximo de restrições do modelo.
+Este trabalho tem por objetivo apresentar um algoritmo genético capaz de gerar alocações viáveis 
+e de qualidade para o PAS, baseado na estrutura física da Universidade Federal de Viçosa – Campus 
+Florestal. Os dados utilizados para gerar os experimentos computacionais foram coletados por meio 
+de alocações reais existentes no Campus.
+O uso do algoritmo genético para resolver o PAS gerou soluções em tempo viável e otimizadas, 
+mostrando-se eficiente para ser aplicado na alocação de salas da UFV – Campus Florestal.
 Problema de Alocação de Salas, Algoritmo Genético, Meta-heurísticas.

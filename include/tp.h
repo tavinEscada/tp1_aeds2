@@ -8,6 +8,26 @@
 #ifndef TP_H
 #define TP_H
 
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
+
+#ifdef _WIN32
+    #include <direct.h>
+    #define mkdir(dir) _mkdir(dir)
+    #define getcwd _getcwd
+#else
+    #include <unistd.h>
+    #include <sys/stat.h>
+    #define mkdir(dir) mkdir(dir, 0755)
+#endif
+
+#include "../include/tp.h"
+#include "../include/hash.h"
+
+#define TMAX 1042
+
 void removeAcentos(char *p);
 void removeMaiusculas(char *p);
 void formataPalavra(char *p);

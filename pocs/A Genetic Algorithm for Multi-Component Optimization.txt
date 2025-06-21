@@ -1,3 +1,17 @@
-A Genetic Algorithm for Multi-Component Optimization Problems: the Case of the Travelling Thief Problem
-Real-world problems many times are characterized by being composed by multiple interdependent components. In this case, benchmark problems that do not represent that interdependency are not a good choice to assess algorithms performance. Recently in the literature a benchmark problem called Travelling Thief Problem was proposed to better represent real-world multi-component problems. TTP is a combination of two well-known problems: 0-1 Knapsack Problem (KP) and the Travelling Salesman Problem (TSP). This paper presents a genetic algorithm-based optimization approach called Multi-Component Genetic Algorithm (MCGA) for solving TTP. The ideia is solve the overall problem instead of each sub-component separately. Starting from solution for the TSP component, obtained by the Chained Lin-Kernighan heuristic, the MCGA applies the evolutionary process (evaluation, selection, crossover, and mutation) iteratively using different operators for KP and TSP components. The MCGA was tested on some representative instances of TTP available in the literature. The comparisons show that MCGA obtains competitive solutions for TTP instances with a number of cities between 51 and 783
+A Genetic Algorithm for Multi-Component Optimization Problems: the Case of the 
+Travelling Thief Problem
+Real-world problems many times are characterized by being composed by multiple 
+interdependent components. In this case, benchmark problems that do not represent 
+that interdependency are not a good choice to assess algorithms performance. 
+Recently in the literature a benchmark problem called Travelling Thief Problem 
+was proposed to better represent real-world multi-component problems. TTP is a 
+combination of two well-known problems: 0-1 Knapsack Problem (KP) and the Travelling 
+Salesman Problem (TSP). This paper presents a genetic algorithm-based optimization 
+approach called Multi-Component Genetic Algorithm (MCGA) for solving TTP. The ideia 
+is solve the overall problem instead of each sub-component separately. Starting 
+from solution for the TSP component, obtained by the Chained Lin-Kernighan heuristic, 
+the MCGA applies the evolutionary process (evaluation, selection, crossover, and mutation) 
+iteratively using different operators for KP and TSP components. The MCGA was tested on some 
+representative instances of TTP available in the literature. The comparisons show that MCGA 
+obtains competitive solutions for TTP instances with a number of cities between 51 and 783
 Travelling Thief Problem; Genetic Algorithm; Combinatorial problem optimization

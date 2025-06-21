@@ -1,0 +1,16 @@
+Novel Three-Input Gates for Silicon Quantum Dot
+Atomic Silicon Quantum Dot (SQD) is a prominent
+alternative to the current Complementary Metal Oxide Semiconductor (CMOS) 
+transistor due to the low energy consumption
+and high integration potential. This emerging technology applies
+Silicon Dangling Bonds (DBs) that behave similarly to quantumdots. Moreover, 
+it does not require cryogenic temperatures,
+unlike other quantum-dot-based approaches. This paper proposes
+two novel 3-input gates, and
+ANDOR Hence, we compare these 3-input
+designs with the equivalent circuits composed of 2-input gates.
+We use the state-of-the-art simulator, named SiQAD, to design
+and validate our experiments. Our main contribution is the novel
+3-input gate designs that provide area and energy reductions. We
+achieve an average of 53% energy savings for all 3-input gates
+compared to the equivalent circuit built with 2-input gates.

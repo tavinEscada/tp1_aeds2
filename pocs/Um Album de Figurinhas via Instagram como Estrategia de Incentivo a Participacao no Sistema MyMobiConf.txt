@@ -1,2 +1,13 @@
-Um Álbum de Figurinhas via Instagram como Estratégia de Incentivo a Participação no Sistema MyMobiConf
-Resumo. Redes de sensoriamento participativo (RSP) são sistemas nos quais os nós que enviam dados são pessoas com dispositivos móveis. Esses sistemas, por muitas vezes, sofrem com a falta de engajamento de seus usuários. O myMobiConf é um exemplo de RSP de apoio a eventos que conta com uma abordagem de gamificação para tentar diminuir essa falta de engajamento. Observando RSPs de sucesso, como a rede social Instagram, e a presença forte de álbuns de figurinhas na cultura brasileira, este trabalho propõe a implementação de um álbum de figurinhas integrado ao Instagram, como uma adição à abordagem de gamificação do aplicativo. A implementação do álbum de figurinhas durante eventos demonstrou ser eficaz para aumentar o engajamento dos participantes, resultando em um retorno mais frequente ao aplicativo ao longo do evento.
+Um Álbum de Figurinhas via Instagram como Estratégia de Incentivo a Participação no 
+Sistema MyMobiConf
+Resumo. Redes de sensoriamento participativo (RSP) são sistemas nos quais os nós 
+que enviam dados são pessoas com dispositivos móveis. Esses sistemas, por muitas 
+vezes, sofrem com a falta de engajamento de seus usuários. O myMobiConf é um 
+exemplo de RSP de apoio a eventos que conta com uma abordagem de gamificação 
+para tentar diminuir essa falta de engajamento. Observando RSPs de sucesso, 
+como a rede social Instagram, e a presença forte de álbuns de figurinhas na 
+cultura brasileira, este trabalho propõe a implementação de um álbum de 
+figurinhas integrado ao Instagram, como uma adição à abordagem de gamificação 
+do aplicativo. A implementação do álbum de figurinhas durante eventos demonstrou 
+ser eficaz para aumentar o engajamento dos participantes, resultando em um retorno 
+mais frequente ao aplicativo ao longo do evento.

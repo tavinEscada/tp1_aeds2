@@ -50,9 +50,9 @@ void Imprime_ListaIndice (Lista_Indice_Invertido lista){
     while (aux != NULL){
         
         if (aux->prox==NULL)
-            printf("< %d , %d >", aux->idDoc,aux->qtde);
+            printf("< %d, %d >", aux->qtde, aux->idDoc);
         else
-            printf("< %d , %d > | ", aux->idDoc,aux->qtde);
+            printf("< %d, %d > | ", aux->qtde, aux->idDoc);
 
     aux = aux->prox; 
     }

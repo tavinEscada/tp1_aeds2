@@ -1,7 +1,9 @@
 Avaliação do Impacto das Vulnerabilidades
 Meltdown e Spectre em Processadores Modernos
 
-Os processadores modernos passaram a adotar novas medidas para aperfeiçoar seu desempenho. A primeira, execução fora de ordem, permite que instruções mais abaixo do fluxo
+Os processadores modernos passaram a adotar novas medidas para aperfeiçoar 
+seu desempenho. A primeira, execução fora de ordem, permite que instruções 
+mais abaixo do fluxo
 sejam executadas em paralelo com anteriores. Outra saída foi a
 execução especulativa, que executa instruções supondo que são
 realmente necessárias posteriormente. Entretanto, recentemente,

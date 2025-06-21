@@ -3,7 +3,12 @@ de dados por meio da coleta de características de
 dispositivos moveis
 
 No contexto dos serviços moveis, e fundamental para uma empresa
-que desenvolve tais tarefas conhecer os seus clientes. Uma das formas de prover esse conhecimento e a partir do perfil dos usuários. Um aspecto importante de tal perfil diz respeito as características do aparelho móvel utilizado pelo
-usuário. Porém, obter estas características não e uma tarefa fácil. Neste trabalho, foi desenvolvido um Web Service de metabusca de dados que extrai detalhes
-de dispositivos moveis de sites confiáveis na web, retornando uma base de dados com detalhes relevantes sobre o tipo de aparelho utilizado. Com os dados
-retornados, são feitos alguns testes e análises para levar a descrição do perfil de usuários móveis. 
+que desenvolve tais tarefas conhecer os seus clientes. Uma das formas de prover 
+esse conhecimento e a partir do perfil dos usuários. Um aspecto importante de tal 
+perfil diz respeito as características do aparelho móvel utilizado pelo
+usuário. Porém, obter estas características não e uma tarefa fácil. Neste trabalho, 
+foi desenvolvido um Web Service de metabusca de dados que extrai detalhes
+de dispositivos moveis de sites confiáveis na web, retornando uma base de dados com 
+detalhes relevantes sobre o tipo de aparelho utilizado. Com os dados
+retornados, são feitos alguns testes e análises para levar a descrição do perfil de 
+usuários móveis. 

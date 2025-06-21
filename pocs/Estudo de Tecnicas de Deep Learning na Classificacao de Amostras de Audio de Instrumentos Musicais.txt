@@ -1,3 +1,13 @@
 Estudo de Técnicas de Deep Learning na Classificação de Amostras de Áudio de Instrumentos Musicais
-Nos tempos modernos, diante da implacável evolução da tecnologia, o ser humano tende a estabelecer uma relação mais próxima das máquinas. Os promissores estudos voltados ao Machine Learning demonstram que a relação humano-máquina evoluiu significativamente. Neste trabalho, será abordado Deep Learning, que é um dos ramos específicos do Machine Learning, para classificação de amostras de áudio de instrumentos musicais. O objetivo é determinar a precisão do desempenho entre Redes Neurais Recorrentes e Convolucionais, realizando um comparativo e identificando fatores significativos que possam interferir no resultado final. Após o treinamento das Redes Neurais Recorrentes e Convolucionais, obteve-se, respectivamente, taxas de precisão de 88% e 96,5%. Percebe-se então, que para classificação de amostras de áudio, as técnicas de convolução empregadas nas Redes Neurais Convolucionais são mais eficientes.
+Nos tempos modernos, diante da implacável evolução da tecnologia, o ser humano tende a 
+estabelecer uma relação mais próxima das máquinas. Os promissores estudos voltados ao 
+Machine Learning demonstram que a relação humano-máquina evoluiu significativamente. 
+Neste trabalho, será abordado Deep Learning, que é um dos ramos específicos do Machine 
+Learning, para classificação de amostras de áudio de instrumentos musicais. O objetivo 
+é determinar a precisão do desempenho entre Redes Neurais Recorrentes e Convolucionais, 
+realizando um comparativo e identificando fatores significativos que possam interferir 
+no resultado final. Após o treinamento das Redes Neurais Recorrentes e Convolucionais, 
+obteve-se, respectivamente, taxas de precisão de 88% e 96,5%. Percebe-se então, que 
+para classificação de amostras de áudio, as técnicas de convolução empregadas nas 
+Redes Neurais Convolucionais são mais eficientes.
 deep learning, áudio, pré-processamento, redes neurais, recorrência, convolução

@@ -1,11 +1,20 @@
 Investigando o uso de RNN e GNN para previsão de churn de aplicativos
-Resumo. Empresas prestadoras de serviço perdem muito com o abandono de clientes, o que é chamado de Churn
-na literatura. Campanhas de fidelização oferecidas a todos os clientes podem ser muito custosas. Sendo assim, predizer
-quais clientes tendem a realizar Churn pode ser muito vantajoso. Neste trabalho, foi avaliado o desempenho de um
-modelo de rede neural de grafos (GNN) para predição de Churn em comparação com um modelo tradicional de floresta
-aleatória e um modelo profundo de rede neural recorrente (RNN) utilizando apenas dados não sensíveis de clientes em
-um contexto de abandono de serviço digital. Os resultados mostraram que o uso da rede neural de grafos mostrou-se
-benéfico: embora tenha tido a segunda melhor precisão (61% contra 63% da RNN) e segundo melhor F1 Macro Score
-(59.95% contra 61% da RNN), ela conseguiu melhor revocação da classe de Churn (68% contra 61.5% da baseline e
-55% da RNN). Para trabalhos futuros, pretende-se estender a ideia do uso de redes neurais de grafos para problemas
+Resumo. Empresas prestadoras de serviço perdem muito com o abandono de 
+clientes, o que é chamado de Churn
+na literatura. Campanhas de fidelização oferecidas a todos os clientes 
+podem ser muito custosas. Sendo assim, predizer
+quais clientes tendem a realizar Churn pode ser muito vantajoso. Neste 
+trabalho, foi avaliado o desempenho de um
+modelo de rede neural de grafos (GNN) para predição de Churn em comparação 
+com um modelo tradicional de floresta
+aleatória e um modelo profundo de rede neural recorrente (RNN) utilizando 
+apenas dados não sensíveis de clientes em
+um contexto de abandono de serviço digital. Os resultados mostraram que o 
+uso da rede neural de grafos mostrou-se
+benéfico: embora tenha tido a segunda melhor precisão (61% contra 63% da RNN) 
+e segundo melhor F1 Macro Score
+(59.95% contra 61% da RNN), ela conseguiu melhor revocação da classe de Churn 
+(68% contra 61.5% da baseline e
+55% da RNN). Para trabalhos futuros, pretende-se estender a ideia do uso de 
+redes neurais de grafos para problemas
 genéricos dados por listas de eventos utilizando-se ainda mais informações e recursos do modelo.

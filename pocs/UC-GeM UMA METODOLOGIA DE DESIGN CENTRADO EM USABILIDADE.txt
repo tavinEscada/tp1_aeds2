@@ -1,5 +1,12 @@
-UC-GeM UMA METODOLOGIA DE DESIGN CENTRADO EM USABILIDADE
-Este trabalho apresenta a definição de uma metodologia genérica de design centrado em usabilidade para concepção de sistemas Web. Ela foi concebida com base nos princípios do processo de Design Centrado no Usuário (UCD – User-Centred Design), apresentados no site do consórcio World Wide Web (W3C).
-A metodologia define as disciplinas de Análise UX, Design UX e Avaliação UX, suportadas por tarefas que objetivam definir, desenvolver e avaliar as interfaces de um sistema Web que atendam às características, necessidades e objetivos dos usuários. Sua construção foi formalizada no framework Eclipse Process Framework (EPF).
-O trabalho apresenta também como a metodologia desenvolvida pode ser aplicada aos modelos de processo de software Cascata e Iterativo e Incremental.
+UC-GeM uma metodologia de design centrado em usabilidade
+Este trabalho apresenta a definição de uma metodologia genérica de design 
+centrado em usabilidade para concepção de sistemas Web. Ela foi concebida 
+com base nos princípios do processo de Design Centrado no Usuário 
+(UCD – User-Centred Design), apresentados no site do consórcio World Wide Web (W3C).
+A metodologia define as disciplinas de Análise UX, Design UX e Avaliação UX, 
+suportadas por tarefas que objetivam definir, desenvolver e avaliar as interfaces 
+de um sistema Web que atendam às características, necessidades e objetivos dos 
+usuários. Sua construção foi formalizada no framework Eclipse Process Framework (EPF).
+O trabalho apresenta também como a metodologia desenvolvida pode ser aplicada aos 
+modelos de processo de software Cascata e Iterativo e Incremental.
 User Centred Design; metodologia; usabilidade; modelos de processo; sistemas Web.
