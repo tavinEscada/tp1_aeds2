@@ -20,7 +20,7 @@ typedef struct NO_patricia {
       int indice;
       TipoArvore esq,dir;
     } NInterno;
-    TipoItem chave; 
+    TipoItemP chave; 
   } NO;
 } NO_patricia;
 
