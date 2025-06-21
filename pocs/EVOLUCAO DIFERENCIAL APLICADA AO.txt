@@ -1,5 +1,4 @@
-EVOLUÇÃO DIFERENCIAL APLICADA AO PROBLEMA DO
-DESPACHO ECONÔMICO ROBUSTO DE ENERGIA ELÉTRICA
+evolução diferencial aplicada ao problema do despacho econômico robusto de energia elétrica
 
 A geração de energia a partir de termoelétricas tem um alto custo de produção em relação
 a outras formas, por exemplo, hidroelétricas. Há itens relacionadas à geração de energia, como

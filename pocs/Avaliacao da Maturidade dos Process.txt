@@ -1,3 +1,11 @@
 Avaliação da Maturidade dos Processos de Gerência de Configuração em Projetos Open Source
-Com o aumento do número de colaboradores e empresas em projetos de código aberto, é necessário estudar a maturidade dos processos de desenvolvimento adotados. Este artigo propõe métricas quantitativas, baseadas nos modelos CMMI, MPS.BR e OMM, para avaliar a maturidade dos processos de Gerenciamento de Configuração de Software (GCS) em projetos de código aberto. As métricas foram automatizadas e aplicadas em dados de 6 projetos hospedados no GitHub. Os resultados foram insatisfatórios, em termos de práticas recomendadas do SCG. Além disso, em todos os projetos, foram encontradas algumas lacunas em termos do fluxo de controle de alterações e da rastreabilidade dos itens de configuração das versões.
+Com o aumento do número de colaboradores e empresas em projetos de código aberto, 
+é necessário estudar a maturidade dos processos de desenvolvimento adotados. Este 
+artigo propõe métricas quantitativas, baseadas nos modelos CMMI, MPS.BR e OMM, 
+para avaliar a maturidade dos processos de Gerenciamento de Configuração de Software 
+(GCS) em projetos de código aberto. As métricas foram automatizadas e aplicadas em 
+dados de 6 projetos hospedados no GitHub. Os resultados foram insatisfatórios, em 
+termos de práticas recomendadas do SCG. Além disso, em todos os projetos, foram 
+encontradas algumas lacunas em termos do fluxo de controle de alterações e da 
+rastreabilidade dos itens de configuração das versões.
 controle de mudanças, métricas quantitativas

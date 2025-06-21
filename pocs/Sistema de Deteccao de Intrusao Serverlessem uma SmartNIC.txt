@@ -1,0 +1,13 @@
+Sistema de Detecção de Intrusão Serverless em uma SmartNIC
+Segurança de dados tornou-se um fator crucial no contexto de redes
+de computadores. Entre 2015 e 2020, estima-se que o prejuízo causado pelo
+roubo de informações na Internet seja de R$ 26 trilhões. Nesse cenário,
+Sistemas de Detecção de Intrusão (SDIs) são elementos essenciais na busca de
+ameaças. Contudo, SDIs são instalados em máquinas convencionais com pouco
+poder de processamento e altos custos operacionais. Offloading de funções de
+rede em SmartNICs e o paradigma Serverless surgem como soluções eficientes,
+pois combinam flexibilidade e programabilidade com poder de processamento
+de pacotes em hardware. Nesse trabalho propomos um SDI Serverless com
+offloading de filtros definidos pelo usuário na SmartNIC Netronome. Foram
+criados diferentes filtros usando a tecnologia eBPF para validar o sistema. Os
+resultados obtidos mostram que ataques são detectados em taxa de linha.

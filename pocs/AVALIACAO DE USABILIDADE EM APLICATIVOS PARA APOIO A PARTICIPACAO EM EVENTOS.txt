@@ -1,5 +1,16 @@
-AVALIAÇÃO DE USABILIDADE EM APLICATIVOS PARA APOIO À PARTICIPAÇÃO EM EVENTOS
-Nos últimos anos, a evolução da tecnologia proporcionou mudanças significativas de grande impacto, principalmente nos dispositivos móveis. As funcionalidades oferecidas pelos celulares nos dias atuais facilitam bastante a realização de algumas tarefas que antes só eram disponibilizadas por desktops. É importante destacar que os aplicativos móveis precisam ser práticos, assim como interativos de uma maneira agradável para seus usuários.
-Assim, o objetivo deste trabalho é realizar a avaliação de usabilidade de dois aplicativos, Whova e MyMobiConf, que são para apoio à participação em eventos. Serão utilizados dois tipos de avaliação, sendo a avaliação heurística, que conta com o apoio de um checklist para apontar falhas de usabilidade por um olhar mais técnico, e o teste de usabilidade, que objetiva focar na experiência do usuário em si, destacando os fatores de facilidade de aprendizagem e satisfação no uso.
-Os resultados obtidos apontaram um maior nível de satisfação pelo usuário em relação às funcionalidades oferecidas pelo MyMobiConf, enquanto o Whova apresentou melhores resultados em relação ao aspecto técnico de suas interfaces.
+avaliação de usabilidade em aplicativos para apoio à participação em eventos
+Nos últimos anos, a evolução da tecnologia proporcionou mudanças significativas de grande 
+impacto, principalmente nos dispositivos móveis. As funcionalidades oferecidas pelos celulares 
+nos dias atuais facilitam bastante a realização de algumas tarefas que antes só eram 
+disponibilizadas por desktops. É importante destacar que os aplicativos móveis precisam ser 
+práticos, assim como interativos de uma maneira agradável para seus usuários.
+Assim, o objetivo deste trabalho é realizar a avaliação de usabilidade de dois aplicativos, 
+Whova e MyMobiConf, que são para apoio à participação em eventos. Serão utilizados dois tipos 
+de avaliação, sendo a avaliação heurística, que conta com o apoio de um checklist para apontar 
+falhas de usabilidade por um olhar mais técnico, e o teste de usabilidade, que objetiva focar 
+na experiência do usuário em si, destacando os fatores de facilidade de aprendizagem e 
+satisfação no uso.
+Os resultados obtidos apontaram um maior nível de satisfação pelo usuário em relação às 
+funcionalidades oferecidas pelo MyMobiConf, enquanto o Whova apresentou melhores resultados 
+em relação ao aspecto técnico de suas interfaces.
 Avaliação Heurística, Teste de Usabilidade, Aplicações Móveis.

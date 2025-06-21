@@ -9,4 +9,4 @@ Dentre os simuladores existentes, o MANNASim vem sendo bastante utilizado. Poré
 o momento, esse simulador ainda não foi validado. Portanto, o objetivo deste trabalho 
 é validar o simulador MANNASim, comparando os resultados de saída do mesmo com resultados 
 de experimentos reais. Com a efetivação desse resultado, espera-se que o MANNASim possa 
-ser ainda mais utilizado pela comunidade acadêmica.
+ser ainda mais utilizado pela comunidade acadêmica. 

@@ -1,13 +1,17 @@
 CCEdu: uma aplicação para facilitar o primeiro contato
 com a lógica de programação
 A busca de ferramentas e métodos de ensino mais sofisticados e algo
-que a cada dia ganha mais força, principalmente pela escassez de artifícios relevantes e de baixo custo no âmbito do aprendizado da lógica da programação.
+que a cada dia ganha mais força, principalmente pela escassez de artifícios relevantes e 
+de baixo custo no âmbito do aprendizado da lógica da programação.
 É de tempos que se nota a necessidade da introdução dos conhecimentos da área
-da computação no ensino básico. Para que isso seja possível, as matérias devem ser apresentadas desde cedo instigando a imaginação e o lúdico da criança
+da computação no ensino básico. Para que isso seja possível, as matérias devem ser 
+apresentadas desde cedo instigando a imaginação e o lúdico da criança
 com um material mais prático e divertido. Pensando dessa forma foi construído
 um brinquedo educacional que tem como finalidade ensinar e entreter crianças
 a partir de 6 anos de idade, apresentando a lógica de programação de forma
 mais amigável do que os métodos mais antigos e conservadores de ensino, além
-de ter um baixo custo atrelado a sua simplicidade de construção. Foram aplicadas atividades para as crianças testarem o brinquedo, e analisando os dados
-coletados com base na faixa etária proposta, pôde ser observado que a essência da aplicação, de ensinar a base da lógica sequencial de programação, foi
+de ter um baixo custo atrelado a sua simplicidade de construção. Foram aplicadas 
+atividades para as crianças testarem o brinquedo, e analisando os dados
+coletados com base na faixa etária proposta, pôde ser observado que a essência da 
+aplicação, de ensinar a base da lógica sequencial de programação, foi
 alcançada.

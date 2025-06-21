@@ -1,15 +1,21 @@
 Comunicação Óptica Sem Fio Subaquática: Caracterização de Desempenho da Luz Vermelha
 Resumo. A transferência de informações sem fio em ambientes subaquáticos é de grande 
-interesse para aplicações militares, industriais e para a comunidade científica, desempenhando um papel 
+interesse para aplicações militares, industriais e para a comunidade científica, desempenhando 
+um papel 
 relevante em atividades como vigilância tática, monitoramento da poluição aquática e 
-controle e manutenção de campos petrolíferos offshore. A comunicação sem fio subaquática pode ser realizada por meio de ondas acústicas, 
+controle e manutenção de campos petrolíferos offshore. A comunicação sem fio subaquática pode 
+ser realizada por meio de ondas acústicas, 
 de radiofrequência (RF) e ópticas. Em comparação com as ondas acústicas e de RF, 
-que apresentam largura de banda limitada, a comunicação óptica sem fio subaquática (UOWC) permite taxas de transferência de dados mais 
+que apresentam largura de banda limitada, a comunicação óptica sem fio subaquática (UOWC) 
+permite taxas de transferência de dados mais 
 elevadas e baixos níveis de latência. No entanto, as propriedades do canal aquático — como 
 absorção, dispersão e turbulência — representam grandes desafios para a UOWC, 
 reduzindo significativamente o alcance da comunicação e exigindo soluções eficientes 
-para as redes. Neste artigo, investiga-se o desempenho da comunicação por luz visível sem fio subaquática (UVLC), um 
+para as redes. Neste artigo, investiga-se o desempenho da comunicação por luz visível sem 
+fio subaquática (UVLC), um 
 subgrupo da UOWC, utilizando um transmissor no espectro da 
 luz vermelha em meio aquático raso e límpido. Foram realizadas avaliações sobre 
-o impacto no desempenho da transmissão causado pelo uso de diodos emissores de luz (LEDs) e lasers diodo (LDs) nesse comprimento de onda. O
-s resultados evidenciam os efeitos do meio, da distância entre os nós e do tipo de transmissor utilizado sobre a qualidade da comunicação.
+o impacto no desempenho da transmissão causado pelo uso de diodos emissores de luz (LEDs) 
+e lasers diodo (LDs) nesse comprimento de onda. O
+s resultados evidenciam os efeitos do meio, da distância entre os nós e do tipo de 
+transmissor utilizado sobre a qualidade da comunicação.

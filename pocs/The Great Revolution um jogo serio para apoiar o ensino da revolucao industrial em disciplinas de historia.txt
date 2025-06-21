@@ -1,11 +1,15 @@
-The Great Revolution um jogo sério para apoiar o ensino da revolução industrial em disciplinas de história
+The Great Revolution um jogo sério para apoiar o ensino da revolução 
+industrial em disciplinas de história
 Com a inclusao digital, cada vez mais as pessoas
-começam a utilizar os jogos eletrônicos como meio de entretenimento. Esta plataforma pode ser utilizada de diversas formas
+começam a utilizar os jogos eletrônicos como meio de entretenimento. 
+Esta plataforma pode ser utilizada de diversas formas
 diferentes, inclusive como um metodo de ensino, mesclando o
 entretenimento e o conteudo, para que o aluno possa aprender
-algum conteudo de forma interativa e podendo também desenvolver outras habilidades dependendo do estilo do jogo. Mas
+algum conteudo de forma interativa e podendo também desenvolver outras 
+habilidades dependendo do estilo do jogo. Mas
 ha uma grande complexidade na criação de jogos educativos,
-como a definição do conteúdo que será ensinado, da jogabilidade que sera utilizada, das tecnologias que estarão envolvidas, do
+como a definição do conteúdo que será ensinado, da jogabilidade que sera 
+utilizada, das tecnologias que estarão envolvidas, do
 processo de avaliação da qualidade do jogo, entre outros pontos
 importantes. Por isso e fundamental analisar diversos fatores
 para começar um projeto que tenha o objetivo de ensinar algum

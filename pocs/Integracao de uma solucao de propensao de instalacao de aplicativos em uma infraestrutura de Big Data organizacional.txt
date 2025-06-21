@@ -1,2 +1,13 @@
-Integração de uma solução de propensão de instalação de aplicativos em uma infraestrutura de Big Data organizacional
-Resumo. O processo de integração de uma solução em uma infraestrutura de nuvem já existente requer etapas importantes para garantir uma sinergia funcional e eficiente. São necessárias adaptações em diversos níveis, abrangendo desde alterações na implementação da solução original até sua integração à infraestrutura. Quando se trata de cenários caracterizados como Big Data, o uso de serviços em nuvem torna-se um facilitador relevante, pois atende tanto às demandas do serviço quanto aos requisitos de qualidade, contribuindo para a criação de uma infraestrutura coesa e eficaz. Neste trabalho, uma solução de recomendação para instalação de aplicativos móveis foi adaptada para considerar segmentos de usuários e implantada em um ambiente de Big Data organizacional de uma empresa da área de inteligência de dados. Como resultado, foi possível aplicar a solução para mais de 1 milhão de usuários, identificando a probabilidade de instalação de cada aplicativo por segmento para cada usuário.
+Integração de uma solução de propensão de instalação de aplicativos em uma infraestrutura 
+de Big Data organizacional
+Resumo. O processo de integração de uma solução em uma infraestrutura de nuvem já existente 
+requer etapas importantes para garantir uma sinergia funcional e eficiente. São necessárias 
+adaptações em diversos níveis, abrangendo desde alterações na implementação da solução original 
+até sua integração à infraestrutura. Quando se trata de cenários caracterizados como Big Data, 
+o uso de serviços em nuvem torna-se um facilitador relevante, pois atende tanto às demandas do 
+serviço quanto aos requisitos de qualidade, contribuindo para a criação de uma infraestrutura 
+coesa e eficaz. Neste trabalho, uma solução de recomendação para instalação de aplicativos 
+móveis foi adaptada para considerar segmentos de usuários e implantada em um ambiente de 
+Big Data organizacional de uma empresa da área de inteligência de dados. Como resultado, 
+foi possível aplicar a solução para mais de 1 milhão de usuários, identificando a 
+probabilidade de instalação de cada aplicativo por segmento para cada usuário.

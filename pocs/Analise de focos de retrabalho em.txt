@@ -1,6 +1,15 @@
 Análise de focos de retrabalho em repositórios de software: um estudo em projetos do GitHub
-O presente trabalho realiza a análise conjunta de dados em ambientes de rastreamento de questões (issue tracking) e controle de versão. O objetivo é identificar possíveis focos de retrabalho em projetos de software, em duas categorias de issues: as que possuem código associado e aquelas que, embora tenham envolvido muitas
-discussões, não convergiram para código. Os dados foram extraídos de projetos armazenados na plataforma GitHub. Para isso, foram aplicadas análises estatísticas tais como: correlação; regressão múltipla e teste de hipótese. As análises foram realizadas sobre os dados relacionados aos seguintes parâmetros: número de commits, número
-de comentários, número de desenvolvedores e número de reaberturas. Esses parâmetros foram analisados de forma conjunta, para se verificar quais eram as influências existentes entre eles. Os resultados obtidos mostraram que os parâmetros selecionados podem ter forte
+O presente trabalho realiza a análise conjunta de dados em ambientes de rastreamento de questões 
+(issue tracking) e controle de versão. O objetivo é identificar possíveis focos de retrabalho em 
+projetos de software, em duas categorias de issues: as que possuem código associado e aquelas que, 
+embora tenham envolvido muitas
+discussões, não convergiram para código. Os dados foram extraídos de projetos armazenados na 
+plataforma GitHub. Para isso, foram aplicadas análises estatísticas tais como: correlação; 
+regressão múltipla e teste de hipótese. As análises foram realizadas sobre os dados relacionados 
+aos seguintes parâmetros: número de commits, número
+de comentários, número de desenvolvedores e número de reaberturas. Esses parâmetros foram 
+analisados de forma conjunta, para se verificar quais eram as influências existentes entre 
+eles. Os resultados obtidos mostraram que os parâmetros selecionados podem ter forte
 relação com focos de retrabalho nas duas categorias de issues avaliadas.
-Issue Tracking, Controle de versão, Correções Suplementares de Erro, Análises Estatísticas, Erros Reabertos
+Issue Tracking, Controle de versão, Correções Suplementares de Erro, Análises Estatísticas, 
+Erros Reabertos

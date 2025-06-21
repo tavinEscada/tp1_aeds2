@@ -1,4 +1,5 @@
-Detecção de câncer de pele do tipo melanoma utilizando técnicas de processamento digital de imagem e redes neurais artificiais
+Detecção de câncer de pele do tipo melanoma utilizando técnicas de processamento 
+digital de imagem e redes neurais artificiais
 O câncer de pele é um dos mais comuns tipos de câncer no Brasil, dentre
 ele se encontra o melanoma um dos tipos de tumor maligno responsável por
 muitas mortes. O presente trabalho visa realizar a detecção de melanomas por

@@ -1,12 +1,18 @@
-Uma Avaliação de Protocolos de Acordo de Chaves Baseados em Sinais Fisiológicos para Redes Corporais sem Fio
-Os dispositivos em uma rede corporal sem fio monitoram sinais clínicos de pacientes. A importância contida nestes dados sugerem que devam ser
+Uma Avaliação de Protocolos de Acordo de Chaves Baseados em Sinais Fisiológicos para 
+Redes Corporais sem Fio
+Os dispositivos em uma rede corporal sem fio monitoram sinais clínicos de pacientes. 
+A importância contida nestes dados sugerem que devam ser
 transmitidos e mantidos de forma privada e segura. Deste modo, evidencia-se
 a importância da adesão de protocolos de segurança, tal como a autenticação
-entre dispositivos da rede. Entretanto, os dispositivos que compõe a rede corporal possuem limitações específicas. Estas limitações podem ser apontadas
-como baterias com baixa capacidade energética, além da capacidade de transmissão dos dados reduzida, pouco poder de processamento, e outras. Com base
+entre dispositivos da rede. Entretanto, os dispositivos que compõe a rede corporal possuem 
+limitações específicas. Estas limitações podem ser apontadas
+como baterias com baixa capacidade energética, além da capacidade de transmissão dos dados 
+reduzida, pouco poder de processamento, e outras. Com base
 nos princípios de segurança e as especificidades da rede, este trabalho objetiva
 apresentar uma análise empírica acerca do desempenho e consumo de recursos
-de hardware por protocolos de autenticação. Nesta investigação, foram considerados métodos que utilizam sinais fisiológicos para produzirem as chaves secretas de cada seção. Foram realizadas análises acerca de tempo de execução,
+de hardware por protocolos de autenticação. Nesta investigação, foram considerados métodos 
+que utilizam sinais fisiológicos para produzirem as chaves secretas de cada seção. Foram 
+realizadas análises acerca de tempo de execução,
 consumo de memória, goodput, além das métricas de falsa aceitação e falsa
 rejeição sobre tentativas de autenticação. Ao explorar os resultados obtidos é
 notável o destaque de um protocolo sobre tempo de execução e necessidade de

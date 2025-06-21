@@ -1,5 +1,5 @@
-OTIMIZAÇÃO MULTIOBJETIVO BASEADA EM ENSINO E
-APRENDIZAGEM APLICADA A VERSÃO ROBUSTA DO PROBLEMA DA VIGA EM SEÇÃO I
+otimização multiobjetivo baseada em ensino e aprendizagem aplicada a 
+versão robusta do problema da viga em seção I
 A presença de incertezas, como as paramétricas, em problemas de otimização pode fazer
 com que soluções nominais se tornem inviáveis. Neste artigo é proposto um algoritmo baseado
 na meta-heurística Otimização baseada em Ensino e Aprendizagem (TLBO) que resolve a versão

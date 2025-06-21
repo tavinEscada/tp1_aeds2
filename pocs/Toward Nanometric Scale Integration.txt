@@ -4,13 +4,15 @@ Automatic Routing Approach for NML Circuits
 In the recent years, many technologies have been
 studied in order to take place as a replacement or complement
 to CMOS. These emerging technologies, known as Field Coupled
-Nanotechnologies, seek to operate at nanometric scales and overcome the problems that are hard or impossible to be addressed by
+Nanotechnologies, seek to operate at nanometric scales and overcome 
+the problems that are hard or impossible to be addressed by
 CMOS technology. However, these new technologies introduce the
 need of developing tools to perform circuit mapping, placement,
 and routing. NanoMagnetic Logic Circuit (NML) is one of
 these emergent technologies. It relies on the polarization of
 nanomagnets to perform operations through majority logic. In
-this work we propose an approach to automatically map a gatelevel circuit to a NML layout. We use the Breadth First Search
+this work we propose an approach to automatically map a gatelevel 
+circuit to a NML layout. We use the Breadth First Search
 to perform the placement and the A algorithm to transverse
 the circuit and build the routes for each node. To evaluate
 the effectiveness of our approach, we use a series of ISCAS’85

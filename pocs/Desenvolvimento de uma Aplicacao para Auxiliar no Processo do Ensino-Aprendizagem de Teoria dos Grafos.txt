@@ -1,9 +1,12 @@
-Desenvolvimento de uma Aplicação para Auxiliar no Processo do Ensino-Aprendizagem de Teoria dos Grafos
+Desenvolvimento de uma Aplicação para Auxiliar no Processo do Ensino-Aprendizagem de Teoria 
+dos Grafos
 Este trabalho apresenta o processo de desenvolvimento de uma aplicação para
 auxílio no ensino-aprendizado da disciplina Teoria dos Grafos, com o intuito de
 incentivar e facilitar a forma do aprendizado, utilizando uma interface gráfica de
 usuário que respeite os padrões de UI/UX e possa ser executada em múltiplas
-plataformas. A ideia é que o estudante possa utilizá-lo para fixar o conteúdo aprendido através de sala de aula e consiga entender o funcionamento de algoritmos sendo executados sobre grafos desenhados na aplicação. Ademais, a aplicação ainda
+plataformas. A ideia é que o estudante possa utilizá-lo para fixar o conteúdo aprendido 
+através de sala de aula e consiga entender o funcionamento de algoritmos sendo executados 
+sobre grafos desenhados na aplicação. Ademais, a aplicação ainda
 mostra propriedades relevantes sobre o grafo que podem transparecer informações
 que ajudam o estudante a identificar uma determinada característica de um dado
 grafo. 

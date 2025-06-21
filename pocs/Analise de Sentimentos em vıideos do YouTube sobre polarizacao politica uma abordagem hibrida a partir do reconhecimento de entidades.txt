@@ -1,3 +1,14 @@
-Análise de Sentimentos em vı́deos do YouTube sobre polarização polı́tica: uma abordagem hı́brida a partir do reconhecimento de entidades
-Resumo. As redes sociais são meios de comunicação cada vez mais relevantes, especialmente em períodos eleitorais. Este trabalho utiliza esse contexto para realizar um estudo sobre vídeos da plataforma YouTube durante o período eleitoral. Foram aplicadas técnicas de análise de sentimentos em nível de aspecto, utilizando o modelo pré-treinado BERTimbau, por meio da extração de transcrições dos vídeos e considerando os principais candidatos como entidades-alvo. Foi possível identificar tendências de comportamento e posicionamento em vídeos individuais e canais. De modo geral, a análise indicou uma maior presença do candidato Bolsonaro no YouTube (53,2%), especialmente em canais jornalísticos. A avaliação dos canais dos próprios candidatos revelou suas abordagens e estratégias, geralmente com foco no próprio dono do canal. Os resultados também apontaram uma tendência de manifestações neutras, especialmente em canais de notícias, e um grande impacto no volume de citações e interações em podcasts.
+Análise de Sentimentos em vı́deos do YouTube sobre polarização polı́tica: uma abordagem 
+hı́brida a partir do reconhecimento de entidades
+Resumo. As redes sociais são meios de comunicação cada vez mais relevantes, especialmente 
+em períodos eleitorais. Este trabalho utiliza esse contexto para realizar um estudo sobre 
+vídeos da plataforma YouTube durante o período eleitoral. Foram aplicadas técnicas de análise 
+de sentimentos em nível de aspecto, utilizando o modelo pré-treinado BERTimbau, por meio da 
+extração de transcrições dos vídeos e considerando os principais candidatos como entidades-alvo. 
+Foi possível identificar tendências de comportamento e posicionamento em vídeos individuais e 
+canais. De modo geral, a análise indicou uma maior presença do candidato Bolsonaro no YouTube 
+(53,2%), especialmente em canais jornalísticos. A avaliação dos canais dos próprios candidatos 
+revelou suas abordagens e estratégias, geralmente com foco no próprio dono do canal. Os resultados 
+também apontaram uma tendência de manifestações neutras, especialmente em canais de notícias, 
+e um grande impacto no volume de citações e interações em podcasts.
 Palavras-chave: Eleições, Análise de Sentimentos, YouTube, BERTimbau, Entidades

@@ -1,0 +1,12 @@
+Data Center TCP com Histerese em Switches P4
+O congestionamento de pacotes em uma rede de computadores causa
+perda de desempenho no sistema. Esta proposta busca melhorar o desempenho
+das redes de computadores em centro de dados, especialmente em cenarios de
+congestionamento. O protocolo padrao de controle de congestionamento em
+centro de dados e o Data Center TCP (DCTCP). Este artigo propõe duas abordagens:
+o uso da tecnica de histerese nas filas dos switches para marcar os pacotes, indicando o 
+congestionamento; o retorno de pacotes ao emissor
+para reduzir a taxa de envio quando houver congestionamento. As abordagens
+foram implementadas em linguagem P4 utilizando switches programaveis e validado 
+juntamente com o DCTCP. Os resultados mostram que ambas soluções
+propostas melhoram a vazao da rede. 

@@ -1,10 +1,15 @@
 Comparação de Algoritmos Não Supervisionados
 para Detecção de Anomalias de Segurança da Informação
 
-Levando-se em consideração a larga utilização de sistemas computacionais em diversos contextos e quantidade de informações sensíveis produzidas
-por eles, torna-se essencial dar atenção a sua segurança. O objetivo deste trabalho e explorar o uso de técnicas de clustering e análises estatísticas para
+Levando-se em consideração a larga utilização de sistemas computacionais em diversos 
+contextos e quantidade de informações sensíveis produzidas
+por eles, torna-se essencial dar atenção a sua segurança. O objetivo deste trabalho e 
+explorar o uso de técnicas de clustering e análises estatísticas para
 detecção de anomalias em uma base de dados sobre segurança da informação.
-Será feita uma análise comparativa entre diferentes técnicas na NSL-KDD, em termos de precisão, atributos escolhidos, cenário de execução, entre outros.
-Cinco técnicas não supervisionadas foram escolhidas para comparação: Random Forests, Local Outlier Factor, Elliptic Envelope, K Means e HBOS. Os
+Será feita uma análise comparativa entre diferentes técnicas na NSL-KDD, em termos de 
+precisão, atributos escolhidos, cenário de execução, entre outros.
+Cinco técnicas não supervisionadas foram escolhidas para comparação: Random Forests, 
+Local Outlier Factor, Elliptic Envelope, K Means e HBOS. Os
 resultados obtidos variam consideravelmente segundo o cenário em que foi
-aplicado. Após a análise dos resultados obtidos ficou evidente que o desempenho das técnicas escolhidas é sensível ao contexto e a sua configuração de aplicação.
+aplicado. Após a análise dos resultados obtidos ficou evidente que o desempenho das 
+técnicas escolhidas é sensível ao contexto e a sua configuração de aplicação.

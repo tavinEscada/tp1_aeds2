@@ -1,0 +1,16 @@
+Padrão Strategy aplicado à geração de múltiplas visões de dados
+na biblioteca ColMinerRT
+
+A utilização de padrões de projeto permite ao desenvolvedor aplicar
+estratégias vastamente testadas em um domínio específico. Este trabalho 
+faz uso do padrão Strategy para melhorar a manutenibilidade
+e extensibilidade da arquitetura da biblioteca ColMinerRT, que tem
+como finalidade importar dados da ferramenta GitHub, realizar o
+cálculo da relevância temática e persisti-lo em um arquivo formato
+CSV. O padrão foi aplicado para se criar um novo mecanismo de
+geração dos dados a serem exportados, incluindo uma nova camada
+de apresentação que disponibilize múltiplas visões estruturadas dos
+dados. Após a aplicação do padrão, foi possível observar ganhos
+em termos de manutenibilidade e extensibilidade, uma vez que o
+código ficou mais organizado e mais desacoplado, permitindo que,
+no futuro, novas visões sejam adicionadas.

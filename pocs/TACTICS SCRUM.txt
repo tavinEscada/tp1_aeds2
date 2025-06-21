@@ -3,13 +3,19 @@ O uso de gamificação no desenvolvimento de projetos baseados no Scrum
 
 Nos dias atuais, com todas as coisas funcionando de forma muito rápida e dinâmica, é difícil
 manter um nível de produtividade nos cenários em que as pessoas estão inseridas em relação
-ao desenvolvimento de software. As metodologias ágeis, como o framework Scrum, são bastante utilizadas para gerenciar projetos de desenvolvimento de software de forma leve, a fim de
+ao desenvolvimento de software. As metodologias ágeis, como o framework Scrum, são bastante 
+utilizadas para gerenciar projetos de desenvolvimento de software de forma leve, a fim de
 melhorar a qualidade do software e organização da equipe. Contudo, o ato de desenvolver não
 e visto como algo divertido e na maior parte das vezes é considerado desgastante e monótono.
-A Gamificação e um termo que vem sendo abordado com bastante frequência dentre os estudiosos, em diferentes cenários, influenciando o tipo de prática das pessoas em seus respectivos ambientes. A gamificação possui características que apresentam uma forma de realizar as atividades de uma maneira mais prazerosa, gerando satisfação e motivando os envolvidos num projeto. O presente trabalho busca relacionar conceitos presentes no framework Scrum com
+A Gamificação e um termo que vem sendo abordado com bastante frequência dentre os estudiosos, 
+em diferentes cenários, influenciando o tipo de prática das pessoas em seus respectivos ambientes. 
+A gamificação possui características que apresentam uma forma de realizar as atividades de uma 
+maneira mais prazerosa, gerando satisfação e motivando os envolvidos num projeto. O presente 
+trabalho busca relacionar conceitos presentes no framework Scrum com
 conceitos presentes em game design a fim de fazer um mapeamento para uma nova abordagem.
 A principal contribuição desta pesquisa é demonstrar os efeitos positivos deste mapeamento,
 inserindo aspectos motivacionais de tal forma que influenciem positivamente a relação social,
 cultural e educacional de um grupo específico.
 
-Scrum; gamificação; game studies; game design; ludologia; narratologia; desenvolvimento de software; modelo de colaboração. 
+Scrum; gamificação; game studies; game design; ludologia; narratologia; desenvolvimento de software; 
+modelo de colaboração. 
