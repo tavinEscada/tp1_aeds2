@@ -477,7 +477,7 @@ void pesquisa(){
 
     if(fgets(entrada, sizeof(entrada), stdin) != NULL){
         //remove \n do final
-        entrada[strcspn(entrada, "\n")] = '\0';
+        entrada[strcspn(entrada, "\n\r")] = '\0';
 
         if(strlen(entrada) > 0){
             palavra = strtok(entrada, " ");
