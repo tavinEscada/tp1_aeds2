@@ -25,19 +25,20 @@
 
 #include "../include/tp.h"
 #include "../include/hash.h"
+#include "../include/patricia.h"
+#include "../include/infoDocs.h"
 
 #define TMAX 1042
 
 void removeAcentos(char *p);
 void removeMaiusculas(char *p);
-void formataPalavra(char *p);
 int ehRelevante(char *p);
 int ehValida(char *p);
 void removerArqs(int nArqAtual);
-void receberArquivo();
-void constroiIndices();
-void imprimeIndices();
-void pesquisa();
+InfoBasica receberArquivo();
+void constroiIndices(TipoArvore *patricia);
+void imprimeIndices(TipoArvore patricia);
+void pesquisa(InfoBasica info);
 void menu();
 
 #endif

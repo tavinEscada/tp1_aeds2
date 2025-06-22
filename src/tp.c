@@ -22,8 +22,6 @@
 #endif
 
 #include "../include/tp.h"
-#include "../include/hash.h"
-#include "../include/patricia.h"
 
 #define TMAX 1042
 
@@ -109,24 +107,24 @@ void removeAcentosTerminal(char *p){
     for(int i = 0; p[i]; i++){
         char sub = 0;
         unsigned char c = (unsigned char)p[i];
-        if (c == 0xA0 || c == 0x85 || c == 0x83 || c == 0xC6 || //á à â ã
-            c == 0xB5 || c == 0xB7 || c == 0xB6 || c == 0xC7) { //Á À Â Ã
+        if(c == 0xA0 || c == 0x85 || c == 0x83 || c == 0xC6 || //á à â ã
+            c == 0xB5 || c == 0xB7 || c == 0xB6 || c == 0xC7){ //Á À Â Ã
             sub = 'a';
             
         }
-        else if (c == 0x82 || c == 0x88 || c == 0x90 || c == 0xD2) { //é ê É Ê
+        else if(c == 0x82 || c == 0x88 || c == 0x90 || c == 0xD2){ //é ê É Ê
             sub = 'e';
         }
-        else if (c == 0xA1 || c == 0xD6) { //í Í
+        else if(c == 0xA1 || c == 0xD6){ //í Í
             sub = 'i';
         }
-        else if (c == 0xA2 || c == 0x93 || c == 0xE4 || c == 0xE0 || c == 0xE5 || c == 0xE2) { // ó ô õ Ó Õ Ô
+        else if(c == 0xA2 || c == 0x93 || c == 0xE4 || c == 0xE0 || c == 0xE5 || c == 0xE2){ // ó ô õ Ó Õ Ô
             sub = 'o';
         }
-        else if (c == 0xA6 || c == 0xA7 || c == 0xA8 || c == 0xE9 || c == 0xEB || c == 0xEA) { // ú ù û Ú Ù Û
+        else if(c == 0xA6 || c == 0xA7 || c == 0xA8 || c == 0xE9 || c == 0xEB || c == 0xEA){ // ú ù û Ú Ù Û
             sub = 'u';
         }
-        else if (c == 0x87 || c == 0x80) { //ç e Ç
+        else if(c == 0x87 || c == 0x80){ //ç e Ç
             sub = 'c';
         }
         
@@ -147,7 +145,7 @@ void removeMaiusculas(char *p){
     for(int i = 0; p[i]; i++){
         char sub = 0;
         switch(p[i]){
-                
+            
             case 'A':
                 sub = 'a';
                 break;
@@ -237,18 +235,13 @@ void removeMaiusculas(char *p){
     }
 }
 
-/**trata tanto acentos quanto maiusculas*/
-void formataPalavra(char *p){
-    removeAcentos(p);
-    removeMaiusculas(p);
-}
-
 //há palavras de mais de 2 caracteres que não precisam ser levadas em conta
 int ehRelevante(char *p){
     char *irrelevantes[] = {"isso", "uma", "com", "por", "the", "sua", "elas", "that", "not",
         "seu", "como", "nao", "que", "para", "dos", "ela", "ele", "nem", "eles", "this", "are",
         "das", "mas", "desse", "dessa", "esta", "esse", "essa", "desta", "tem", "for", "and",
-        "with", "such"};
+        "with", "such", "but"
+    };
 
     int n = sizeof(irrelevantes)/sizeof(irrelevantes[0]);
 
@@ -325,8 +318,8 @@ void removerArqs(int nArqAtual) {
 }
 
 /**leitura do arquivo de entrada e dos arquivos contidos nele*/
-void receberArquivo(){
-    
+InfoBasica receberArquivo(){
+    InfoBasica info = {0};
     char nome[256];
     int nArq = 0;
 
@@ -337,7 +330,8 @@ void receberArquivo(){
 
     if(arq == NULL){
         printf("Erro ao abrir o arquivo\n");
-        return;
+        info.sucesso = 0;
+        return info;
     }
 
     fscanf(arq, "%d", &nArq);
@@ -345,10 +339,12 @@ void receberArquivo(){
 
     if(nArq <= 0){
         printf("N de arquivos invalido\n");
-        return;
+        info.sucesso = 0;
+        return info;
     }
 
-    //nenhum problema na leitura (arquivo valido, qtd valida, etc)
+    
+    info.nArquivos = nArq;
 
     //criando a pasta que armazenará os arquivos com as palavras já separadas e formatadas
     mkdir("./arquivosTratados");
@@ -372,27 +368,28 @@ void receberArquivo(){
         //juntando o prefixo do endereço dos arquivos ('.\pocs') com o nome de cada arquivo
         snprintf(entrada, TMAX, "%s%s", cEntrada, nome);
 
-
         snprintf(saida, TMAX, "%sarquivo%d.txt", cSaida, i);
 
         FILE *arquivoAtual = fopen(entrada, "r");
-        FILE *saidaAtual = fopen(saida, "w");
-
+        
         if(arquivoAtual == NULL){
-            printf("Erro ao abrir o arquivo '%s'\n", nome);
-            //conferir pra ver se vamos continuar lendo o resto mesmo ou para tudo!!!
-            continue;
+            printf("Erro ao abrir o poc '%s'. Confira o nome dos pocs da entrada.\n", nome);
+            info.sucesso = 0;
+            return info;
         }
+
+        strcpy(info.nomesOriginais[i-1], nome);
+        
+
+        FILE *saidaAtual = fopen(saida, "w");
         if(saidaAtual == NULL){
             printf("erro ao criar o arquivo de saida %d\n\n", i);
-            //conferir tbm se continua
+            //conferir se continua
             continue;
         }
 
         char linha[256];
 
-        //testando o print de cada palavra de cada arquivo
-        //printf("Palavras do arquivo %d ('%s'):\n", i, nome);
         while(fgets(linha, sizeof(linha), arquivoAtual) != NULL){
             //tokenizando cada linha
             linha[strcspn(linha, "\n")] = '\0';
@@ -407,7 +404,6 @@ void receberArquivo(){
 
                     fprintf(saidaAtual, "%s\n", palavra);
 
-                    //printf("%s\n", palavra);
                     nPalavras++;
                 }
                 
@@ -426,6 +422,8 @@ void receberArquivo(){
     removerArqs(nArq);
 
     fclose(arq);
+    info.sucesso = 1;
+    return info;
 }
 
 void constroiIndices(TipoArvore *patricia){
@@ -443,7 +441,6 @@ void constroiIndices(TipoArvore *patricia){
     for(int i = 1; arqAtual;){
         char nNome[40];
         while(fgets(palavra, sizeof(palavra), arqAtual) != NULL){
-            //ADICIONAR NA ARVORE E NA TABELA aqui!!! (idDoc pode ser o 'i')
             palavra[strcspn(palavra, "\n")] = '\0';
             Insere(palavra, i, Tabela, p);
 
@@ -468,9 +465,16 @@ void imprimeIndices(TipoArvore patricia){
 
 }
 
-void pesquisa(){
+void pesquisa(InfoBasica info){
+    //linha de entrada
     char entrada[900];
+    
+    //variavel que armazenará palavra por palavra
     char *palavra;
+    
+    //numero de palavras da pesquisa
+    int nTermos = 0;
+
     printf("Palavras da pesquisa:\n");
 
     getchar();
@@ -493,15 +497,16 @@ void pesquisa(){
                     removeAcentos(palavra);
                 }
                 
-
-                removeMaiusculas(palavra);
-                printf("Pesquisando: %s\n", palavra);
-
                 /*teste para saber qual codificação dos caracteres
                 for (int i = 0; palavra[i]; i++) {
                     printf("%02X ", (unsigned char)palavra[i]);
                 }
                 printf("\n");*/
+
+                removeMaiusculas(palavra);
+                printf("Pesquisando: %s\n", palavra);
+
+                nTermos++;
 
                 
 
@@ -510,11 +515,19 @@ void pesquisa(){
         }
     }
 
+    int nArquivos = getNumeroArquivos(&info);
+    printf("numero de arquivos na execucao: %d\n", nArquivos);
+
+    for(int i = 0; i < nArquivos; i++){
+        printf("Nome original do arquivo %d: '%s'\n", i+1, getNomeOriginal(&info, i+1));
+    }
+
 }
 
 /**função que faz o loop do menu até que o usuário digite 0*/
 void menu(){
     TipoArvore a = NULL;
+    InfoBasica info;
     int op = 0;
     do{
         printf("--- Menu ---\n1 - Ler o arquivo com os textos\n2 - Construir os indices invertidos\n3 - Exibir os indices invertidos\n4 - Busca\n0 - Fechar\n");
@@ -522,7 +535,9 @@ void menu(){
 
         switch(op){
             case 1:
-                receberArquivo();
+                info = receberArquivo();
+                
+                
                 break;
             case 2:
                 constroiIndices(&a);
@@ -533,7 +548,7 @@ void menu(){
                 break;
 
             case 4:
-                pesquisa();
+                pesquisa(info);
                 break;
             case 0:
                 return;
