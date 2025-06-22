@@ -524,20 +524,24 @@ void pesquisa(InfoBasica info){
 
 
 
-    //testando apenas; os cálculos de relevancia se dão aqui!!!!!!!!!!!!!!!!!
+    //testando apenas; os cálculos de relevancia devem estar aqui!!!!!!!!!!!!!!!!!
     for(int i = 0; i < nArquivos; i++){
         vet[i].id = i+1;
         vet[i].relevancia = 40.0 + i;
     }
 
+
+    printf("Antes da ordenacao:\n");
     for(int i = 1; i <= nArquivos; i++){
         printf("%s: relev.: %.2f\n", getNomeOriginal(&info, i), vet[i-1].relevancia);
     }
+    printf("\n");
 
     //ordenação do vetor a partir da relevancia para printar na ordem
     qsort(vet, nArquivos, sizeof(Relevancias), comparaRel);
 
 
+    printf("Depois da ordenacao");
     //teste; 
     //aqui é onde printaremos os arquivos em ordem com o nome sendo arquivoi.txt para cada i do for e o indice do vetor de relevanica é i-1
     for(int i = 1; i <= nArquivos; i++){
