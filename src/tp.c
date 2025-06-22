@@ -13,11 +13,12 @@
 #ifdef _WIN32
     #include <direct.h>
     #define mkdir(dir) _mkdir(dir)
-    #define getcwd _getcwd
+    #define sistema 1
 #else
     #include <unistd.h>
     #include <sys/stat.h>
     #define mkdir(dir) mkdir(dir, 0755)
+    #define sistema 2
 #endif
 
 #include "../include/tp.h"
@@ -29,7 +30,7 @@
 /**
  * Dada uma palavra, substitui 
  * caracteres especiais (letras com acentos e cedilha) 
- * por minúsculas sem acento
+ * por minúsculas sem acento (especificamente para utf-8)
  * 
  * @param p vetor de caracteres com a palavra que será adaptada
  * 
@@ -101,6 +102,39 @@ void removeAcentos(char *p){
     }
     //acabou a palavra com o fim do for
     p[j] = '\0';
+}
+
+//no terminal do vscode (ou windows no geral) as palavras vêm em CP850; á = A0, à = 85....
+void removeAcentosTerminal(char *p){
+    for(int i = 0; p[i]; i++){
+        char sub = 0;
+        unsigned char c = (unsigned char)p[i];
+        if (c == 0xA0 || c == 0x85 || c == 0x83 || c == 0xC6 || //á à â ã
+            c == 0xB5 || c == 0xB7 || c == 0xB6 || c == 0xC7) { //Á À Â Ã
+            sub = 'a';
+            
+        }
+        else if (c == 0x82 || c == 0x88 || c == 0x90 || c == 0xD2) { //é ê É Ê
+            sub = 'e';
+        }
+        else if (c == 0xA1 || c == 0xD6) { //í Í
+            sub = 'i';
+        }
+        else if (c == 0xA2 || c == 0x93 || c == 0xE4 || c == 0xE0 || c == 0xE5 || c == 0xE2) { // ó ô õ Ó Õ Ô
+            sub = 'o';
+        }
+        else if (c == 0xA6 || c == 0xA7 || c == 0xA8 || c == 0xE9 || c == 0xEB || c == 0xEA) { // ú ù û Ú Ù Û
+            sub = 'u';
+        }
+        else if (c == 0x87 || c == 0x80) { //ç e Ç
+            sub = 'c';
+        }
+        
+        if(sub){
+            p[i] = sub;
+        }
+    }
+
 }
 
 /**
@@ -283,7 +317,7 @@ void removerArqs(int nArqAtual) {
         fclose(teste);
         
         if(remove(nomeArquivo) == 0){
-            printf("Arquivo remanescente removido: arquivo%d.txt\n", i);
+            //printf("Arquivo remanescente removido: arquivo%d.txt\n", i);
         }else{
             printf("Erro ao remover arquivo%d.txt\n", i);
         }
@@ -441,18 +475,35 @@ void pesquisa(){
 
     getchar();
 
-    if (fgets(entrada, sizeof(entrada), stdin) != NULL) {
+    if(fgets(entrada, sizeof(entrada), stdin) != NULL){
         //remove \n do final
-        entrada[strcspn(entrada, "\n")] = '\0';
+        entrada[strcspn(entrada, "\n\r")] = '\0';
 
         if(strlen(entrada) > 0){
             palavra = strtok(entrada, " ");
 
             while(palavra != NULL){
 
-                removeAcentos(palavra);
+                //terminal do windows
+                if(sistema == 1){
+                    //tirar acentos para o terminal do vscode
+                    removeAcentosTerminal(palavra);
+                }else{
+                    //tirar os acentos pra rodar no terminal do linux
+                    removeAcentos(palavra);
+                }
+                
+
                 removeMaiusculas(palavra);
                 printf("Pesquisando: %s\n", palavra);
+
+                /*teste para saber qual codificação dos caracteres
+                for (int i = 0; palavra[i]; i++) {
+                    printf("%02X ", (unsigned char)palavra[i]);
+                }
+                printf("\n");*/
+
+                
 
                 palavra = strtok(NULL, " ");
             }

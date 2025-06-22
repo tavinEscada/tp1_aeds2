@@ -1,4 +1,3 @@
-3
+2
+A hardware accelerator implementation for real-time collision detection.txt
 A Genetic Algorithm for Multi-Component Optimization.txt
-Algoritmo genetico aplicado a otimizacao de um perfil aerodinamico de uma aeronave radio controlada.txt
-A otimizacao da distribuicao de pot.txt
