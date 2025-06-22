@@ -16,11 +16,12 @@
 #ifdef _WIN32
     #include <direct.h>
     #define mkdir(dir) _mkdir(dir)
-    #define getcwd _getcwd
+    #define sistema 1
 #else
     #include <unistd.h>
     #include <sys/stat.h>
     #define mkdir(dir) mkdir(dir, 0755)
+    #define sistema 2
 #endif
 
 #include "../include/tp.h"

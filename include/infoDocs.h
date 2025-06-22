@@ -5,11 +5,16 @@
 #include <string.h>
 #include <ctype.h>
 
-typedef struct {
+typedef struct{
     int nArquivos;
     char nomesOriginais[200][256];
     int sucesso;
-} InfoBasica;
+}InfoBasica;
+
+typedef struct{
+    int id;
+    float relevancia;
+}Relevancias;
 
 
 int getNumeroArquivos(InfoBasica *info);

@@ -5,26 +5,8 @@
  * @author Júlio César - 5903
  * @author Otávio Tavares - 5912
  */
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <ctype.h>
-
-#ifdef _WIN32
-    #include <direct.h>
-    #define mkdir(dir) _mkdir(dir)
-    #define sistema 1
-#else
-    #include <unistd.h>
-    #include <sys/stat.h>
-    #define mkdir(dir) mkdir(dir, 0755)
-    #define sistema 2
-#endif
 
 #include "../include/tp.h"
-
-#define TMAX 1042
-
 /**
  * Dada uma palavra, substitui 
  * caracteres especiais (letras com acentos e cedilha) 
@@ -462,7 +444,15 @@ void imprimeIndices(TipoArvore patricia){
     printf("\n--- Indice Invertido da Patricia ---\n");
     ImprimeOrdemPat(patricia);
 
+}
 
+int comparaRel(const void *a, const void *b) {
+    
+    Relevancias noA = *(const Relevancias *)a;
+    Relevancias noB = *(const Relevancias *)b;
+
+    // Compara as palavras
+    return (noA.relevancia < noB.relevancia);
 }
 
 void pesquisa(InfoBasica info){
@@ -521,6 +511,32 @@ void pesquisa(InfoBasica info){
     for(int i = 0; i < nArquivos; i++){
         printf("Nome original do arquivo %d: '%s'\n", i+1, getNomeOriginal(&info, i+1));
     }
+    printf("\n");
+
+    //vetor dinamico para armazenar as relevancias; o indice do vetor é id-1
+    Relevancias *vet = malloc(nArquivos * sizeof(Relevancias));
+
+
+
+    //testando apenas; os cálculos de relevancia se dão aqui!!!!!!!!!!!!!!!!!
+    for(int i = 0; i < nArquivos; i++){
+        vet[i].id = i+1;
+        vet[i].relevancia = i + 2.2;
+    }
+
+
+
+    //ordenação do vetor a partir da relevancia para printar na ordem
+    qsort(vet, nArquivos, sizeof(Relevancias), comparaRel);
+
+
+    //teste; 
+    //aqui é onde printaremos os arquivos em ordem com o nome sendo arquivoi.txt para cada i do for e o indice do vetor de relevanica é i-1
+    for(int i = 1; i <= nArquivos; i++){
+        printf("%s: relev.: %.2f\n", getNomeOriginal(&info, i), vet[i-1].relevancia);
+    }
+
+    free(vet);
 
 }
 
