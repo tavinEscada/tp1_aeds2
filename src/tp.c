@@ -461,30 +461,29 @@ int comparaRel(const void *a, const void *b) {
     return 0;
 }
 
-void tfidfpat(TipoArvore raiz, char **input, Relevancias *doc, int nDOCS){
-    int *total = 0;
+void tfidfpat(TipoArvore raiz, char **input, Relevancias *doc, int nDOCS, int nTermos){
+    
     for(int i = 0; i < nDOCS; i++){
+        int total = 0;
+        int termosDistintos = PesquisaTermosDistintos(raiz, doc[i].id, &total);
         //laço para o documento e outro para as palavras????
-        doc[i].relevancia = 1/PesquisaTermosDistintos(raiz, doc[i].id, &(*total)) * sumPtermo(raiz, nDOCS, input[i], doc[i].id);
+        doc[i].relevancia = (1.0/termosDistintos) * sumPtermo(raiz, nDOCS, input, nTermos, doc[i].id);
     }
 
 }
 
-float sumPtermo(TipoArvore raiz, int nDOCS, char *input, int idDoc){
+float sumPtermo(TipoArvore raiz, int nDOCS, char **input, int nTermos, int idDoc){
     float res = 0;
-    int taminput = strlen(input);
-    for (int i = 0; i < taminput; i++){
-        TipoItemP item = PesquisaPat(&input[i], raiz);
-        if (strcmp(item.palavra,"\0") == 0){
-            res += 0;
-        } 
-        else{
+    
+    for (int i = 0; i < nTermos; i++){
+        //parece que não está retornando itens ("elemento nao encontrado")
+        //acho que a codificação é diferente!!!!!!!
+        TipoItemP item = PesquisaPat(input[i], raiz);
+        if (strcmp(item.palavra,"\0") != 0){
+            
             int dj = item.n_arquivos;
             int ocorrenciaT = QuantidadeTermosPorDoc(item, idDoc);
-            if(ocorrenciaT == 0 || dj == 0){
-                res += 0;
-            }
-            else{
+            if(ocorrenciaT > 0 && dj > 0){
                 res += ocorrenciaT * ((log(nDOCS) / log(2.0))/dj);
             }
         }
@@ -542,6 +541,7 @@ void pesquisa(InfoBasica info, TipoArvore raiz){
                 strcpy(strings[a], palavra);
 
                 nTermos++;
+                a++;
 
                 palavra = strtok(NULL, " ");
             }
@@ -577,8 +577,10 @@ void pesquisa(InfoBasica info, TipoArvore raiz){
     printf("Depois da ordenacao:\n");
     
     for(int i = 1; i < nArquivos; i++){
-        tfidfpat(raiz, strings, &vet[i-1], nArquivos);
+        vet[i-1].id = i;
     }
+
+    tfidfpat(raiz, strings, vet, nArquivos, nTermos);
 
     //ordenação do vetor a partir da relevancia para printar na ordem
     qsort(vet, nArquivos, sizeof(Relevancias), comparaRel);
