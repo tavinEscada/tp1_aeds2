@@ -5,6 +5,24 @@
  * @author Júlio César - 5903
  * @author Otávio Tavares - 5912
  */
+<<<<<<< HEAD
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
+#include <math.h>
+
+#ifdef _WIN32
+    #include <direct.h>
+    #define mkdir(dir) _mkdir(dir)
+    #define getcwd _getcwd
+#else
+    #include <unistd.h>
+    #include <sys/stat.h>
+    #define mkdir(dir) mkdir(dir, 0755)
+#endif
+=======
+>>>>>>> main
 
 #include "../include/tp.h"
 /**
@@ -471,6 +489,8 @@ void pesquisa(InfoBasica info){
     //numero de palavras da pesquisa
     int nTermos = 0;
 
+    char *inputs[][50]
+
     printf("Palavras da pesquisa:\n");
 
     getchar();
@@ -498,7 +518,7 @@ void pesquisa(InfoBasica info){
                     printf("%02X ", (unsigned char)palavra[i]);
                 }
                 printf("\n");*/
-
+                
                 removeMaiusculas(palavra);
                 printf("Pesquisando: %s\n", palavra);
 
@@ -587,4 +607,35 @@ void menu(){
                 break;
         }
     }while(op != 0);
+}
+
+void   tfidfpat(NO_patricia raiz, char * input, Relevancias * doc, int nDOCS){
+    int * total;
+    for (int i =0; i < nDOCS; i++){
+        *doc[i].relevancia = 1/PesquisaTermosDistintos(raiz,doc[i].id,&total) * sumPtermo(NO_patricia raiz, nDOCS,input, doc[i].id);
+    }
+
+}
+
+float sumPtermo(NO_patricia raiz,int nDOCS,char * input, int idDoc){
+float res = 0;
+taminput = strlen(input);
+for (int i=0; i< taminput; i++){
+    NO_patricia no = PesquisaPat(input[i], raiz);
+    if (strcmp(no.palavra,"\0") == 0){
+        res += 0;
+    } 
+    else{
+        int dj = no.n_arquivos
+        int ocorrenciaT = QuantidadeTermosPorDoc(no,idDoc);
+        if (ocorrrenciaT == 0 || dj == 0){
+            res += 0;
+        }
+        else{
+            res += ocorrenciaT * ((log(nDOCS) / log(2.0))/dj);
+        }
+    }
+
+}
+return res;
 }

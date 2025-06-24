@@ -7,7 +7,7 @@
 
 typedef struct{
     int nArquivos;
-    char nomesOriginais[200][256];
+    char nomesOriginais[120][256];
     int sucesso;
 }InfoBasica;
 

@@ -138,3 +138,15 @@ void ImprimeOrdemPat(TipoArvore t){
 }
 
 
+void PesquisaTermosDistintos(TipoArvore t,int idDoc, int * res){
+    if (t == NULL) return;
+
+    if (Eh_ExternoPat(t)){
+        res += QuantidadeTermosPorDoc(t,idDoc)
+    
+    } 
+    else{
+        PesquisaTermosDistintos(t->NO.NInterno.esq, res);
+        PesquisaTermosDistintos(t->NO.NInterno.dir, res);
+    }
+}

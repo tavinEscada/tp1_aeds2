@@ -26,6 +26,6 @@ void faz_palavra_vazia(TipoItemP * item, char * palavra);
 void imprime_indice_invertido(TipoItemP * item);
 void insere_palavra (TipoItemP * item, int idDoc);
 int remove_palavra (TipoItemP * item, int idDoc);
-
+int QuantidadeTermosPorDoc(TipoItemP item, int idDoc);
 
 #endif
