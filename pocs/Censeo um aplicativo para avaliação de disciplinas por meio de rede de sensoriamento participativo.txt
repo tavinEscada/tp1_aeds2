@@ -1,10 +1,15 @@
 Censeo: um aplicativo para avaliação de disciplinas por meiode rede de sensoriamento participativo
-Uma questao muito debatida nas instituições de ensino e a forma de se avaliar o processo de ensino-aprendizagem. 
+Uma questao muito debatida nas instituições de ensino e a forma de se avaliar o processo de 
+ensino-aprendizagem. 
 Tradicionalmente, as avaliações
-são realizadas por meio de formulários aplicados ao final de cada período letivo. Este trabalho propoe uma 
+são realizadas por meio de formulários aplicados ao final de cada período letivo. Este 
+trabalho propoe uma 
 avaliação contínua, aula a aula, a partir de uma
-rede de sensoriamento participativo, com o objetivo de gerar metricas mais detalhadas para o corpo docente.
-Com este objetivo, foi criado o aplicativo Censeo, realizando um estudo de caso com a utilização do mesmo por três turmas de
+rede de sensoriamento participativo, com o objetivo de gerar metricas mais detalhadas 
+para o corpo docente.
+Com este objetivo, foi criado o aplicativo Censeo, realizando um estudo de caso com a 
+utilização do mesmo por três turmas de
 um curso superior. Ao final deste, foi aplicado um formulario de avaliação do
 sistema e os resultados demonstraram a eficácia e a capacidade desta rede de
-sensoriamento participativo em gerar dados e analises no contexto da avaliação do aluno sobre o ensino.
+sensoriamento participativo em gerar dados e analises no contexto da avaliação do aluno 
+sobre o ensino.

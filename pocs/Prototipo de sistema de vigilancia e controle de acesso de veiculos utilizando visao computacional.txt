@@ -1,0 +1,19 @@
+protótipo de sistema de vigilância e controle de acesso de veículos utilizando visão 
+computacional
+Até algumas décadas atrás, os veículos automotores não eram
+acessíveis a maioria da população brasileira, porém, nos dias atuais são uma
+realidade na casa de muitas pessoas. E são produtos visados tanto para roubo,
+como também são utilizados para praticar os mesmos. Com este aumento
+crescente dos veículos em circulação, e a sua utilização para furtos surgiu
+também o interesse em monitorar estes veículos, seja para controle de tráfego,
+gestão de veículos em estacionamentos, captura de infratores e outras
+atividades. Pensando nisso, este trabalho propõe o desenvolvimento de um
+algoritmo que seja capaz de reconhecer as placas de trânsito de veículos em
+imagens (fotos) e vídeos, e extrair seus caracteres, permitindo uma análise
+sobre os dados. O objetivo é que a partir dos resultados deste trabalho, seja
+possível desenvolver uma aplicação real capaz de realizar o controle de fluxo
+de veículos, como uma garagem, estacionamento ou sistema de vigilância. Para
+isto foi utilizado o modelo YOLO para a rede neural convolucional, treinada
+com dataset e aplicada a vídeos feitos no trânsito real. Os resultados apontam
+um modelo capaz de localizar placas com 90% de precisão e uma extração de
+caracteres da placa com 50% de sucesso.

@@ -1,8 +1,12 @@
 O transito ciente de contexto é uma linha de pesquisa que, nos últimos anos, ganhou 
 relevância devido ao aumento de dispositivos e aplicações IoT relacionadas. Grande 
-parte dos trabalhos nessa area propõem abordagens para veículos particulares, deixando de lado investigações 
-ligadas ao transporte público. Neste trabalho foi implementada e avaliada uma estratégia genérica
-de construção de rotas de ônibus mais seguras. A solução construída, alem de gerar trajetos mantendo os pontos 
-de parada originais, tambem propõe melhorias realocando alguns destes para regioes mais seguras. Os resultados para
+parte dos trabalhos nessa area propõem abordagens para veículos particulares, deixando 
+de lado investigações 
+ligadas ao transporte público. Neste trabalho foi implementada e avaliada uma estratégia 
+genérica
+de construção de rotas de ônibus mais seguras. A solução construída, alem de gerar trajetos 
+mantendo os pontos 
+de parada originais, tambem propõe melhorias realocando alguns destes para regioes mais 
+seguras. Os resultados para
 os pontos de paradas realocados mostraram ser possível reduzir em ate 20%
 o trafego rodoviário em regiões inseguras, com aumento do trajeto em apenas 13%.

@@ -1,2 +1,10 @@
 MoreData+: Enriquecimento Semântico para Grandes Volumes de Dados Geolocalizados
-A ferramenta MoreData busca facilitar o trabalho do analista de dados geoespaciais ao simplificar os processos de enriquecimento semântico, que muitas vezes são realizados manualmente. No entanto, ela não estava preparada para lidar de forma eficiente com grandes volumes de dados, especialmente em relação ao tempo de execução. Este trabalho apresenta uma nova abordagem para o modelo de dados da MoreData, utilizando as bibliotecas GeoPandas e Dask-GeoPandas. Foi realizada uma análise quantitativa das métricas de tempo de execução, uso de memória e uso de CPU nas novas abordagens. Como resultado, foi possível reduzir significativamente o tempo de execução do enriquecimento de dados e permitir o uso eficiente da MoreData com grandes volumes de dados.
+A ferramenta MoreData busca facilitar o trabalho do analista de dados geoespaciais 
+ao simplificar os processos de enriquecimento semântico, que muitas vezes são realizados 
+manualmente. No entanto, ela não estava preparada para lidar de forma eficiente com grandes 
+volumes de dados, especialmente em relação ao tempo de execução. Este trabalho apresenta uma 
+nova abordagem para o modelo de dados da MoreData, utilizando as bibliotecas GeoPandas e 
+Dask-GeoPandas. Foi realizada uma análise quantitativa das métricas de tempo de execução, 
+uso de memória e uso de CPU nas novas abordagens. Como resultado, foi possível reduzir 
+significativamente o tempo de execução do enriquecimento de dados e permitir o uso eficiente 
+da MoreData com grandes volumes de dados.

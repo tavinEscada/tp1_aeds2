@@ -5,6 +5,7 @@
  * @author Júlio César - 5903
  * @author Otávio Tavares - 5912
  */
+<<<<<<< HEAD
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -20,16 +21,14 @@
     #include <sys/stat.h>
     #define mkdir(dir) mkdir(dir, 0755)
 #endif
+=======
+>>>>>>> main
 
 #include "../include/tp.h"
-#include "../include/hash.h"
-
-#define TMAX 1042
-
 /**
  * Dada uma palavra, substitui 
  * caracteres especiais (letras com acentos e cedilha) 
- * por minúsculas sem acento
+ * por minúsculas sem acento (especificamente para utf-8)
  * 
  * @param p vetor de caracteres com a palavra que será adaptada
  * 
@@ -103,6 +102,39 @@ void removeAcentos(char *p){
     p[j] = '\0';
 }
 
+//no terminal do vscode (ou windows no geral) as palavras vêm em CP850; á = A0, à = 85....
+void removeAcentosTerminal(char *p){
+    for(int i = 0; p[i]; i++){
+        char sub = 0;
+        unsigned char c = (unsigned char)p[i];
+        if(c == 0xA0 || c == 0x85 || c == 0x83 || c == 0xC6 || //á à â ã
+            c == 0xB5 || c == 0xB7 || c == 0xB6 || c == 0xC7){ //Á À Â Ã
+            sub = 'a';
+            
+        }
+        else if(c == 0x82 || c == 0x88 || c == 0x90 || c == 0xD2){ //é ê É Ê
+            sub = 'e';
+        }
+        else if(c == 0xA1 || c == 0xD6){ //í Í
+            sub = 'i';
+        }
+        else if(c == 0xA2 || c == 0x93 || c == 0xE4 || c == 0xE0 || c == 0xE5 || c == 0xE2){ // ó ô õ Ó Õ Ô
+            sub = 'o';
+        }
+        else if(c == 0xA6 || c == 0xA7 || c == 0xA8 || c == 0xE9 || c == 0xEB || c == 0xEA){ // ú ù û Ú Ù Û
+            sub = 'u';
+        }
+        else if(c == 0x87 || c == 0x80){ //ç e Ç
+            sub = 'c';
+        }
+        
+        if(sub){
+            p[i] = sub;
+        }
+    }
+
+}
+
 /**
  * Dada uma palavra, substitui letras maiúsculas por minúsculas
  * 
@@ -113,7 +145,7 @@ void removeMaiusculas(char *p){
     for(int i = 0; p[i]; i++){
         char sub = 0;
         switch(p[i]){
-                
+            
             case 'A':
                 sub = 'a';
                 break;
@@ -203,17 +235,13 @@ void removeMaiusculas(char *p){
     }
 }
 
-/**trata tanto acentos quanto maiusculas*/
-void formataPalavra(char *p){
-    removeAcentos(p);
-    removeMaiusculas(p);
-}
-
 //há palavras de mais de 2 caracteres que não precisam ser levadas em conta
 int ehRelevante(char *p){
     char *irrelevantes[] = {"isso", "uma", "com", "por", "the", "sua", "elas", "that", "not",
         "seu", "como", "nao", "que", "para", "dos", "ela", "ele", "nem", "eles", "this", "are",
-        "das", "mas", "desse", "dessa", "esta", "esse", "essa", "desta", "tem", "for", "and"};
+        "das", "mas", "desse", "dessa", "esta", "esse", "essa", "desta", "tem", "for", "and",
+        "with", "such", "but"
+    };
 
     int n = sizeof(irrelevantes)/sizeof(irrelevantes[0]);
 
@@ -282,7 +310,7 @@ void removerArqs(int nArqAtual) {
         fclose(teste);
         
         if(remove(nomeArquivo) == 0){
-            printf("Arquivo remanescente removido: arquivo%d.txt\n", i);
+            //printf("Arquivo remanescente removido: arquivo%d.txt\n", i);
         }else{
             printf("Erro ao remover arquivo%d.txt\n", i);
         }
@@ -290,8 +318,8 @@ void removerArqs(int nArqAtual) {
 }
 
 /**leitura do arquivo de entrada e dos arquivos contidos nele*/
-void receberArquivo(){
-    
+InfoBasica receberArquivo(){
+    InfoBasica info = {0};
     char nome[256];
     int nArq = 0;
 
@@ -302,7 +330,8 @@ void receberArquivo(){
 
     if(arq == NULL){
         printf("Erro ao abrir o arquivo\n");
-        return;
+        info.sucesso = 0;
+        return info;
     }
 
     fscanf(arq, "%d", &nArq);
@@ -310,10 +339,12 @@ void receberArquivo(){
 
     if(nArq <= 0){
         printf("N de arquivos invalido\n");
-        return;
+        info.sucesso = 0;
+        return info;
     }
 
-    //nenhum problema na leitura (arquivo valido, qtd valida, etc)
+    
+    info.nArquivos = nArq;
 
     //criando a pasta que armazenará os arquivos com as palavras já separadas e formatadas
     mkdir("./arquivosTratados");
@@ -337,27 +368,28 @@ void receberArquivo(){
         //juntando o prefixo do endereço dos arquivos ('.\pocs') com o nome de cada arquivo
         snprintf(entrada, TMAX, "%s%s", cEntrada, nome);
 
-
         snprintf(saida, TMAX, "%sarquivo%d.txt", cSaida, i);
 
         FILE *arquivoAtual = fopen(entrada, "r");
-        FILE *saidaAtual = fopen(saida, "w");
-
+        
         if(arquivoAtual == NULL){
-            printf("Erro ao abrir o arquivo '%s'\n", nome);
-            //conferir pra ver se vamos continuar lendo o resto mesmo ou para tudo!!!
-            continue;
+            printf("Erro ao abrir o poc '%s'. Confira o nome dos pocs da entrada.\n", nome);
+            info.sucesso = 0;
+            return info;
         }
+
+        strcpy(info.nomesOriginais[i-1], nome);
+        
+
+        FILE *saidaAtual = fopen(saida, "w");
         if(saidaAtual == NULL){
             printf("erro ao criar o arquivo de saida %d\n\n", i);
-            //conferir tbm se continua
+            //conferir se continua
             continue;
         }
 
         char linha[256];
 
-        //testando o print de cada palavra de cada arquivo
-        //printf("Palavras do arquivo %d ('%s'):\n", i, nome);
         while(fgets(linha, sizeof(linha), arquivoAtual) != NULL){
             //tokenizando cada linha
             linha[strcspn(linha, "\n")] = '\0';
@@ -372,7 +404,6 @@ void receberArquivo(){
 
                     fprintf(saidaAtual, "%s\n", palavra);
 
-                    //printf("%s\n", palavra);
                     nPalavras++;
                 }
                 
@@ -391,9 +422,11 @@ void receberArquivo(){
     removerArqs(nArq);
 
     fclose(arq);
+    info.sucesso = 1;
+    return info;
 }
 
-void constroiIndices(){
+void constroiIndices(TipoArvore *patricia){
     char enderecoTextos[50] = "./arquivosTratados/";
     char nomeCompleto[TMAX];
 
@@ -408,12 +441,11 @@ void constroiIndices(){
     for(int i = 1; arqAtual;){
         char nNome[40];
         while(fgets(palavra, sizeof(palavra), arqAtual) != NULL){
-            //ADICIONAR NA ARVORE E NA TABELA aqui!!! (idDoc pode ser o 'i')
             palavra[strcspn(palavra, "\n")] = '\0';
-            Insere(palavra,i,Tabela,p);
+            Insere(palavra, i, Tabela, p);
 
 
-            //printf("%s", palavra);
+            (*patricia) = InserePat(palavra, i, patricia);
             
         }
         i++;
@@ -423,18 +455,127 @@ void constroiIndices(){
     }
 }
 
-void imprimeIndices(){
+void imprimeIndices(TipoArvore patricia){
+    
+    Imprimir(Tabela);
+
+    printf("\n--- Indice Invertido da Patricia ---\n");
+    ImprimeOrdemPat(patricia);
 
 }
 
-//usar a funcao formataPalavra!!!
-void pesquisa(){
+int comparaRel(const void *a, const void *b) {
     
+    Relevancias noA = *(const Relevancias *)a;
+    Relevancias noB = *(const Relevancias *)b;
+
+    // Compara as palavras
+    if(noA.relevancia < noB.relevancia){
+        return 1;
+    }
+    if(noA.relevancia > noB.relevancia){
+        return -1;
+    }
+    return 0;
+}
+
+void pesquisa(InfoBasica info){
+    //linha de entrada
+    char entrada[900];
+    
+    //variavel que armazenará palavra por palavra
+    char *palavra;
+    
+    //numero de palavras da pesquisa
+    int nTermos = 0;
+
+    char *inputs[][50]
+
+    printf("Palavras da pesquisa:\n");
+
+    getchar();
+
+    if(fgets(entrada, sizeof(entrada), stdin) != NULL){
+        //remove \n do final
+        entrada[strcspn(entrada, "\n\r")] = '\0';
+
+        if(strlen(entrada) > 0){
+            palavra = strtok(entrada, " ");
+
+            while(palavra != NULL){
+
+                //terminal do windows
+                if(sistema == 1){
+                    //tirar acentos para o terminal do vscode
+                    removeAcentosTerminal(palavra);
+                }else{
+                    //tirar os acentos pra rodar no terminal do linux
+                    removeAcentos(palavra);
+                }
+                
+                /*teste para saber qual codificação dos caracteres
+                for (int i = 0; palavra[i]; i++) {
+                    printf("%02X ", (unsigned char)palavra[i]);
+                }
+                printf("\n");*/
+                
+                removeMaiusculas(palavra);
+                printf("Pesquisando: %s\n", palavra);
+
+                nTermos++;
+
+                
+
+                palavra = strtok(NULL, " ");
+            }
+        }
+    }
+
+    int nArquivos = getNumeroArquivos(&info);
+    printf("numero de arquivos na execucao: %d\n", nArquivos);
+
+    for(int i = 0; i < nArquivos; i++){
+        printf("Nome original do arquivo %d: '%s'\n", i+1, getNomeOriginal(&info, i+1));
+    }
+    printf("\n");
+
+    //vetor dinamico para armazenar as relevancias; o indice do vetor é id-1
+    Relevancias *vet = malloc(nArquivos * sizeof(Relevancias));
+
+
+
+    //testando apenas; os cálculos de relevancia devem estar aqui!!!!!!!!!!!!!!!!!
+    for(int i = 0; i < nArquivos; i++){
+        vet[i].id = i+1;
+        vet[i].relevancia = 40.0 + i;
+    }
+
+
+    printf("Antes da ordenacao:\n");
+    for(int i = 1; i <= nArquivos; i++){
+        printf("%s: relev.: %.2f\n", getNomeOriginal(&info, i), vet[i-1].relevancia);
+    }
+    printf("\n");
+
+    //ordenação do vetor a partir da relevancia para printar na ordem
+    qsort(vet, nArquivos, sizeof(Relevancias), comparaRel);
+
+
+    printf("Depois da ordenacao");
+    //teste; 
+    //aqui é onde printaremos os arquivos em ordem com o nome sendo arquivoi.txt para cada i do for e o indice do vetor de relevanica é i-1
+    for(int i = 1; i <= nArquivos; i++){
+        printf("%s: relev.: %.2f\n", getNomeOriginal(&info, vet[i-1].id), vet[i-1].relevancia);
+    }
+
+    free(vet);
+
 }
 
 /**função que faz o loop do menu até que o usuário digite 0*/
 void menu(){
-    
+    TipoArvore a = NULL;
+    InfoBasica info;
     int op = 0;
     do{
         printf("--- Menu ---\n1 - Ler o arquivo com os textos\n2 - Construir os indices invertidos\n3 - Exibir os indices invertidos\n4 - Busca\n0 - Fechar\n");
@@ -442,20 +583,20 @@ void menu(){
 
         switch(op){
             case 1:
-                receberArquivo();
+                info = receberArquivo();
+                
+                
                 break;
             case 2:
-                constroiIndices();
+                constroiIndices(&a);
                 break;
 
             case 3:
-                //exibir os indices construidos
-                Imprimir(Tabela);
-                imprimeIndices();
+                imprimeIndices(a);
                 break;
 
             case 4:
-                pesquisa();
+                pesquisa(info);
                 break;
             case 0:
                 return;
@@ -468,24 +609,31 @@ void menu(){
     }while(op != 0);
 }
 
-void   tfidf(NO_patricia raiz, input[], doc * docs, int nDOCS){
-
+void   tfidfpat(NO_patricia raiz, char * input, Relevancias * doc, int nDOCS){
+    int * total;
     for (int i =0; i < nDOCS; i++){
-        doc[i].relevancia = (1/doc[i].total) * sumPtermo(NO_patricia raiz, nDOCS, docs, input);
+        *doc[i].relevancia = 1/PesquisaTermosDistintos(raiz,doc[i].id,&total) * sumPtermo(NO_patricia raiz, nDOCS,input, doc[i].id);
     }
 
 }
 
-float sumPtermo(NO_patricia raiz,totalDOCS,doc docx,input[]){
+float sumPtermo(NO_patricia raiz,int nDOCS,char * input, int idDoc){
 float res = 0;
+taminput = strlen(input);
 for (int i=0; i< taminput; i++){
-    int ocorrenciaT = getOcorrencia(input[i]->docx);
-    int dj = gettotaldocsocorrencia(input[i]);
-    if (ocorrrenciaT == 0){
-        return 0;
-    }
+    NO_patricia no = PesquisaPat(input[i], raiz);
+    if (strcmp(no.palavra,"\0") == 0){
+        res += 0;
+    } 
     else{
-        res += ocorrenciaT * ((log(totalDOCS) / log(2.0))/dj);
+        int dj = no.n_arquivos
+        int ocorrenciaT = QuantidadeTermosPorDoc(no,idDoc);
+        if (ocorrrenciaT == 0 || dj == 0){
+            res += 0;
+        }
+        else{
+            res += ocorrenciaT * ((log(nDOCS) / log(2.0))/dj);
+        }
     }
 
 }

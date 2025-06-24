@@ -1,5 +1,4 @@
 Obstacle-Aware On-Track Bus Routing
-
 The great advances achieved in very large scale
 integrated technology cause an increase in the difficulty for
 routing the buses through the spacing while minimizing the cost.

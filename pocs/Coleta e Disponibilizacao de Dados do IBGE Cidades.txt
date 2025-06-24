@@ -1,4 +1,16 @@
 Coleta e Disponibilização de Dados do IBGE Cidades
-O Instituto Brasileiro de Geografia e Estatísticas (IBGE) é o órgão responsável pela manutenção e disponibilização dos dados estatísticos de todo território nacional. No entanto a maneira como os dados são disponibilizados, pouco intuitiva, dificulta a extração para uma análise mais elaborada. Será apresentado nesse artigo um sistema que viabiliza a extração de dados de uma maneira mais clara. Usando conceitos de Data Science e outros recursos computacionais, o sistema desenvolvido neste trabalho é capaz de capturar os dados fornecidos pelo IBGE, formatá-los de maneira mais intuitiva e armazenar em uma base de dados local, com o objetivo de serem consultados para elaboração de gráficos e análises.
-Os dados fornecidos pelo IBGE falam muito sobre o Brasil, como o brasileiro vive e como os gestores públicos têm gastado os recursos da nação. Olhando por essa perspectiva, o projeto assume características sociais, ao auxiliar a população no acesso às informações a fim de questionarem a situação em que o país se encontra. Este artigo aborda as estratégias usadas de fácil assimilação, atingindo o objetivo que é o entendimento dos dados disponibilizados pelo IBGE.
+O Instituto Brasileiro de Geografia e Estatísticas (IBGE) é o órgão responsável 
+pela manutenção e disponibilização dos dados estatísticos de todo território nacional. 
+No entanto a maneira como os dados são disponibilizados, pouco intuitiva, dificulta a 
+extração para uma análise mais elaborada. Será apresentado nesse artigo um sistema que 
+viabiliza a extração de dados de uma maneira mais clara. Usando conceitos de Data Science 
+e outros recursos computacionais, o sistema desenvolvido neste trabalho é capaz de capturar 
+os dados fornecidos pelo IBGE, formatá-los de maneira mais intuitiva e armazenar em uma base 
+de dados local, com o objetivo de serem consultados para elaboração de gráficos e análises.
+Os dados fornecidos pelo IBGE falam muito sobre o Brasil, como o brasileiro vive e como os 
+gestores públicos têm gastado os recursos da nação. Olhando por essa perspectiva, o projeto 
+assume características sociais, ao auxiliar a população no acesso às informações a fim de 
+questionarem a situação em que o país se encontra. Este artigo aborda as estratégias usadas 
+de fácil assimilação, atingindo o objetivo que é o entendimento dos dados disponibilizados 
+pelo IBGE.
 Análise de dados, IBGE, Cidades

@@ -1,7 +1,7 @@
 #include "../include/hash.h"
 
 TipoDicionario Tabela;
-TipoItem Elemento;
+TipoItemP Elemento;
 TipoPesos p;
 TipoApontador i;
 extern unsigned long long int comp_insercao_hash;
@@ -93,7 +93,7 @@ void Imprimir(TipoDicionario tabela) {
     qsort(vetor_de_nos, n, sizeof(TipoCelula *), comparar_nos_por_palavra);
 
 
-    printf("--- Índice Invertido da Hash ---\n");
+    printf("--- Indice Invertido da Hash ---\n");
     for (int i = 0; i < n; i++) {
         // Pega o nó da posição ordenada
         TipoCelula *no_ordenado = vetor_de_nos[i];
@@ -106,7 +106,7 @@ void Imprimir(TipoDicionario tabela) {
 }
 
 
-TipoItem* Busca(Tipopalavra word, TipoLista *lista){
+TipoItemP* Busca(Tipopalavra word, TipoLista *lista){
     TipoApontador no_atual = lista->Primeiro->Prox;
     while (no_atual != NULL) {
 		comp_busca_hash++;
@@ -126,7 +126,7 @@ void Insere(Tipopalavra word, int idDoc, TipoDicionario T, TipoPesos p)
     TipoLista* atalho = &T[i];
     //busca pra ver se a palavra ja existe
     TipoApontador no_atual = atalho->Primeiro->Prox;
-    TipoItem* item_encontrado = NULL;
+    TipoItemP* item_encontrado = NULL;
     while (no_atual != NULL) {
         comp_insercao_hash++;
         if (strcmp(word, no_atual->Item.palavra) == 0) {
@@ -139,23 +139,23 @@ void Insere(Tipopalavra word, int idDoc, TipoDicionario T, TipoPesos p)
         insere_palavra(item_encontrado, idDoc);
     }
     else{
-        TipoItem item_inserir;
+        TipoItemP item_inserir;
         faz_palavra_vazia(&item_inserir, word);
         insere_palavra(&item_inserir, idDoc);
         Ins(&item_inserir, atalho);
     }
 }
 //passa por ponteiro para nao precisar copiar toda a struct
-void Ins(TipoItem *x, TipoLista *Lista){
+void Ins(TipoItemP *x, TipoLista *Lista){
     Lista->Ultimo->Prox = (TipoCelula *)malloc(sizeof(TipoCelula));
     Lista->Ultimo = Lista->Ultimo->Prox;
     Lista->Ultimo->Item = *x;
     Lista->Ultimo->Prox = NULL;
 }
 void comparacoes(){
-	printf("--- Relatório de Comparações ---\n");
-    printf("HASH - Comparações na Inserção: %llu\n", comp_insercao_hash);
-    printf("HASH - Comparações na Busca: %llu\n", comp_busca_hash);
+	printf("--- Relatorio de Comparacoes ---\n");
+    printf("HASH - Comparacoes na Insercao: %llu\n", comp_insercao_hash);
+    printf("HASH - Comparacoes na Busca: %llu\n", comp_busca_hash);
     printf("--------------------------------\n");
     // Zere os contadores para a próxima rodada de testes
     comp_insercao_hash = 0;

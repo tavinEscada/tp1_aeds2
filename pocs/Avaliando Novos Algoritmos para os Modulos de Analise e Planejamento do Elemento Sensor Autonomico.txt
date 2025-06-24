@@ -1,2 +1,13 @@
 Avaliando Novos Algoritmos para os Módulos de Análise e Planejamento do Elemento Sensor Autonômico
-Redes De Sensores Sem Fio sao utilizadas em diversos contextos, que podem incluir monitoração de aspectos climáticos em uma região remota, atuadores para eventos geográficos e espaciais, além de aplicações em área militar ou médica. Entretanto, esse tipo específıco de rede possui uma capacidade limitada de energia e isso impacta diretamente sua capacidade de processamento e na quantidade de memoria disponível. Diante do cenário de limitação foi desenvolvido um modelo genérico que busca utilizar de maneira mais equilibrada os recursos computacionais da rede, com conceitos de computação autonômica que tornam a rede auto configurável. Neste trabalho desenvolvemos instâncias baseadas no modelo genérico para melhorar o desempenho da rede e prolongar sua vida útil. Implementamos dois algoritmos mais sofisticados e analisamos seu comportamento em experimentos executados em redes de sensores reais, mais conhecidos como testbeds. Os resultados mostram que as implementações mantem ou melhoram aspectos importantes como o número de mensagens enviadas e a quantidade de pacotes trafegados pela rede.
+Redes De Sensores Sem Fio sao utilizadas em diversos contextos, que podem incluir monitoração 
+de aspectos climáticos em uma região remota, atuadores para eventos geográficos e espaciais, 
+além de aplicações em área militar ou médica. Entretanto, esse tipo específıco de rede possui 
+uma capacidade limitada de energia e isso impacta diretamente sua capacidade de processamento
+e na quantidade de memoria disponível. Diante do cenário de limitação foi desenvolvido um modelo 
+genérico que busca utilizar de maneira mais equilibrada os recursos computacionais da rede, com 
+conceitos de computação autonômica que tornam a rede auto configurável. Neste trabalho 
+desenvolvemos instâncias baseadas no modelo genérico para melhorar o desempenho da rede e 
+prolongar sua vida útil. Implementamos dois algoritmos mais sofisticados e analisamos seu 
+comportamento em experimentos executados em redes de sensores reais, mais conhecidos como 
+testbeds. Os resultados mostram que as implementações mantem ou melhoram aspectos importantes 
+como o número de mensagens enviadas e a quantidade de pacotes trafegados pela rede.

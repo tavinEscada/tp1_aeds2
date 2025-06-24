@@ -8,16 +8,38 @@
 #ifndef TP_H
 #define TP_H
 
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <ctype.h>
+
+#ifdef _WIN32
+    #include <direct.h>
+    #define mkdir(dir) _mkdir(dir)
+    #define sistema 1
+#else
+    #include <unistd.h>
+    #include <sys/stat.h>
+    #define mkdir(dir) mkdir(dir, 0755)
+    #define sistema 2
+#endif
+
+#include "../include/tp.h"
+#include "../include/hash.h"
+#include "../include/patricia.h"
+#include "../include/infoDocs.h"
+
+#define TMAX 1042
+
 void removeAcentos(char *p);
 void removeMaiusculas(char *p);
-void formataPalavra(char *p);
 int ehRelevante(char *p);
 int ehValida(char *p);
 void removerArqs(int nArqAtual);
-void receberArquivo();
-void constroiIndices();
-void imprimeIndices();
-void pesquisa();
+InfoBasica receberArquivo();
+void constroiIndices(TipoArvore *patricia);
+void imprimeIndices(TipoArvore patricia);
+void pesquisa(InfoBasica info);
 void menu();
 
 #endif

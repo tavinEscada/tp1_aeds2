@@ -1,10 +1,18 @@
 GCMA: Um gerador automático de modelos causais baseado em algoritmo evolutivo
-Resumo. Apesar da associação ser uma ferramenta poderosa para os negócios, ela nem sempre indica causalidade. Por isso, nos últimos
-anos muito tem se estudado e pesquisado a respeito dessa área. Como consequência, novos problemas surgiram. Dentre eles a geração
-automatizada de modelos causais, parte crucial do estudo da causalidade. Apesar de existirem ferramentas que tentam atender a essa
-demanda, para casos envolvendo muitas variáveis elas não o fazem tão bem. Por isso, neste trabalho é proposta uma solução eficiente
-baseada em algoritmo evolutivo para sugestão de modelos causais dedicada principalmente para casos envolvendo um grande número de
-parâmetros. A solução foi avaliada em um conjunto de dados com 14 mil entradas e 63 dimensões. Os resultados mostraram que foi
-possível criar um modelo causal relevante utilizando a abordagem de algoritmo evolutivo, enquanto duas ferramentas da literatura não
-alcançaram resultados satisfatórios. Como trabalhos futuros, pretende-se aperfeiçoar a ferramenta proposta neste trabalho com a finalidade
+Resumo. Apesar da associação ser uma ferramenta poderosa para os negócios, ela nem 
+sempre indica causalidade. Por isso, nos últimos
+anos muito tem se estudado e pesquisado a respeito dessa área. Como consequência, 
+novos problemas surgiram. Dentre eles a geração
+automatizada de modelos causais, parte crucial do estudo da causalidade. Apesar de 
+existirem ferramentas que tentam atender a essa
+demanda, para casos envolvendo muitas variáveis elas não o fazem tão bem. Por isso, 
+neste trabalho é proposta uma solução eficiente
+baseada em algoritmo evolutivo para sugestão de modelos causais dedicada principalmente 
+para casos envolvendo um grande número de
+parâmetros. A solução foi avaliada em um conjunto de dados com 14 mil entradas e 
+63 dimensões. Os resultados mostraram que foi
+possível criar um modelo causal relevante utilizando a abordagem de algoritmo 
+evolutivo, enquanto duas ferramentas da literatura não
+alcançaram resultados satisfatórios. Como trabalhos futuros, pretende-se a
+perfeiçoar a ferramenta proposta neste trabalho com a finalidade
 de aumentar sua precisão e eficácia na descoberta de efeitos causais.

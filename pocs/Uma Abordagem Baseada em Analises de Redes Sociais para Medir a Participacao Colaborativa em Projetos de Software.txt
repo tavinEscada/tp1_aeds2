@@ -1,5 +1,13 @@
-Uma Abordagem Baseada em Análises de Redes Sociais para Medir a Participação Colaborativa em Projetos de Software
-No processo de construção de software, utilizam-se diversas ferramentas que registram as informações acerca do trabalho da equipe. Em geral, essas ferramentas possuem vocabulários diferentes, o que dificulta a análise sobre a colaboração da equipe.
-Nesse contexto, este trabalho apresenta uma ferramenta capaz de integrar dados colaborativos de fontes heterogêneas e analisar a participação colaborativa dos membros em projetos de software. As análises são feitas após a aplicação de métricas comumente utilizadas em redes sociais, que avaliam a relevância de um nó em relação à rede.
-Para o projeto de software avaliado, 87,5% dos usuários mais ativos estiveram presentes na troca de mensagens e na coordenação de tarefas; outros 80% estiveram envolvidos tanto na troca de mensagens quanto na edição compartilhada de artefatos.
+Uma Abordagem Baseada em Análises de Redes Sociais para Medir a Participação Colaborativa em 
+Projetos de Software
+No processo de construção de software, utilizam-se diversas ferramentas que registram as 
+informações acerca do trabalho da equipe. Em geral, essas ferramentas possuem vocabulários 
+diferentes, o que dificulta a análise sobre a colaboração da equipe.
+Nesse contexto, este trabalho apresenta uma ferramenta capaz de integrar dados colaborativos 
+de fontes heterogêneas e analisar a participação colaborativa dos membros em projetos de 
+software. As análises são feitas após a aplicação de métricas comumente utilizadas em redes 
+sociais, que avaliam a relevância de um nó em relação à rede.
+Para o projeto de software avaliado, 87,5% dos usuários mais ativos estiveram presentes na 
+troca de mensagens e na coordenação de tarefas; outros 80% estiveram envolvidos tanto na 
+troca de mensagens quanto na edição compartilhada de artefatos.
 

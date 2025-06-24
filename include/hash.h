@@ -19,7 +19,7 @@ typedef unsigned TipoPesos[N][TAMALFABETO]; //nao sei pq esta assim
 typedef unsigned int TipoIndice;
 typedef struct TipoCelula* TipoApontador;
 typedef struct TipoCelula {
-    TipoItem Item; //palavra e outros componentes
+    TipoItemP Item; //palavra e outros componentes
     TipoApontador Prox;
 } TipoCelula; //lista encadeada
 typedef struct TipoLista {
@@ -28,7 +28,7 @@ typedef struct TipoLista {
 typedef TipoLista TipoDicionario[M];//nossa tabela(vetor de tipolista)
 //existe mas foi definida em outro arquivo hash.c
 extern TipoDicionario Tabela;
-extern TipoItem Elemento;
+extern TipoItemP Elemento;
 extern TipoPesos p;
 extern TipoApontador i;
 
@@ -49,7 +49,7 @@ short Vazia(TipoLista Lista);
 
 void Insere(Tipopalavra word, int idDoc, TipoDicionario T, TipoPesos p);
 
-void Ins(TipoItem *x, TipoLista *Lista);
+void Ins(TipoItemP *x, TipoLista *Lista);
 
-TipoItem* Busca(Tipopalavra word, TipoLista *lista);
+TipoItemP* Busca(Tipopalavra word, TipoLista *lista);
 #endif

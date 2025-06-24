@@ -1,9 +1,13 @@
 FOUD: Um Framework Oportunístico e Ciente de Contexto
 para Upload de Dados Corporativos
 Diversas organizações precisam coletar dados onde o acesso
-a Internet é comprometido. Perícias, levantamentos topográficos, minerações, reportagens, estudos biológicos e fiscalizações ambientais são exemplos destas atividades, que na
-maioria das vezes são realizadas em zonas rurais, onde a tecnologia de rede sem fio não funciona ou funciona com alcance
-reduzido. Dessa maneira, os dados obtidos, e que normalmente precisam ser enviados para um servidor central, podem chegar com atraso e/ou erros. Este trabalho apresenta
+a Internet é comprometido. Perícias, levantamentos topográficos, minerações, 
+reportagens, estudos biológicos e fiscalizações ambientais são exemplos destas 
+atividades, que na
+maioria das vezes são realizadas em zonas rurais, onde a tecnologia de rede sem 
+fio não funciona ou funciona com alcance
+reduzido. Dessa maneira, os dados obtidos, e que normalmente precisam ser 
+enviados para um servidor central, podem chegar com atraso e/ou erros. Este trabalho apresenta
 uma alternativa que visa facilitar o serviço de empresas ou
 órgãos governamentais que trabalham com coleta de dados
 nestas condições. Trata-se de um framework, oportunístico
@@ -14,7 +18,8 @@ modelo produzido para o framework realiza o envio de dados
 quando verifica disponibilidade de rede, priorizando o uso da
 rede em situações em que energia e pacote de dados estão
 disponíveis. A implementação desse modelo para o Android
-mostrou que é possível desenvolve-lo para um sistema concreto em particular, e que o mesmo pode contemplar particularidades de cada sistema, como os contextos, metadados
+mostrou que é possível desenvolve-lo para um sistema concreto em particular, 
+e que o mesmo pode contemplar particularidades de cada sistema, como os contextos, metadados
 dos arquivos e lógicas de transmissão mais adequados em
 cada caso.
 Upload de Dados Móveis, Transmissão Oportunística, Sensibilidade ao Contexto

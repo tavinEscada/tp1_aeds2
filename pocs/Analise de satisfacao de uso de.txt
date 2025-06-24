@@ -4,12 +4,15 @@ Engenharia de Software: um estudo comparativo
 Estudos mostram a importância de medir a satisfação do usuário do groupware
 usado em um processo de software. A satisfação do usuário pode
 influenciar a eficiência do produto, a motivação da equipe e os resultados do projeto.
-Esta pesquisa propõe uma abordagem comparativa para medir a satisfação do usuário de ferramentas colaborativas usadas para apoiar o processo de software
+Esta pesquisa propõe uma abordagem comparativa para medir a satisfação do usuário de 
+ferramentas colaborativas usadas para apoiar o processo de software
 com base no uso das seguintes técnicas qualitativas: Thinking
 Out Loud e Questionário. O trabalho apresenta os resultados dos testes
-envolvendo 8 alunos voluntários de um projeto acadêmico. Os alunos foram divididos em dois grupos de perfis de acordo com seu desempenho no projeto
+envolvendo 8 alunos voluntários de um projeto acadêmico. Os alunos foram divididos em 
+dois grupos de perfis de acordo com seu desempenho no projeto
 . Os resultados revelam que os alunos mais produtivos
-tiveram opiniões diferentes sobre a satisfação em ambas as técnicas e uma tendência positiva de acordo com os resultados do Questionário. Por
+tiveram opiniões diferentes sobre a satisfação em ambas as técnicas e uma tendência 
+positiva de acordo com os resultados do Questionário. Por
 outro lado, os resultados de outro grupo foram muito próximos para
 ambas as técnicas e houve uma tendência à neutralidade em termos
 de satisfação.

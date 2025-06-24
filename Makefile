@@ -1,2 +1,2 @@
-compile: src/hash.c src/Palavra.c src/patricia.c src/main.c
-		gcc -o bin/main src/hash.c src/Palavra.c src/patricia.c src/main.c -g -Wall
+compile: src/palavra.c src/hash.c src/patricia.c src/infoDocs.c src/tp.c src/main.c
+	gcc src/palavra.c src/hash.c src/patricia.c src/infoDocs.c src/tp.c src/main.c -Wall -Wextra -g -o main

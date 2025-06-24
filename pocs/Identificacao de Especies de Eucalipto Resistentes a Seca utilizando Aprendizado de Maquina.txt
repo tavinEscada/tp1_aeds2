@@ -5,7 +5,8 @@ variações climáticas ocorrendo no âmbito global, com ênfase nas prolongadas
 temporadas de seca, milhares de hectares de eucalipto tem tido sua produção
 prejudicada. Sendo essa uma materia prima vital para a indústria, a sua perda
 causa prejuízo em diversos segmentos. Este trabalho tem como objetivo a
-utilização de dois métodos de aprendizagem de máquina: Árvore de Decisão e Floresta Aleatoria, com o propósito 
+utilização de dois métodos de aprendizagem de máquina: Árvore de Decisão e Floresta 
+Aleatoria, com o propósito 
 de identificar, com base em dados coletados
 no campo, quais sao as variáveis mais relevantes para classificar uma espécie
 de eucalipto em resistente ou não a seca. Ao final ser a possível observar que a

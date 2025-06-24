@@ -1,0 +1,15 @@
+Investigando o uso de informações temporais para o
+desempenho de filtros colaborativos e cadeias de Markov na
+recomendação de aplicativos móveis 
+Com o uso crescente de dispositivos moveis, mais aplicações estão
+sendo desenvolvidas e publicadas para satisfazer as necessidades do consumidor. 
+Com muitas opções, os usuários podem ficar com dificuldades com
+as possibilidades de selecionar um aplicativo móvel para atender às suas necessidades. 
+Uma solução comum para este problema é desenvolver sistemas
+de recomendação com o objetivo de, com base nas necessidades do usuário,
+recomendar aplicativos que provavelmente os usuários instalariam por conta
+própria. Neste trabalho, usamos informações cronológicas das sequências de
+instalação de 14 mil usuários para melhorar algoritmos tradicionalmente utilizados 
+para sistemas de recomendação. Nossos resultados mostram um aumento em media de até 16% na 
+revocação para os filtros colaborativos e 36% para
+a Cadeia de Markov, em comparação com os mesmos modelos não utilizando informações cronológicas. 

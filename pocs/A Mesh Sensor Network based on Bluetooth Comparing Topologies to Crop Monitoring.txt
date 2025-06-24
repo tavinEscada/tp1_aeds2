@@ -5,4 +5,4 @@ productivity of farms. Through using a Wireless Sensor Network (WSN) and the app
 of the internet of things (IoT) technologies, we can better monitor the condition of farm 
 crops. In this work, we designed a Bluetooth Low Energy mesh network joined fluorescence 
 sensors for agricultural crop monitoring, and also we evaluated the suitability of this 
-solution in a crop field scenario.
+solution in a crop field scenario. 

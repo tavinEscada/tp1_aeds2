@@ -1,6 +1,10 @@
 Extração de Correlações entre o Local de Residência e o Modelo de Smartphones de Usuários
-Nos últimos anos, estamos observando um aumento no número de usuários de dispositivos móveis e, consequentemente, na quantidade de dados coletados deles e disponibilizados para a indústria. Sendo assim, as empresas estão dispostas a usar esses dados
-para descobrir informações que possam ajudá-las a fornecer serviços melhores e mais personalizados. Neste trabalho, exploramos
-dados móveis e censitários de milhares de usuários no Brasil para entender como seu local de residência está correlacionado com seus
+Nos últimos anos, estamos observando um aumento no número de usuários de dispositivos móveis 
+e, consequentemente, na quantidade de dados coletados deles e disponibilizados para a indústria. 
+Sendo assim, as empresas estão dispostas a usar esses dados
+para descobrir informações que possam ajudá-las a fornecer serviços melhores e mais personalizados.
+ Neste trabalho, exploramos
+dados móveis e censitários de milhares de usuários no Brasil para entender como seu local 
+de residência está correlacionado com seus
 smartphones.
 censo, correlação, dispositivo móvel

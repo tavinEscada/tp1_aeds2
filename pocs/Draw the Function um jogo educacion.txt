@@ -1,2 +1,11 @@
 Draw the Function: um jogo educacional para auxiliar a aprendizagem de funções matemáticas 
-Jogos educacionais são uma forma de ensino atrativa entre a maioria dos jovens do ensino médio e/ou superior. Contudo, ainda é pouco explorada por parte dos professores de escolas e universidades. Muitas das vezes, tais alunos falham em concluir suas disciplinas por falta de interesse em suas aulas, principalmente na área de ciências exatas, uma vez que muitos consideram difíceis tais disciplinas. Portanto, este trabalho apresenta o desenvolvimento, a analise e testes do jogo Draw the Function, um jogo educacional para o ensino na área de ciências exatas, em específico funções matemáticas. Durante os testes, foi possível notar que o Draw The Function possui capacidade pedagógica, ajudando no ensino de funções matemáticas e se mostrou um jogo atrativo e motivador para os seus jogadores.
+Jogos educacionais são uma forma de ensino atrativa entre a maioria dos jovens do 
+ensino médio e/ou superior. Contudo, ainda é pouco explorada por parte dos 
+professores de escolas e universidades. Muitas das vezes, tais alunos falham 
+em concluir suas disciplinas por falta de interesse em suas aulas, principalmente 
+na área de ciências exatas, uma vez que muitos consideram difíceis tais disciplinas. 
+Portanto, este trabalho apresenta o desenvolvimento, a analise e testes do jogo Draw 
+the Function, um jogo educacional para o ensino na área de ciências exatas, em específico 
+funções matemáticas. Durante os testes, foi possível notar que o Draw The Function possui 
+capacidade pedagógica, ajudando no ensino de funções matemáticas e se mostrou um jogo 
+atrativo e motivador para os seus jogadores.

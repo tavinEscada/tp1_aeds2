@@ -13,19 +13,19 @@ typedef struct celula
 
 }Ccelula;
 
-typedef struct TipoItem
+typedef struct TipoItemP
 {
     char palavra[50] ;
     Ccelula * primeiro;
     int n_arquivos;
     int total_ocorrencias;
 
-}TipoItem;
+}TipoItemP;
 
-void faz_palavra_vazia( TipoItem * item, char * palavra);
-void imprime_indice_invertido( TipoItem * item);
-void insere_palavra (TipoItem * item, int idDoc);
-int remove_palavra (TipoItem * item, int idDoc);
-
+void faz_palavra_vazia(TipoItemP * item, char * palavra);
+void imprime_indice_invertido(TipoItemP * item);
+void insere_palavra (TipoItemP * item, int idDoc);
+int remove_palavra (TipoItemP * item, int idDoc);
+int QuantidadeTermosPorDoc(TipoItemP item, int idDoc);
 
 #endif

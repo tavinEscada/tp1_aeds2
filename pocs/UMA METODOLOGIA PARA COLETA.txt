@@ -1,5 +1,4 @@
-UMA METODOLOGIA PARA COLETA E ANÁLISE
-DE DADOS DE REDES SOCIAIS
+uma metodologia para coleta e análise de dados de redes sociais
 
 A facilidade de uso das redes sociais, seja em um computador pessoal ou por meio de aplicativos em smartphones, juntamente com algoritmos cada vez mais eficazes em mostrar às
 pessoas os seus interesses, fez com que elas sejam usadas atualmente até por pessoas que

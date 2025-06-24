@@ -1,11 +1,11 @@
 #include "../include/patricia.h"
 
 
-short Eh_Externo(TipoArvore NO){ // verifica se NO é um nó externo
+short Eh_ExternoPat(TipoArvore NO){ // verifica se NO é um nó externo
     return (NO->tipo_no == Externo);
 }
 
-TipoArvore Cria_NO_Interno(int i, TipoArvore *esq,  TipoArvore *dir, char caractere){ //função para inicializar um nó interno
+TipoArvore Cria_NO_InternoPat(int i, TipoArvore *esq,  TipoArvore *dir, char caractere){ //função para inicializar um nó interno
 
     TipoArvore Novo_NO;
     Novo_NO = (TipoArvore)malloc(sizeof(NO_patricia));
@@ -19,56 +19,57 @@ TipoArvore Cria_NO_Interno(int i, TipoArvore *esq,  TipoArvore *dir, char caract
     return Novo_NO;
 } 
 
-TipoArvore Cria_NO_Externo(char* palavra,int idDoc){ //função para inicializar um nó externo
+TipoArvore Cria_NO_ExternoPat(char* palavra,int idDoc){ //função para inicializar um nó externo
     
     TipoArvore Novo_NO;
     Novo_NO = (TipoArvore)malloc(sizeof(NO_patricia));
     Novo_NO->tipo_no = Externo; 
 
-    Inicializa_listaIndice(&Novo_NO->NO.chave.lista);
-    Atualiza_Ocorrencia(&Novo_NO->NO.chave.lista,idDoc);
-
-    strcpy((char *)Novo_NO->NO.chave.word, palavra); 
+    // Novo_NO->NO.chave.primeiro = (Ccelula *)malloc(sizeof(Ccelula));
+    // Novo_NO->NO.chave.primeiro->prox = NULL;
+    faz_palavra_vazia(&Novo_NO->NO.chave,palavra);
+    insere_palavra(&Novo_NO->NO.chave,idDoc);
     
     return Novo_NO;
 }  
 
-void PesquisaPat(char* palavra, TipoArvore NoRaiz,int* visitas) {
+TipoItemP PesquisaPat(char* palavra, TipoArvore NoRaiz) {
 
     TipoArvore NoAtual=NoRaiz;
 
-    if (Eh_Externo(NoAtual)) {
-        if (strcmp((const char*)palavra, (const char*)NoAtual->NO.chave.word) == 0){
-            printf("Elemento encontrado\n");
+    if (Eh_ExternoPat(NoAtual)) {
+        if (strcmp((const char*)palavra, (const char*)NoAtual->NO.chave.palavra) == 0){
+            return (NoAtual->NO.chave);
         }
         else{
             printf("Elemento nao encontrado\n");
+            TipoItemP vazio;
+            vazio.palavra[0]='\0';
+            return vazio;
         }
-        return;
+
     }
 
     if (palavra[NoAtual->NO.NInterno.indice] >= NoAtual->NO.NInterno.caractere){
-        (*visitas)+=1;
-        PesquisaPat(palavra, NoAtual->NO.NInterno.dir,visitas);
+        return PesquisaPat(palavra, NoAtual->NO.NInterno.dir);
     }
     else{
-        (*visitas)+=1;
-        PesquisaPat(palavra, NoAtual->NO.NInterno.esq,visitas);
+        return PesquisaPat(palavra, NoAtual->NO.NInterno.esq);
     }
 }
 
 TipoArvore InsereEntrePat(char* palavra,int idDoc, TipoArvore *NoAtual, int i, char caractere_interno){
   
     TipoArvore NoExt;
-    if (Eh_Externo(*NoAtual) || i < (*NoAtual)->NO.NInterno.indice){
+    if (Eh_ExternoPat(*NoAtual) || i < (*NoAtual)->NO.NInterno.indice){
         
-        NoExt = Cria_NO_Externo(palavra,idDoc);
+        NoExt = Cria_NO_ExternoPat(palavra,idDoc);
         // insere acima
         if (palavra[i] >= caractere_interno){
-            return (Cria_NO_Interno(i, NoAtual, &NoExt,caractere_interno)); //nova palavra a direita
+            return (Cria_NO_InternoPat(i, NoAtual, &NoExt,caractere_interno)); //nova palavra a direita
         }
         else{
-            return (Cria_NO_Interno(i, &NoExt, NoAtual,caractere_interno)); //nova palavra a esquerda
+            return (Cria_NO_InternoPat(i, &NoExt, NoAtual,caractere_interno)); //nova palavra a esquerda
         }
     } 
     else{
@@ -86,17 +87,17 @@ TipoArvore InsereEntrePat(char* palavra,int idDoc, TipoArvore *NoAtual, int i, c
 TipoArvore InserePat(char* palavra, int idDoc, TipoArvore *NoRaiz){
   
     TipoArvore NoAtual;
-    int i;
+    unsigned int i;
     char caractere_dif;
-  
+          
     if (*NoRaiz == NULL){
-        return (Cria_NO_Externo(palavra,idDoc));
+        return (Cria_NO_ExternoPat(palavra,idDoc));
     }
     else{
      
         NoAtual = *NoRaiz;
 
-        while (!Eh_Externo(NoAtual)){
+        while (!Eh_ExternoPat(NoAtual)){
 
             if (palavra[NoAtual->NO.NInterno.indice] >= NoAtual->NO.NInterno.caractere)
                 NoAtual = NoAtual->NO.NInterno.dir;
@@ -105,17 +106,17 @@ TipoArvore InserePat(char* palavra, int idDoc, TipoArvore *NoRaiz){
         }
 
         i = 0;
-        while (i<= strlen((const char*)palavra) && palavra[i] == NoAtual->NO.chave.word[i])
+        while (i<= strlen((const char*)palavra) && palavra[i] == NoAtual->NO.chave.palavra[i])
             i++;
 
         if (i > strlen((const char*)palavra)){
 
-            Atualiza_Ocorrencia(&NoAtual->NO.chave.lista,idDoc);
+            insere_palavra(&NoAtual->NO.chave,idDoc);
             return (*NoRaiz); 
             
         }
         else{
-            caractere_dif=NoAtual->NO.chave.word[i];
+            caractere_dif=NoAtual->NO.chave.palavra[i];
             //garante que o caractere em nó interno será sempre o maior
             //prefixos irão sempre para a esquerda pois \0 é menor que todos caracteres
             return InsereEntrePat(palavra, idDoc, NoRaiz, i, (palavra[i] > caractere_dif) ? palavra[i] : caractere_dif);
@@ -126,10 +127,8 @@ TipoArvore InserePat(char* palavra, int idDoc, TipoArvore *NoRaiz){
 void ImprimeOrdemPat(TipoArvore t){
     if (t == NULL) return;
 
-    if (Eh_Externo(t)){
-        printf("%s: ", (char *)t->NO.chave.word);
-        Imprime_ListaIndice(&t->NO.chave.lista);
-        printf("\n");
+    if (Eh_ExternoPat(t)){
+        imprime_indice_invertido(&t->NO.chave);
     
     } 
     else{
@@ -139,3 +138,15 @@ void ImprimeOrdemPat(TipoArvore t){
 }
 
 
+void PesquisaTermosDistintos(TipoArvore t,int idDoc, int * res){
+    if (t == NULL) return;
+
+    if (Eh_ExternoPat(t)){
+        res += QuantidadeTermosPorDoc(t,idDoc)
+    
+    } 
+    else{
+        PesquisaTermosDistintos(t->NO.NInterno.esq, res);
+        PesquisaTermosDistintos(t->NO.NInterno.dir, res);
+    }
+}
