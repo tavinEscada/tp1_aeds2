@@ -5,24 +5,6 @@
  * @author Júlio César - 5903
  * @author Otávio Tavares - 5912
  */
-<<<<<<< HEAD
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <ctype.h>
-#include <math.h>
-
-#ifdef _WIN32
-    #include <direct.h>
-    #define mkdir(dir) _mkdir(dir)
-    #define getcwd _getcwd
-#else
-    #include <unistd.h>
-    #include <sys/stat.h>
-    #define mkdir(dir) mkdir(dir, 0755)
-#endif
-=======
->>>>>>> main
 
 #include "../include/tp.h"
 /**
@@ -479,29 +461,63 @@ int comparaRel(const void *a, const void *b) {
     return 0;
 }
 
-void pesquisa(InfoBasica info){
+void tfidfpat(TipoArvore raiz, char **input, Relevancias *doc, int nDOCS){
+    int *total = 0;
+    for(int i = 0; i < nDOCS; i++){
+        //laço para o documento e outro para as palavras????
+        doc[i].relevancia = 1/PesquisaTermosDistintos(raiz, doc[i].id, &(*total)) * sumPtermo(raiz, nDOCS, input[i], doc[i].id);
+    }
+
+}
+
+float sumPtermo(TipoArvore raiz, int nDOCS, char *input, int idDoc){
+    float res = 0;
+    int taminput = strlen(input);
+    for (int i = 0; i < taminput; i++){
+        TipoItemP item = PesquisaPat(&input[i], raiz);
+        if (strcmp(item.palavra,"\0") == 0){
+            res += 0;
+        } 
+        else{
+            int dj = item.n_arquivos;
+            int ocorrenciaT = QuantidadeTermosPorDoc(item, idDoc);
+            if(ocorrenciaT == 0 || dj == 0){
+                res += 0;
+            }
+            else{
+                res += ocorrenciaT * ((log(nDOCS) / log(2.0))/dj);
+            }
+        }
+
+    }
+    return res;
+}
+
+void pesquisa(InfoBasica info, TipoArvore raiz){
     //linha de entrada
     char entrada[900];
     
     //variavel que armazenará palavra por palavra
     char *palavra;
     
-    //numero de palavras da pesquisa
-    int nTermos = 0;
-
-    char *inputs[][50]
-
     printf("Palavras da pesquisa:\n");
 
     getchar();
 
+    //lista encadeada de palavras
+    char **strings;
+    strings = (char**)malloc(300 * sizeof(char*));
+
+    //numero de palavras da pesquisa
+    int nTermos = 0;
+    
     if(fgets(entrada, sizeof(entrada), stdin) != NULL){
         //remove \n do final
         entrada[strcspn(entrada, "\n\r")] = '\0';
 
         if(strlen(entrada) > 0){
             palavra = strtok(entrada, " ");
-
+            int a = 0;
             while(palavra != NULL){
 
                 //terminal do windows
@@ -520,11 +536,12 @@ void pesquisa(InfoBasica info){
                 printf("\n");*/
                 
                 removeMaiusculas(palavra);
-                printf("Pesquisando: %s\n", palavra);
+                
+
+                strings[a] = (char*)malloc((strlen(palavra)+1) * sizeof(char));
+                strcpy(strings[a], palavra);
 
                 nTermos++;
-
-                
 
                 palavra = strtok(NULL, " ");
             }
@@ -532,24 +549,22 @@ void pesquisa(InfoBasica info){
     }
 
     int nArquivos = getNumeroArquivos(&info);
-    printf("numero de arquivos na execucao: %d\n", nArquivos);
+    /*printf("numero de arquivos na execucao: %d\n", nArquivos);
 
     for(int i = 0; i < nArquivos; i++){
         printf("Nome original do arquivo %d: '%s'\n", i+1, getNomeOriginal(&info, i+1));
     }
-    printf("\n");
+    printf("\n");*/
 
     //vetor dinamico para armazenar as relevancias; o indice do vetor é id-1
     Relevancias *vet = malloc(nArquivos * sizeof(Relevancias));
 
-
-
+    /*
     //testando apenas; os cálculos de relevancia devem estar aqui!!!!!!!!!!!!!!!!!
     for(int i = 0; i < nArquivos; i++){
         vet[i].id = i+1;
         vet[i].relevancia = 40.0 + i;
     }
-
 
     printf("Antes da ordenacao:\n");
     for(int i = 1; i <= nArquivos; i++){
@@ -557,19 +572,29 @@ void pesquisa(InfoBasica info){
     }
     printf("\n");
 
+    */
+
+    printf("Depois da ordenacao:\n");
+    
+    for(int i = 1; i < nArquivos; i++){
+        tfidfpat(raiz, strings, &vet[i-1], nArquivos);
+    }
+
     //ordenação do vetor a partir da relevancia para printar na ordem
     qsort(vet, nArquivos, sizeof(Relevancias), comparaRel);
 
-
-    printf("Depois da ordenacao");
     //teste; 
     //aqui é onde printaremos os arquivos em ordem com o nome sendo arquivoi.txt para cada i do for e o indice do vetor de relevanica é i-1
     for(int i = 1; i <= nArquivos; i++){
         printf("%s: relev.: %.2f\n", getNomeOriginal(&info, vet[i-1].id), vet[i-1].relevancia);
     }
 
-    free(vet);
+    for(int i = 0; i < nTermos; i++){
+        free(strings[i]);
+    }
 
+    free(vet);
+    free(strings);
 }
 
 /**função que faz o loop do menu até que o usuário digite 0*/
@@ -584,9 +609,11 @@ void menu(){
         switch(op){
             case 1:
                 info = receberArquivo();
-                
-                
+                if(info.sucesso != 1){
+                    printf("Leitura sem sucesso. Entre com outro arquivo ou o concerte para executar de novo.\n");
+                }
                 break;
+
             case 2:
                 constroiIndices(&a);
                 break;
@@ -596,7 +623,7 @@ void menu(){
                 break;
 
             case 4:
-                pesquisa(info);
+                pesquisa(info, a);
                 break;
             case 0:
                 return;
@@ -607,35 +634,4 @@ void menu(){
                 break;
         }
     }while(op != 0);
-}
-
-void   tfidfpat(NO_patricia raiz, char * input, Relevancias * doc, int nDOCS){
-    int * total;
-    for (int i =0; i < nDOCS; i++){
-        *doc[i].relevancia = 1/PesquisaTermosDistintos(raiz,doc[i].id,&total) * sumPtermo(NO_patricia raiz, nDOCS,input, doc[i].id);
-    }
-
-}
-
-float sumPtermo(NO_patricia raiz,int nDOCS,char * input, int idDoc){
-float res = 0;
-taminput = strlen(input);
-for (int i=0; i< taminput; i++){
-    NO_patricia no = PesquisaPat(input[i], raiz);
-    if (strcmp(no.palavra,"\0") == 0){
-        res += 0;
-    } 
-    else{
-        int dj = no.n_arquivos
-        int ocorrenciaT = QuantidadeTermosPorDoc(no,idDoc);
-        if (ocorrrenciaT == 0 || dj == 0){
-            res += 0;
-        }
-        else{
-            res += ocorrenciaT * ((log(nDOCS) / log(2.0))/dj);
-        }
-    }
-
-}
-return res;
 }

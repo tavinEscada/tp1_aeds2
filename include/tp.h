@@ -12,6 +12,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
+#include <math.h>
 
 #ifdef _WIN32
     #include <direct.h>
@@ -29,6 +30,7 @@
 #include "../include/patricia.h"
 #include "../include/infoDocs.h"
 
+
 #define TMAX 1042
 
 void removeAcentos(char *p);
@@ -39,8 +41,10 @@ void removerArqs(int nArqAtual);
 InfoBasica receberArquivo();
 void constroiIndices(TipoArvore *patricia);
 void imprimeIndices(TipoArvore patricia);
-void pesquisa(InfoBasica info);
+void pesquisa(InfoBasica info, TipoArvore raiz);
 void menu();
+void tfidfpat(TipoArvore raiz, char **input, Relevancias * doc, int nDOCS);
+float sumPtermo(TipoArvore raiz, int nDOCS, char *input, int idDoc);
 
 #endif
 

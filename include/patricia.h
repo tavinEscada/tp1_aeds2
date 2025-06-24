@@ -31,5 +31,6 @@ TipoArvore InserePat(char* palavra,int idDoc, TipoArvore *NoRaiz);
 TipoItemP PesquisaPat(char* palavra, TipoArvore NoRaiz);
 short Eh_ExternoPat(TipoArvore NO);
 void ImprimeOrdemPat(TipoArvore t);
+int PesquisaTermosDistintos(TipoArvore t, int idDoc, int * res);
 
 #endif

@@ -28,4 +28,5 @@ void insere_palavra (TipoItemP * item, int idDoc);
 int remove_palavra (TipoItemP * item, int idDoc);
 int QuantidadeTermosPorDoc(TipoItemP item, int idDoc);
 
+
 #endif

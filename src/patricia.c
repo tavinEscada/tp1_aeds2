@@ -138,15 +138,16 @@ void ImprimeOrdemPat(TipoArvore t){
 }
 
 
-void PesquisaTermosDistintos(TipoArvore t,int idDoc, int * res){
-    if (t == NULL) return;
+int PesquisaTermosDistintos(TipoArvore t, int idDoc, int * res){
+    if (t == NULL) return 0;
 
     if (Eh_ExternoPat(t)){
-        res += QuantidadeTermosPorDoc(t,idDoc)
+        res += QuantidadeTermosPorDoc(t->NO.chave, idDoc);
     
     } 
     else{
-        PesquisaTermosDistintos(t->NO.NInterno.esq, res);
-        PesquisaTermosDistintos(t->NO.NInterno.dir, res);
+        PesquisaTermosDistintos(t->NO.NInterno.esq, idDoc, res);
+        PesquisaTermosDistintos(t->NO.NInterno.dir, idDoc, res);
     }
+    return *res;
 }

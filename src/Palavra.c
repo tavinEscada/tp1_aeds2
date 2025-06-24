@@ -97,11 +97,10 @@ int remove_palavra (TipoItemP * item, int idDoc){
     printf("palavra nao esta presente no arquivo\n");
     return 0;
 }
-QuantidadeTermosPorDoc
-int (TipoItemP item, int idDoc){
+int QuantidadeTermosPorDoc(TipoItemP item, int idDoc){
 
     Ccelula * aux;
-    aux = item->primeiro;
+    aux = item.primeiro;
 
 
     while(aux->prox != NULL && aux->prox->idDoc <= idDoc){
