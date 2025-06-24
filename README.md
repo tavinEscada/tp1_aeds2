@@ -10,7 +10,7 @@ mingw32-make
 ```
 Ou, ainda, usando diretamente o comando do GCC:
 ```
-gcc src/palavra.c src/hash.c src/patricia.c src/infoDocs.c src/tp.c src/main.c -Wall -Wextra -g -o main
+gcc src/palavra.c src/hash.c src/patricia.c src/infoDocs.c src/tp.c src/main.c -lm -Wall -Wextra -g -o main
 ```
 No Linux, pode ser usado o mesmo comando acima, ou compilar a partir do Makefile, digitando no terminal:
 ```
