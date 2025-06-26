@@ -462,12 +462,17 @@ int comparaRel(const void *a, const void *b) {
 }
 
 void tfidfpat(TipoArvore raiz, char **input, Relevancias *doc, int nDOCS, int nTermos){
+
+    
     
     for(int i = 0; i < nDOCS; i++){
+        printf("DEBUG: Calculando relevancia para documento ID: %d\n", doc[i].id);
         int total = 0;
         int termosDistintos = PesquisaTermosDistintos(raiz, doc[i].id, &total);
+        printf("DEBUG: Termos distintos: %d\n", termosDistintos);
         //laço para o documento e outro para as palavras????
         doc[i].relevancia = (1.0/termosDistintos) * sumPtermo(raiz, nDOCS, input, nTermos, doc[i].id);
+        printf("DEBUG: Relevancia calculada: %.2f\n", doc[i].relevancia);
     }
 
 }
@@ -477,7 +482,6 @@ float sumPtermo(TipoArvore raiz, int nDOCS, char **input, int nTermos, int idDoc
     
     for (int i = 0; i < nTermos; i++){
         //parece que não está retornando itens ("elemento nao encontrado")
-        //acho que a codificação é diferente!!!!!!!
         TipoItemP item = PesquisaPat(input[i], raiz);
         if (strcmp(item.palavra,"\0") != 0){
             
@@ -528,15 +532,15 @@ void pesquisa(InfoBasica info, TipoArvore raiz){
                     removeAcentos(palavra);
                 }
                 
-                /*teste para saber qual codificação dos caracteres
-                for (int i = 0; palavra[i]; i++) {
+                //teste para saber qual codificação dos caracteres
+                /*for(int i = 0; palavra[i]; i++){
                     printf("%02X ", (unsigned char)palavra[i]);
                 }
-                printf("\n");*/
+                printf("\n");
+                */
                 
                 removeMaiusculas(palavra);
                 
-
                 strings[a] = (char*)malloc((strlen(palavra)+1) * sizeof(char));
                 strcpy(strings[a], palavra);
 
@@ -573,20 +577,18 @@ void pesquisa(InfoBasica info, TipoArvore raiz){
     printf("\n");
 
     */
-
-    printf("Depois da ordenacao:\n");
     
-    for(int i = 1; i < nArquivos; i++){
+    for(int i = 1; i <= nArquivos; i++){
         vet[i-1].id = i;
+        vet[i-1].relevancia = 0.0;
     }
-
+    
     tfidfpat(raiz, strings, vet, nArquivos, nTermos);
 
     //ordenação do vetor a partir da relevancia para printar na ordem
     qsort(vet, nArquivos, sizeof(Relevancias), comparaRel);
 
-    //teste; 
-    //aqui é onde printaremos os arquivos em ordem com o nome sendo arquivoi.txt para cada i do for e o indice do vetor de relevanica é i-1
+    //printf("Depois da ordenacao:\n");
     for(int i = 1; i <= nArquivos; i++){
         printf("%s: relev.: %.2f\n", getNomeOriginal(&info, vet[i-1].id), vet[i-1].relevancia);
     }

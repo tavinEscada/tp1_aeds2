@@ -142,7 +142,9 @@ int PesquisaTermosDistintos(TipoArvore t, int idDoc, int * res){
     if (t == NULL) return 0;
 
     if (Eh_ExternoPat(t)){
-        res += QuantidadeTermosPorDoc(t->NO.chave, idDoc);
+        if(QuantidadeTermosPorDoc(t->NO.chave, idDoc)>0){
+            (*res)++;
+        }
     
     } 
     else{
