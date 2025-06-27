@@ -618,6 +618,154 @@ void pesquisa(InfoBasica info, TipoArvore raiz){
     free(vet);
     free(strings);
 }
+//////////////HASH/////////////////////
+
+
+void tfidfhash(TipoDicionario Tabela, TipoPesos p, char **input, Relevancias *doc, int nDOCS, int nTermos){
+
+    for(int i = 0; i < nDOCS; i++){
+        //printf("DEBUG: Calculando relevancia para documento ID: %d\n", doc[i].id);
+        int total = 0;
+        int termosDistintos = PesquisaTermosDistintos(raiz, doc[i].id, &total);
+        //printf("DEBUG: Termos distintos: %d\n", termosDistintos);
+        //laço para o documento e outro para as palavras????
+        doc[i].relevancia = (1.0/termosDistintos) * sumPtermo(raiz, nDOCS, input, nTermos, doc[i].id);
+        //printf("DEBUG: Relevancia calculada: %.2f\n", doc[i].relevancia);
+    }
+
+}
+
+float sumPtermo_hash(TipoDicionario Tabela, TipoPesos p, int nDOCS, char **input, int nTermos, int idDoc){
+    float res = 0;
+
+    for (int i = 0; i < nTermos; i++){
+        //Calcula o índice da palavra que buscamos
+        TipoIndice indice = h(input[i], p);
+
+        //Busca o ponteiro para o item na TABELA HASH
+        TipoItemP* item_ptr = Busca(input[i], &Tabela[indice]);
+
+
+        if (item_ptr != NULL){
+
+            int dj = item_ptr->n_arquivos;
+            int ocorrenciaT = QuantidadeTermosPorDoc(*item_ptr, idDoc); // Passa o item, não o ponteiro
+
+            if(ocorrenciaT > 0 && dj > 0){
+                res += ocorrenciaT * ((log(nDOCS) / log(2.0))/dj);
+            }
+        }
+    }
+    return res;
+}
+
+void pesquisa_hash(TipoDicionario Tabela, TipoPesos p, InfoBasica info){
+    //linha de entrada
+    char entrada[900];
+
+    //variavel que armazenará palavra por palavra
+    char *palavra;
+
+    printf("Palavras da pesquisa:\n");
+
+    getchar();
+
+    //lista encadeada de palavras
+    char **strings;
+    strings = (char**)malloc(300 * sizeof(char*));
+
+    //numero de palavras da pesquisa
+    int nTermos = 0;
+
+    if(fgets(entrada, sizeof(entrada), stdin) != NULL){
+        //remove \n do final
+        entrada[strcspn(entrada, "\n\r")] = '\0';
+
+        if(strlen(entrada) > 0){
+            palavra = strtok(entrada, " ");
+            int a = 0;
+            while(palavra != NULL){
+
+                //terminal do windows
+                if(sistema == 1){
+                    //tirar acentos para o terminal do vscode
+                    removeAcentosTerminal(palavra);
+                }else{
+                    //tirar os acentos pra rodar no terminal do linux
+                    removeAcentos(palavra);
+                }
+
+                //teste para saber qual codificação dos caracteres
+                /*for(int i = 0; palavra[i]; i++){
+                    printf("%02X ", (unsigned char)palavra[i]);
+                }
+                printf("\n");
+                */
+
+                removeMaiusculas(palavra);
+
+                strings[a] = (char*)malloc((strlen(palavra)+1) * sizeof(char));
+                strcpy(strings[a], palavra);
+
+                nTermos++;
+                a++;
+
+                palavra = strtok(NULL, " ");
+            }
+        }
+    }
+
+    int nArquivos = getNumeroArquivos(&info);
+    /*printf("numero de arquivos na execucao: %d\n", nArquivos);
+
+    for(int i = 0; i < nArquivos; i++){
+        printf("Nome original do arquivo %d: '%s'\n", i+1, getNomeOriginal(&info, i+1));
+    }
+    printf("\n");*/
+
+    //vetor dinamico para armazenar as relevancias; o indice do vetor é id-1
+    Relevancias *vet = malloc(nArquivos * sizeof(Relevancias));
+
+    /*
+    //testando apenas; os cálculos de relevancia devem estar aqui!!!!!!!!!!!!!!!!!
+    for(int i = 0; i < nArquivos; i++){
+        vet[i].id = i+1;
+        vet[i].relevancia = 40.0 + i;
+    }
+
+    printf("Antes da ordenacao:\n");
+    for(int i = 1; i <= nArquivos; i++){
+        printf("%s: relev.: %.2f\n", getNomeOriginal(&info, i), vet[i-1].relevancia);
+    }
+    printf("\n");
+
+    */
+
+    for(int i = 1; i <= nArquivos; i++){
+        vet[i-1].id = i;
+        vet[i-1].relevancia = 0.0;
+    }
+
+    tfidfhash(Tabela, p, strings, vet, nArquivos, nTermos);
+
+    //ordenação do vetor a partir da relevancia para printar na ordem
+    qsort(vet, nArquivos, sizeof(Relevancias), comparaRel);
+
+    //printf("Depois da ordenacao:\n");
+    for(int i = 1; i <= nArquivos; i++){
+        printf("%s: relev.: %.2f\n", getNomeOriginal(&info, vet[i-1].id), vet[i-1].relevancia);
+    }
+
+    for(int i = 0; i < nTermos; i++){
+        free(strings[i]);
+    }
+
+    free(vet);
+    free(strings);
+}
+
+
+
 
 /**função que faz o loop do menu até que o usuário digite 0*/
 void menu(){

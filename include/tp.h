@@ -45,6 +45,9 @@ void pesquisa(InfoBasica info, TipoArvore raiz);
 void menu();
 void tfidfpat(TipoArvore raiz, char **input, Relevancias *doc, int nDOCS, int nTermos);
 float sumPtermo(TipoArvore raiz, int nDOCS, char **input, int nTermos, int idDoc);
-
+//HASH
+void tfidfhash(TipoDicionario Tabela, TipoPesos p, char **input, Relevancias *doc, int nDOCS, int nTermos);
+float sumPtermo_hash(TipoDicionario Tabela, TipoPesos p, int nDOCS, char **input, int nTermos, int idDoc);
+void pesquisa_hash(TipoDicionario Tabela, TipoPesos p, InfoBasica info);
 #endif
 
