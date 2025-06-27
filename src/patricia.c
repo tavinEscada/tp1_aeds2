@@ -42,7 +42,7 @@ TipoItemP PesquisaPat(char* palavra, TipoArvore NoRaiz) {
             return (NoAtual->NO.chave);
         }
         else{
-            printf("Elemento nao encontrado\n");
+            //printf("Elemento nao encontrado\n");
             TipoItemP vazio;
             vazio.palavra[0]='\0';
             return vazio;

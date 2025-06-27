@@ -29,37 +29,46 @@ void removeAcentos(char *p){
               
             unsigned char proxC = (unsigned char)p[i+1];
 
-            //á à ã â, o mesmo pro maiusculo com acentos
+            //á à ã â ä , o mesmo pro maiusculo com acentos
             if(proxC == 0xA1 || proxC == 0xA0 || proxC == 0xA3 || proxC == 0xA2 
-                || proxC == 0x81 || proxC == 0x80 || proxC == 0x83 || proxC == 0x82){
+                || proxC == 0x81 || proxC == 0x80 || proxC == 0x83 || proxC == 0x82
+                || proxC == 0x84 || proxC == 0xA4){
                 sub = 'a';
             }
 
-            //é ê, o mesmo pros maiusculos
-            if(proxC == 0xA9 || proxC == 0xAA || proxC == 0x89 || proxC == 0x8A){
+            //é ê è ë, o mesmo pros maiusculos
+            if(proxC == 0xA9 || proxC == 0xAA || proxC == 0x89 || proxC == 0x8A
+                || proxC == 0x88 || proxC == 0x8B || proxC == 0xA8 || proxC == 0xAB){
                 sub = 'e';
             }
 
-            //í Í
-            if(proxC == 0xAD || proxC == 0x8D){
+            //í Í ì î ï...
+            if(proxC == 0xAD || proxC == 0x8D || proxC == 0xAE 
+                || proxC == 0xAF || proxC == 0xAC || proxC == 0x8C 
+                || proxC == 0x8E || proxC == 0x8F){
                 sub = 'i';
             }
 
-            //ó ò ô õ, o mesmo pros maísculos
+            //ó ò ô õ Ö...
             if(proxC == 0xB3 || proxC == 0xB2 || proxC == 0xB4 || proxC == 0xB5 
-                || proxC == 0x93 || proxC == 0x92 || proxC == 0x94 || proxC == 0x95){
+                || proxC == 0x93 || proxC == 0x92 || proxC == 0x94 || proxC == 0x95
+                || proxC == 0xB6 || proxC == 0x96){
                 sub = 'o';
             }
 
-            //ú ù û, o mesmo para maiúsculo
+            //ú ù û...
             if(proxC == 0xBA || proxC == 0xB9 || proxC == 0xBB || proxC == 0x9A 
-                || proxC == 0x99 || proxC == 0x9B){
+                || proxC == 0x99 || proxC == 0x9B || proxC == 0x9C || proxC == 0xBC){
                 sub = 'u';
             }
 
             //ç Ç
             if(proxC == 0xA7 || proxC == 0x87){
                 sub = 'c';
+            }
+
+            if(proxC == 0x91 || proxC == 0xB1){
+                sub = 'n';
             }
 
             if(sub){
@@ -90,24 +99,33 @@ void removeAcentosTerminal(char *p){
         char sub = 0;
         unsigned char c = (unsigned char)p[i];
         if(c == 0xA0 || c == 0x85 || c == 0x83 || c == 0xC6 || //á à â ã
-            c == 0xB5 || c == 0xB7 || c == 0xB6 || c == 0xC7){ //Á À Â Ã
+            c == 0xB5 || c == 0xB7 || c == 0xB6 || c == 0xC7 //Á À Â Ã
+            || c == 0x84 || c == 0x8E){ 
             sub = 'a';
             
         }
-        else if(c == 0x82 || c == 0x88 || c == 0x90 || c == 0xD2){ //é ê É Ê
+        if(c == 0x82 || c == 0x88 || c == 0x90 || c == 0xD2 //é ê É Ê
+            || c == 0x89 || c == 0x8A || c == 0xD4 || c == 0xD3){
             sub = 'e';
         }
-        else if(c == 0xA1 || c == 0xD6){ //í Í
+        if(c == 0xA1 || c == 0xD6 || c == 0xD7 || c == 0xD8 
+            || c == 0xDE || c == 0x8B || c == 0x8C){ //í Í
             sub = 'i';
         }
-        else if(c == 0xA2 || c == 0x93 || c == 0xE4 || c == 0xE0 || c == 0xE5 || c == 0xE2){ // ó ô õ Ó Õ Ô
+        if(c == 0xA2 || c == 0x93 || c == 0x94 || c == 0x99 || c == 0xE4 
+            || c == 0xE0 || c == 0xE5 || c == 0xE2){ // ó ô õ Ó Õ Ô
             sub = 'o';
         }
-        else if(c == 0xA6 || c == 0xA7 || c == 0xA8 || c == 0xE9 || c == 0xEB || c == 0xEA){ // ú ù û Ú Ù Û
+        if(c == 0xA6 || c == 0xA7 || c == 0xA8 || c == 0xE9 || c == 0xEB 
+            || c == 0xEA || c == 0x96 || c == 0x9A || c == 0x97 || c == 0xEA 
+            || c == 0xEB){ // ú ù û Ú Ù Û
             sub = 'u';
         }
-        else if(c == 0x87 || c == 0x80){ //ç e Ç
+        if(c == 0x87 || c == 0x80){ //ç e Ç
             sub = 'c';
+        }
+        if(c == 0xA5 || c == 0xA4){
+            sub = 'n';
         }
         
         if(sub){
@@ -466,13 +484,13 @@ void tfidfpat(TipoArvore raiz, char **input, Relevancias *doc, int nDOCS, int nT
     
     
     for(int i = 0; i < nDOCS; i++){
-        printf("DEBUG: Calculando relevancia para documento ID: %d\n", doc[i].id);
+        //printf("DEBUG: Calculando relevancia para documento ID: %d\n", doc[i].id);
         int total = 0;
         int termosDistintos = PesquisaTermosDistintos(raiz, doc[i].id, &total);
-        printf("DEBUG: Termos distintos: %d\n", termosDistintos);
+        //printf("DEBUG: Termos distintos: %d\n", termosDistintos);
         //laço para o documento e outro para as palavras????
         doc[i].relevancia = (1.0/termosDistintos) * sumPtermo(raiz, nDOCS, input, nTermos, doc[i].id);
-        printf("DEBUG: Relevancia calculada: %.2f\n", doc[i].relevancia);
+        //printf("DEBUG: Relevancia calculada: %.2f\n", doc[i].relevancia);
     }
 
 }
