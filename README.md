@@ -49,11 +49,13 @@ Terminadas as inserções, voltamos ao menu, e ao escolher a opção 3, temos um
 
 ![image](https://github.com/user-attachments/assets/00dbd2c8-7202-4cbd-94e0-fc400240505a) ![image](https://github.com/user-attachments/assets/8d0d77c2-6b32-41b9-98a2-45d58744dff5)
 
-Após a impressão, o menu é apresentado novamente, e resta realizar a opção 4, que é a pesquisa. Ao executar tal operação, é necessário que o usuário digite as palavras envolvidas na pesquisa, na mesma linha e seraradas por espaço. Note que se a entrada contiver acentos e letras maiúsculas, eles serão adaptados, uma vez que nas estruturas são inseridas palavras sem acento e com todas as letras minúsculas. Assim, se a entrada for
+Após a impressão, o menu é apresentado novamente, e resta realizar a opção 4, que é a pesquisa. Ao executar tal operação, é necessário que o usuário digite as palavras envolvidas na pesquisa, na mesma linha e seraradas por espaço. Note que se a entrada contiver acentos ou letras maiúsculas, eles serão adaptados, uma vez que nas estruturas são inseridas palavras sem acento e com todas as letras minúsculas. Assim, se a entrada for
 ```
 ABóbora martÍrio ôniBUS
 ```
-as palavras serão separadas, para serem pesquisadas da seguinte forma
+as palavras serão separadas e pesquisadas da seguinte forma:
 ```
 abobora martirio onibus
 ```
+Se algum outro símbolo (além de acentos) for digitado, tal caractere não será reconhecido e tampouco a palavra será encontrada na árvore e na tabela.
+Assim, é feito o cálculo do TF-IDF (  ), de forma a listar os arquivos em ordem decrescente de acordo com a relevância em relação às palavras da pesquisa.
