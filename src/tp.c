@@ -511,7 +511,7 @@ float sumPtermoPat(TipoArvore raiz, int nDOCS, char **input, int nTermos, int id
     for (int i = 0; i < nTermos; i++){
         //parece que não está retornando itens ("elemento nao encontrado")
         TipoItemP item = PesquisaPat(input[i], raiz);
-        printf("%s\n", input[i]);
+        //printf("%s\n", input[i]);
         if (strcmp(item.palavra,"\0") != 0){
         
             int dj = item.n_arquivos;
@@ -534,7 +534,7 @@ void pesquisa(InfoBasica info, TipoArvore raiz){
     
     printf("Palavras da pesquisa:\n");
 
-    getchar();
+    //getchar();
 
     //lista encadeada de palavras
     char **strings;
@@ -619,7 +619,7 @@ void pesquisa(InfoBasica info, TipoArvore raiz){
 
     //printf("Depois da ordenacao:\n");
     for(int i = 1; i <= nArquivos; i++){
-        printf("%s: relev.: %.2f\n", getNomeOriginal(&info, vet[i-1].id), vet[i-1].relevancia);
+        printf("'%s' (arquivo%d.txt): relev.: %.3f\n", getNomeOriginal(&info, vet[i-1].id), vet[i-1].id, vet[i-1].relevancia);
     }
 
     for(int i = 0; i < nTermos; i++){
@@ -651,9 +651,8 @@ void tfidfhash(TipoDicionario tabela, char **input, Relevancias *doc, int nDOCS,
 float sumPtermoHash(TipoDicionario tabela, int nDOCS, char **input, int nTermos, int idDoc, TipoPesos p){
     float res = 0;
     for (int i = 0; i < nTermos; i++){
-        //parece que não está retornando itens ("elemento nao encontrado")
         TipoItemP item = pesquisa_na_hash(input[i], tabela, p); //PesquisaPat(input[i], raiz);
-        printf("%s\n", input[i]);
+        //printf("%s\n", input[i]);
         if (strcmp(item.palavra,"\0") != 0){
          
             int dj = item.n_arquivos;
@@ -750,30 +749,9 @@ void pesquisa_hash(TipoDicionario tabela, InfoBasica info, TipoPesos p){
     }
 
     int nArquivos = getNumeroArquivos(&info);
-    /*printf("numero de arquivos na execucao: %d\n", nArquivos);
-
-    for(int i = 0; i < nArquivos; i++){
-        printf("Nome original do arquivo %d: '%s'\n", i+1, getNomeOriginal(&info, i+1));
-    }
-    printf("\n");*/
 
     //vetor dinamico para armazenar as relevancias; o indice do vetor é id-1
     Relevancias *vet = malloc(nArquivos * sizeof(Relevancias));
-
-    /*
-    //testando apenas; os cálculos de relevancia devem estar aqui!!!!!!!!!!!!!!!!!
-    for(int i = 0; i < nArquivos; i++){
-        vet[i].id = i+1;
-        vet[i].relevancia = 40.0 + i;
-    }
-
-    printf("Antes da ordenacao:\n");
-    for(int i = 1; i <= nArquivos; i++){
-        printf("%s: relev.: %.2f\n", getNomeOriginal(&info, i), vet[i-1].relevancia);
-    }
-    printf("\n");
-
-    */
 
     for(int i = 1; i <= nArquivos; i++){
         vet[i-1].id = i;
@@ -787,7 +765,7 @@ void pesquisa_hash(TipoDicionario tabela, InfoBasica info, TipoPesos p){
 
     //printf("Depois da ordenacao:\n");
     for(int i = 1; i <= nArquivos; i++){
-        printf("%s: relev.: %.2f\n", getNomeOriginal(&info, vet[i-1].id), vet[i-1].relevancia);
+        printf("'%s' (arquivo%d.txt): relev.: %.3f\n", getNomeOriginal(&info, vet[i-1].id), vet[i-1].id, vet[i-1].relevancia);
     }
 
     for(int i = 0; i < nTermos; i++){
@@ -797,9 +775,6 @@ void pesquisa_hash(TipoDicionario tabela, InfoBasica info, TipoPesos p){
     free(vet);
     free(strings);
 }
-
-
-
 
 /**função que faz o loop do menu até que o usuário digite 0*/
 void menu(){
