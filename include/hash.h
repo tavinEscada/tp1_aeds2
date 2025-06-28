@@ -52,4 +52,8 @@ void Insere(Tipopalavra word, int idDoc, TipoDicionario T, TipoPesos p);
 void Ins(TipoItemP *x, TipoLista *Lista);
 
 TipoItemP* Busca(Tipopalavra word, TipoLista *lista);
+
+TipoItemP* pesquisa_na_hash(Tipopalavra palavra, TipoDicionario tabela);
+
+int termos_distintos_hash(TipoDicionario tabela, int idDoc, int * res);
 #endif

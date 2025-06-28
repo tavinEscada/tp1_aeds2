@@ -113,5 +113,4 @@ int QuantidadeTermosPorDoc(TipoItemP item, int idDoc){
     }
     
     return 0;
-    
 }

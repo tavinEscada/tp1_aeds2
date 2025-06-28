@@ -12,7 +12,8 @@ short Vazia(TipoLista Lista)
 
 void FLVazia(TipoLista *Lista){
 	Lista->Primeiro = (TipoCelula *)malloc(sizeof(TipoCelula));
-  	Lista->Ultimo = Lista->Primeiro; Lista->Primeiro->Prox = NULL;
+  	Lista->Ultimo = Lista->Primeiro; 
+    Lista->Primeiro->Prox = NULL;
 }
 void Inicializa(TipoDicionario T){
 	int i;
@@ -160,4 +161,31 @@ void comparacoes(){
     // Zere os contadores para a próxima rodada de testes
     comp_insercao_hash = 0;
     comp_busca_hash = 0;
+}
+
+int termos_distintos_hash(TipoDicionario tabela, int idDoc, int * res){
+
+    for(int i = 0; i < M; i++){//percorre o vetor da tabela
+
+        for (TipoApontador no = tabela[i].Primeiro->Prox; no != NULL; no = no->Prox) { //percorre a lista encadeada
+            
+            if(QuantidadeTermosPorDoc(no->Item,idDoc)>0){ //se a palavra ta do documento procurado
+                (*res)++;
+            }
+        }
+    }
+
+    return *res;
+}
+
+TipoItemP* pesquisa_na_hash(Tipopalavra palavra, TipoDicionario tabela){
+    for(int i = 0; i<M; i++){
+        TipoItemP* item = Busca(palavra, &tabela[i]);
+
+        if(item != NULL){
+            return item;
+        }
+
+    }
+    return NULL;
 }
