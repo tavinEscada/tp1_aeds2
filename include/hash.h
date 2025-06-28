@@ -53,7 +53,7 @@ void Ins(TipoItemP *x, TipoLista *Lista);
 
 TipoItemP* Busca(Tipopalavra word, TipoLista *lista);
 
-TipoItemP* pesquisa_na_hash(Tipopalavra palavra, TipoDicionario tabela);
+TipoItemP pesquisa_na_hash(Tipopalavra palavra, TipoDicionario tabela, TipoPesos p);
 
 int termos_distintos_hash(TipoDicionario tabela, int idDoc, int * res);
 #endif

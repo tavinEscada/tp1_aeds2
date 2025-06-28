@@ -426,12 +426,13 @@ InfoBasica receberArquivo(){
     return info;
 }
 
-void pesquisa_geral(InfoBasica info, TipoArvore raiz, TipoDicionario tabela){
+void pesquisa_geral(InfoBasica info, TipoArvore raiz, TipoDicionario tabela, TipoPesos p){
 
+    printf("\n----------- Hash -------------\n");
+    pesquisa_hash(tabela, info, p);
     printf("\n--------- Patricia -----------\n");
     pesquisa(info, raiz);
-    printf("\n----------- Hash -------------\n");
-    pesquisa_hash(tabela, info);
+    
     
 }
 
@@ -510,8 +511,9 @@ float sumPtermoPat(TipoArvore raiz, int nDOCS, char **input, int nTermos, int id
     for (int i = 0; i < nTermos; i++){
         //parece que não está retornando itens ("elemento nao encontrado")
         TipoItemP item = PesquisaPat(input[i], raiz);
+        printf("%s\n", input[i]);
         if (strcmp(item.palavra,"\0") != 0){
-            
+        
             int dj = item.n_arquivos;
             int ocorrenciaT = QuantidadeTermosPorDoc(item, idDoc);
             if(ocorrenciaT > 0 && dj > 0){
@@ -630,7 +632,7 @@ void pesquisa(InfoBasica info, TipoArvore raiz){
 //////////////HASH/////////////////////
 
 
-void tfidfhash(TipoDicionario tabela, char **input, Relevancias *doc, int nDOCS, int nTermos){
+void tfidfhash(TipoDicionario tabela, char **input, Relevancias *doc, int nDOCS, int nTermos, TipoPesos p){
 
     for(int i = 0; i < nDOCS; i++){
 
@@ -639,30 +641,29 @@ void tfidfhash(TipoDicionario tabela, char **input, Relevancias *doc, int nDOCS,
         int termosDistintos = termos_distintos_hash(tabela,doc[i].id, &total); // PesquisaTermosDistintos(raiz, doc[i].id, &total);
         //printf("DEBUG: Termos distintos: %d\n", termosDistintos);
         //laço para o documento e outro para as palavras????
-        doc[i].relevancia = (1.0/termosDistintos) * sumPtermoHash(tabela, nDOCS, input, nTermos, doc[i].id);
+        doc[i].relevancia = (1.0/termosDistintos) * sumPtermoHash(tabela, nDOCS, input, nTermos, doc[i].id,p);
 
         //printf("DEBUG: Relevancia calculada: %.2f\n", doc[i].relevancia);
     }
 
 }
 
-float sumPtermoHash(TipoDicionario tabela, int nDOCS, char **input, int nTermos, int idDoc){
+float sumPtermoHash(TipoDicionario tabela, int nDOCS, char **input, int nTermos, int idDoc, TipoPesos p){
     float res = 0;
     for (int i = 0; i < nTermos; i++){
         //parece que não está retornando itens ("elemento nao encontrado")
-        TipoItemP * item = pesquisa_na_hash(input[i], tabela); //PesquisaPat(input[i], raiz);
-        if(item == NULL){
-            continue;
-        }else{
-            if (strcmp(item->palavra,"\0") != 0){
-                int dj = item->n_arquivos;
-                int ocorrenciaT = QuantidadeTermosPorDoc(*item, idDoc);
-                if(ocorrenciaT > 0 && dj > 0){
+        TipoItemP item = pesquisa_na_hash(input[i], tabela, p); //PesquisaPat(input[i], raiz);
+        printf("%s\n", input[i]);
+        if (strcmp(item.palavra,"\0") != 0){
+         
+            int dj = item.n_arquivos;
+            int ocorrenciaT = QuantidadeTermosPorDoc(item, idDoc);
+            if(ocorrenciaT > 0 && dj > 0){
 
-                    res += ocorrenciaT * ((log(nDOCS) / log(2.0))/dj);
-                }
-            }   
-        }
+                res += ocorrenciaT * ((log(nDOCS) / log(2.0))/dj);
+            }
+        }   
+
 
     }
     return res;
@@ -692,7 +693,7 @@ float sumPtermo_hash(TipoDicionario tabela, TipoPesos p, int nDOCS, char **input
     return res;
 }
 
-void pesquisa_hash(TipoDicionario tabela, InfoBasica info){
+void pesquisa_hash(TipoDicionario tabela, InfoBasica info, TipoPesos p){
     //linha de entrada
     char entrada[900];
 
@@ -779,7 +780,7 @@ void pesquisa_hash(TipoDicionario tabela, InfoBasica info){
         vet[i-1].relevancia = 0.0;
     }
 
-    tfidfhash(tabela, strings, vet, nArquivos, nTermos);
+    tfidfhash(tabela, strings, vet, nArquivos, nTermos, p);
 
     //ordenação do vetor a partir da relevancia para printar na ordem
     qsort(vet, nArquivos, sizeof(Relevancias), comparaRel);
@@ -826,7 +827,7 @@ void menu(){
                 break;
 
             case 4:
-                pesquisa_geral(info, a, Tabela);
+                pesquisa_geral(info, a, Tabela, p);
 
                 break;
             case 0:

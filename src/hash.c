@@ -108,6 +108,8 @@ void Imprimir(TipoDicionario tabela) {
 
 
 TipoItemP* Busca(Tipopalavra word, TipoLista *lista){
+
+
     TipoApontador no_atual = lista->Primeiro->Prox;
     while (no_atual != NULL) {
 		comp_busca_hash++;
@@ -178,14 +180,18 @@ int termos_distintos_hash(TipoDicionario tabela, int idDoc, int * res){
     return *res;
 }
 
-TipoItemP* pesquisa_na_hash(Tipopalavra palavra, TipoDicionario tabela){
-    for(int i = 0; i<M; i++){
-        TipoItemP* item = Busca(palavra, &tabela[i]);
+TipoItemP pesquisa_na_hash(Tipopalavra palavra, TipoDicionario tabela, TipoPesos p){
+    int i = h(palavra,p);
 
-        if(item != NULL){
-            return item;
-        }
-
+    TipoItemP* item = Busca(palavra, &tabela[i]);
+    
+    if(item != NULL){
+        TipoItemP aux = *item;
+        return aux;
+    }else{
+        TipoItemP vazio;
+        vazio.palavra[0]='\0';
+        return vazio;   
     }
-    return NULL;
+    
 }
