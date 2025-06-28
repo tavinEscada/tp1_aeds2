@@ -44,7 +44,9 @@ Assim, deve-se digitar o nome de um arquivo de texto similar ao representado aci
 ![image](https://github.com/user-attachments/assets/6944d612-4368-4b44-a006-0ab871817668)
 
 Nesses arquivos auxiliares, armazenamos as palavras de cada POC de maneira formatada (sem acentos, cedilha e palavras irrelevantes, como artigos e preposições), uma em cada linha. É importante observar que, caso o usuário faça um teste com x arquivos e execute o programa novamente com um número y < x de arquivos, o(s) x - y arquivo(s) remanescentes da execução anterior é/são excluído(s). Por exemplo, ao executar um teste com 3 arquivos e na próxima execução serem utilizados 2, o arquivo 'arquivosTratados/arquivo3.txt' é excluído, enquanto os demais que foram criados na primeira execução são sobrescritos pelas palavras dos novos arquivos. Assim, não são usados documentos que dizem respeito à execução anterior.
+
 Após a leitura, voltamos ao menu e espera-se que o usuário digite 2 para dar continuidade e inserir as palavras nas estruturas. Tal inserção é feita para cada palavra em cada arquivo, mantendo controle do *idDoc* e da quantidade de vezes que cada palavra aparece em cada documento, de maneira que, se a palavra a ser inserida já estiver presente nas estruturas, apenas a quantidade de vezes que tal palavra aparece no documento atual da iteração é incrementada. Dessa maneira, cada palavra é acompanhada por *m* pares do tipo *<qtde, idDoc>*, sendo *m*, o número de documentos que contém a palavra, ou seja, há um desses pares para cada arquivo *idDoc* que tem a palavra. Logo, se 'arquivo1.txt' tem um termo 1 vez e 'arquivo2.txt' tem o mesmo termo 4 vezes, os pares do termo em questão serão *<1, 1>* | *<4, 2>*.
+
 Terminadas as inserções, voltamos ao menu e, ao escolher a opção 3, temos uma representação das estruturas: primeiro a tabela Hash, com as palavras em ordem alfabética e acompanhadas pelos pares e, depois, o mesmo para a PATRICIA, como nos trechos exemplificados abaixo.
 
 ![image](https://github.com/user-attachments/assets/00dbd2c8-7202-4cbd-94e0-fc400240505a) ![image](https://github.com/user-attachments/assets/8d0d77c2-6b32-41b9-98a2-45d58744dff5)
@@ -53,7 +55,7 @@ Após a impressão, o menu é apresentado novamente, e resta realizar a opção 
 ```
 ABóbora martÍrio ôniBUS
 ```
-as palavras serão pesquisadas (separadamente) da seguinte forma:
+as palavras serão pesquisadas da seguinte forma:
 ```
 abobora martirio onibus
 ```
