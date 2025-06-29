@@ -1,5 +1,5 @@
 # Trabalho prático de Algoritmos e Estruturas de Dados 2 - Pesquisa em Hash e PATRICIA com índice invertido
-Observação: o presente arquivo readme é notavelmente mais legível no GitHub. Se não estiver nele, é recomendado que o acesse (<https://github.com/tavinEscada/tp1_aeds2/blob/main/README.md>).
+Observação: o presente arquivo readme é mais legível no GitHub. Se não estiver nele, é recomendado que o acesse para leitura (<https://github.com/tavinEscada/tp1_aeds2/blob/main/README.md>).
 
 O presente projeto consiste em um sistema que recebe *n* documentos, construídos com base nos [TCCs do curso de Ciência da Computação da UFV Campus Florestal](https://ccp.caf.ufv.br/tccs/), e realiza buscas de termos que possam estar presentes nesses TCCs. Em cada documento da pasta 'pocs', armazenamos o título, o resumo e, em alguns casos, as palavras chave de cada um dos artigos, e suas palavras são inseridas em estruturas do tipo tabela Hash e árvore PATRICIA. Com isso, é possível realizar buscas por termos e, com base nos índices invertidos a serem especificados adiante, o programa retorna o nome dos arquivos lidos por ordem de relevância em relação aos termos pesquisados.
 ## Compilação e execução
@@ -12,7 +12,7 @@ Ou, ainda, usando diretamente o comando do GCC:
 ```
 gcc src/palavra.c src/hash.c src/patricia.c src/infoDocs.c src/tp.c src/main.c -lm -Wall -Wextra -g -o main
 ```
-No Linux, pode ser usado o mesmo comando acima, ou compilar a partir do Makefile, digitando no terminal:
+No Linux, pode ser usado o mesmo comando do GCC acima, ou compilar a partir do Makefile, digitando no terminal:
 ```
 make
 ```
@@ -32,7 +32,7 @@ arquivo2.txt
 ...
 arquivon.txt
 ```
-Na prática, um exemplo que temos presente no repositório é o 'teste.txt':
+Na prática, um exemplo pode ser:
 ```
 3
 A hardware accelerator implementation for real-time collision detection.txt
@@ -45,7 +45,7 @@ Assim, deve-se digitar o nome de um arquivo de texto similar ao representado aci
 
 Nesses arquivos auxiliares, armazenamos as palavras de cada POC de maneira formatada (sem acentos, cedilha e palavras irrelevantes, como artigos e preposições), uma em cada linha. É importante observar que, caso o usuário faça um teste com x arquivos e execute o programa novamente com um número y < x de arquivos, o(s) x - y arquivo(s) remanescentes da execução anterior é/são excluído(s). Por exemplo, ao executar um teste com 3 arquivos e na próxima execução serem utilizados 2, o arquivo 'arquivosTratados/arquivo3.txt' é excluído, enquanto os demais que foram criados na primeira execução são sobrescritos pelas palavras dos novos arquivos. Assim, não são usados documentos que dizem respeito à execução anterior.
 
-Após a leitura, voltamos ao menu e espera-se que o usuário digite 2 para dar continuidade e inserir as palavras nas estruturas. Tal inserção é feita para cada palavra em cada arquivo, mantendo controle do *idDoc* e da quantidade de vezes que cada palavra aparece em cada documento, de maneira que, se a palavra a ser inserida já estiver presente nas estruturas, apenas a quantidade de vezes que tal palavra aparece no documento atual da iteração é incrementada. Dessa maneira, cada palavra é acompanhada por *m* pares do tipo *<qtde, idDoc>*, sendo *m*, o número de documentos que contém a palavra, ou seja, há um desses pares para cada arquivo *idDoc* que tem a palavra. Logo, se 'arquivo1.txt' tem um termo 1 vez e 'arquivo2.txt' tem o mesmo termo 4 vezes, os pares do termo em questão serão *<1, 1>* | *<4, 2>*.
+Após a leitura, voltamos ao menu e espera-se que o usuário digite 2 para dar continuidade e inserir as palavras nas estruturas. Tal inserção é feita para cada palavra em cada arquivo, mantendo controle do *idDoc* e da quantidade de vezes que cada palavra aparece em cada documento, de maneira que, se a palavra a ser inserida já estiver presente nas estruturas, apenas a quantidade de vezes que tal palavra aparece no documento atual da iteração é incrementada. Dessa maneira, cada palavra é acompanhada por *m* pares do tipo *<qtde, idDoc>*, sendo *m*, o número de documentos que contém a palavra, ou seja, há um desses pares para cada arquivo *idDoc* que tem a palavra. Logo, se 'arquivo1.txt' tem um certo termo 1 vez, 'arquivo2.txt' tem o mesmo termo 4 vezes, e tal termo não aparece em 'arquivo3.txt', os pares do termo em questão serão *<1, 1>* | *<4, 2>*.
 
 Terminadas as inserções, voltamos ao menu e, ao escolher a opção 3, temos uma representação das estruturas: primeiro a tabela Hash, com as palavras em ordem alfabética e acompanhadas pelos pares e, depois, o mesmo para a PATRICIA, como nos trechos exemplificados abaixo.
 
@@ -60,4 +60,47 @@ as palavras serão pesquisadas da seguinte forma:
 abobora martirio onibus
 ```
 Se algum outro símbolo (além de acentos) for digitado, tal caractere não será reconhecido e tampouco a palavra será encontrada na árvore e na tabela.
-Assim, é feito o cálculo do TF-IDF (  ), de forma a listar os arquivos em ordem decrescente de acordo com a relevância em relação às palavras da pesquisa:
+Assim, é feito o cálculo proposto do TF-IDF (Term Frequency - Inverse Document Frequency), de forma a listar os arquivos em ordem decrescente de acordo com a relevância em relação às palavras da pesquisa. Um exemplo pode ser observado ao digitar MyMobiConf na pesquisa:
+
+![image](https://github.com/user-attachments/assets/874965ab-4b32-4cd4-8173-a792fe7efd8b)
+
+Note que acima estão apenas os documentos relevantes em relação à pesquisa. Os demais documentos serão impressos abaixo, mas com a relevância nula, pois não contém o termo pesquisado. Note ainda que, para a PATRICIA, temos um resultado igual:
+
+![image](https://github.com/user-attachments/assets/fcbc176e-04b4-49c0-acc8-8798e05e691d)
+
+Em suma, é nisso que consiste o uso do projeto.
+
+## Funções importantes
+### Tratamento de acentos e cedilha
+É usada uma mesma função de remoção de acentos para a entrada de arquivos da primeira opção do menu e para a entrada por terminal do Linux na pesquisa da opção 4 (a diferença para o terminal do Windows é detalhada mais adiante). Tal função recebe um vetor de caracteres e interpreta eles na codificação [UTF-8](https://www.utf8-chartable.de/) em sua representação hexadecimal com caracteres referentes ao bloco Unicode 'Basic Latin'. De acordo com tal tabela, as letras com acento e outros caracteres especiais pouco comuns são representados por dois códigos, um prefixo comum a um grupo de caracteres e o código propriamente dito que difere cada um; no caso das letras com acento (os caracteres que nos interessam) o prefixo é 'C3' para todas, e o que difere para identificar cada letra com cada acento é o byte seguinte. Então, por exemplo, o caractere 'á' é representado como 'C3 A1', e o caractere 'à' é 'C3 A0'. Assim, é feita uma primeira avaliação: se o caractere atual do vetor tem código 'C3', temos de avaliar qual letra substituir com base no próximo byte:
+
+![image](https://github.com/user-attachments/assets/55798322-e329-42f7-8ff1-948a467bcb21)
+
+Assim, temos blocos semelhantes ao abaixo para cada caractere:
+
+![image](https://github.com/user-attachments/assets/58d41461-3735-48f2-ac4b-e34b4a97a822)
+
+Após as verificações para as demais letras, realizamos a substituição:
+
+![image](https://github.com/user-attachments/assets/20a91c69-5b6e-4982-8514-d9f9ee008e49)
+
+Note que, na função, *i* é o índice de leitura dos caracteres e *j* é o de escrita. Assim, se *sub* existe, usamos *j* para fazer a substituição. Ao incrementá-lo, avançamos o índice de escrita, enquanto *i* avança dois bytes, o que era referente a 'C3' e o seguinte.
+
+Caso o caractere atual não seja 'C3', apenas seguimos para o próximo caractere:
+
+![image](https://github.com/user-attachments/assets/a3ee8545-5bfd-4648-9dff-bfbd23dd83b1)
+
+Concluindo o percurso na palavra, apenas inserimos o '\0', de fim de palavra, no lugar certo (índice de escrita *j*).
+
+![image](https://github.com/user-attachments/assets/75c97f87-6357-4ffa-b934-06dfd5e8ac27)
+
+Já para remover acentos pelo terminal do Windows na pesquisa, interpretamos a codificação do terminal em [CP850](https://localizely.com/character-encodings/cp850/), e, portanto, devemos usar uma outra função. Na codificação em questão, cada caractere tem apenas um byte, diferente da outra função e, com isso, temos um processo mais simples:
+
+![image](https://github.com/user-attachments/assets/62a3d488-b3cd-4f81-a493-2d4ae154a4d7)
+
+Atribuimos, então, o byte atual de acordo com a tabela, de maneira semelhante para cada letra. Ao final, realizamos a substituição:
+
+![image](https://github.com/user-attachments/assets/71baa806-0121-4c63-9e06-f55ebfbfe7d0)
+
+### TF-IDF
+
