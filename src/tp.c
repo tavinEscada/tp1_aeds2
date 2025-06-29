@@ -630,7 +630,17 @@ void pesquisa(InfoBasica info, TipoArvore raiz, int*comp_pesquisa_pat){
 }
 //////////////HASH/////////////////////
 
-
+/**
+ * @brief Calcula a relevância TF-IDF de cada documento com base nos termos da pesquisa.
+ *
+ * @param tabela Tabela hash contendo os termos indexados.
+ * @param input Vetor de strings contendo as palavras da pesquisa.
+ * @param doc Vetor de estruturas que armazenam a relevância e o ID dos documentos.
+ * @param nDOCS Número total de documentos.
+ * @param nTermos Número de termos inseridos na pesquisa.
+ * @param p Matriz de pesos para hashing.
+ * @param comp_pequisa_hash Ponteiro para o contador de comparações realizadas nas buscas.
+ */
 void tfidfhash(TipoDicionario tabela, char **input, Relevancias *doc, int nDOCS, int nTermos, TipoPesos p, int *comp_pequisa_hash){
 
     for(int i = 0; i < nDOCS; i++){
@@ -646,7 +656,19 @@ void tfidfhash(TipoDicionario tabela, char **input, Relevancias *doc, int nDOCS,
     }
 
 }
-
+/**
+ * @brief Calcula a soma ponderada TF-IDF dos termos da pesquisa em um documento específico.
+ *
+ * @param tabela Tabela hash contendo os termos.
+ * @param nDOCS Número total de documentos.
+ * @param input Vetor com as palavras da pesquisa.
+ * @param nTermos Quantidade de termos na pesquisa.
+ * @param idDoc ID do documento para o qual a soma será calculada.
+ * @param p Matriz de pesos para hashing.
+ * @param comp_pequisa_hash Ponteiro para o contador de comparações realizadas nas buscas.
+ *
+ * @return Soma TF-IDF dos termos presentes no documento.
+ */
 float sumPtermoHash(TipoDicionario tabela, int nDOCS, char **input, int nTermos, int idDoc, TipoPesos p, int *comp_pequisa_hash){
     float res = 0;
     for (int i = 0; i < nTermos; i++){
@@ -691,6 +713,16 @@ float sumPtermo_hash(TipoDicionario tabela, TipoPesos p, int nDOCS, char **input
     return res;
 }
 */
+
+
+/**
+ * @brief Processa a entrada do usuário, calcula a relevância TF-IDF de cada documento e imprime os resultados ordenados.
+ *
+ * @param tabela Tabela hash com o índice invertido.
+ * @param info Estrutura com informações básicas sobre os documentos.
+ * @param p Matriz de pesos usada para calcular os hashes.
+ * @param comp_pequisa_hash Ponteiro para o contador de comparações realizadas nas buscas.
+ */
 void pesquisa_hash(TipoDicionario tabela, InfoBasica info, TipoPesos p, int *comp_pequisa_hash){
     //linha de entrada
     char entrada[900];
