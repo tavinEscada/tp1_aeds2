@@ -121,6 +121,7 @@ A partir dos textos já indexados, podem ser realizadas pesquisas com base em te
 
 Os principais argumentos da função são: o endereço da origem da estrutura a ser percorrida (raiz da Patrícia ou a tabela), a entrada a ser pesquisada, a quantidade de termos pesquisados e as informações da coleção de documentos onde deseja-se pesquisar. Sendo assim, busca-se iterar sobre cada documento atribuindo um valor numerico referente a sua relevância seguindo os cálculos propostos pela especificação do Trabalho. Segue abaixo a implementação do grupo para esse procedimento.
 
-\\imagem\\
+![image](https://github.com/user-attachments/assets/3fe8785a-a0e6-4662-b72d-c3fa496b4797)
+
 
 Para efetuar esses cálculos, fez-se necessário percorrer a estrutura (patrícia ou hash) e encontrar, para cada documento i, a quantidade de termos distintos. Posteriormente, calcula-se um somatório denominado "sumPtermo". Esse somatório percorre, para o documento i, cada termo da entrada a ser pesquisada e recupera onde esse termo está armazenado na estrutura (Patricia ou hash), de forma a obter o número de documentos que contém esse termo (dj) e o número de ocorrência desse termo no documento i. Posteriormente, é efetuado cálculos sobre essas informações para cada termo, retornando um valor. Esse valor retornado, será multiplicado pelo inverso da quantidade de termos distindo no dumento i, sendo esse resultado a relevância do documento i para a entrada pesquisada.
