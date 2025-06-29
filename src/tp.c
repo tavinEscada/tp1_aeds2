@@ -609,8 +609,6 @@ void pesquisa(InfoBasica info, TipoArvore raiz, int*comp_pesquisa_pat){
     char *palavra;
     
     printf("Palavras da pesquisa:\n");
-
-    //lista encadeada de palavras
     char **strings;
     strings = (char**)malloc(300 * sizeof(char*));
 
