@@ -1,4 +1,4 @@
-103
+98
 A Genetic Algorithm for Multi-Component Optimization.txt
 A hardware accelerator implementation for real-time collision detection.txt
 A Mesh Sensor Network based on Bluetooth Comparing Topologies to Crop Monitoring.txt

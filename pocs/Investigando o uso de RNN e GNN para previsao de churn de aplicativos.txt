@@ -1,5 +1,5 @@
 Investigando o uso de RNN e GNN para previsão de churn de aplicativos
-Resumo. Empresas prestadoras de serviço perdem muito com o abandono de 
+Empresas prestadoras de serviço perdem muito com o abandono de 
 clientes, o que é chamado de Churn
 na literatura. Campanhas de fidelização oferecidas a todos os clientes 
 podem ser muito custosas. Sendo assim, predizer

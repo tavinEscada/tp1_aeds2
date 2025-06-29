@@ -342,7 +342,6 @@ InfoBasica receberArquivo(){
         info.sucesso = 0;
         return info;
     }
-
     
     info.nArquivos = nArq;
 

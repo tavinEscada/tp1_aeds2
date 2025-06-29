@@ -1,12 +1,12 @@
-XML NATIVO como ALTERNATIVA ao MODELO
-RELACIONAL CLASSICO
+XML nativo como alternativa ao modelo
+relacional classico
 Com a crescente evolução e adoção de tecnologias computacionais
 no cotidiano, e possível perceber um visível aumento na relação entre usuários
 de dados. Criou-se então uma necessidade de resolver a volatilidade de dados
 quaisquer tornando-os persistentes e ao mesmo tempo recuperados de forma
 integra e trivial. Neste contexto este trabalho pretende explorar a viabilidade
 de Bancos de Dados XML (Extended Markup Language) Nativos (NXMLDB)
-como alternativa a Bancos de Dados Relacionais(RMDB) através de uma 
+como alternativa a Bancos de Dados Relacionais (RMDB) através de uma 
 abordagem empírica e comparativa. A abordagem proposta consiste numa 
 série de experimentos dado dois bancos (XML e SQL) e um roteiro 
 de operações cujas métricas são em função do número de tuplas processadas 

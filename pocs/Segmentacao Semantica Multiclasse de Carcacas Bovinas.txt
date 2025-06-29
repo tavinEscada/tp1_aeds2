@@ -1,5 +1,5 @@
 Segmentação Semântica Multiclasse de Carcaças Bovinas
-Resumo. Devido à crescente competitividade da indústria e à 
+Devido à crescente competitividade da indústria e à 
 necessidade cada vez maior de produzir carne de qualidade, 
 o uso de tecnologias como Inteligência Artificial e Redes 
 Neurais Convolucionais na linha de produção torna-se indispensável — 

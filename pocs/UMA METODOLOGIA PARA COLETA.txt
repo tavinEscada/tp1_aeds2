@@ -1,8 +1,10 @@
 uma metodologia para coleta e análise de dados de redes sociais
 
-A facilidade de uso das redes sociais, seja em um computador pessoal ou por meio de aplicativos em smartphones, juntamente com algoritmos cada vez mais eficazes em mostrar às
+A facilidade de uso das redes sociais, seja em um computador pessoal ou por meio de aplicativos em smartphones, 
+juntamente com algoritmos cada vez mais eficazes em mostrar às
 pessoas os seus interesses, fez com que elas sejam usadas atualmente até por pessoas que
-não possuíam tanto contato com a tecnologia, como pessoas da terceira idade, por exemplo. Esse crescimento no número de usuários das redes sociais provocou uma revolução na
+não possuíam tanto contato com a tecnologia, como pessoas da terceira idade, por exemplo. Esse crescimento no 
+número de usuários das redes sociais provocou uma revolução na
 maneira com que as pessoas se comunicam, interagem e consequentemente se influenciam
 com as opiniões expressadas nesses ambientes. Isso foi rapidamente percebido pelos mais
 diversos tipos de organizações, que passaram a buscar nesse meio eletrônico formas de
@@ -12,7 +14,8 @@ sociais com as novidades, criando-se diversas publicações diariamente. Além d
 se entender melhor o público-alvo, seus desejos e suas opiniões sobre produtos e serviços
 já existentes, bem como a imagem da organização perante os usuários da rede, faz-se
 necessária uma análise dos dados disponíveis. Atualmente, existem vários estudos sobre
-como analisar o conteúdo dessas publicações, por serem em linguagem natural e por possuírem em muitos casos elementos complexos como ironia ou sarcasmo, ao mesmo tempo
+como analisar o conteúdo dessas publicações, por serem em linguagem natural e por possuírem em muitos casos 
+elementos complexos como ironia ou sarcasmo, ao mesmo tempo
 que existem poucos trabalhos em português e que sejam direcionados a iniciantes. Por
 essa razão, este trabalho tem como objetivo auxiliar pesquisadores que queiram começar
 a trabalhar nesta área, trazendo alguns dos principais conceitos envolvidos, bem como sua
@@ -20,7 +23,8 @@ aplicação prática, através da definição de um método para se fazer a cole
 dos dados. Como resultados do trabalho, destacam-se o levantamento e exemplificação
 detalhada do uso de bibliotecas disponíveis para a coleta de dados de duas das principais
 redes sociais da atualidade, como também de ferramentas disponíveis para a análise dos
-dados coletados. Durante todo esse processo, também foi necessária a construção de códigos específicos para se filtrar os dados desejados e para a conversão de formatos de saída
+dados coletados. Durante todo esse processo, também foi necessária a construção de códigos específicos para 
+se filtrar os dados desejados e para a conversão de formatos de saída
 de aplicações de coleta para formatos de entrada de ferramentas de análise, obtendo-se os
 passos que podem agora ser facilmente entendidos e replicados por outros pesquisadores
 em seus trabalhos, mesmo que não tenham experiências prévias na área.

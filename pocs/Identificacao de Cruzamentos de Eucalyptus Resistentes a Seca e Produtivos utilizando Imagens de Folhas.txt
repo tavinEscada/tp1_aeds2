@@ -1,6 +1,6 @@
 Identificação de Cruzamentos de Eucalyptus Resistentes à Seca e Produtivos utilizando 
 Imagens de Folhas
-Resumo. Este trabalho utilizou uma rede neural convolucional (CNN) NasNet-Mobile para 
+Este trabalho utilizou uma rede neural convolucional (CNN) NasNet-Mobile para 
 identificar cruzamentos de eucaliptos que sejam produtivos e resistentes à seca, a 
 partir da análise das folhas. O conjunto de dados é composto por 17.790 imagens, 
 após o aumento de dados, e foi dividido em 4 classes. O teste final foi dividido 

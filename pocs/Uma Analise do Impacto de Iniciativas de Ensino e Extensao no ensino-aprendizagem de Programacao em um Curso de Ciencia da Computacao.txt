@@ -1,6 +1,6 @@
 Uma Análise do Impacto de Iniciativas de Ensino e Extensão no ensino-aprendizagem de Programação 
 em um Curso de Ciência da Computação
-Resumo. Este trabalho analisa o impacto de iniciativas de ensino e extensão no curso de 
+Este trabalho analisa o impacto de iniciativas de ensino e extensão no curso de 
 Ciência da Computação do campus UFV Florestal sobre o desempenho dos alunos em disciplinas 
 relacionadas à programação. Diante do considerável nível de evasão e reprovação nessas 
 disciplinas, foram criadas ações de apoio ao desenvolvimento dos estudantes. Entre elas, 

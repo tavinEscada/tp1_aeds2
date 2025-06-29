@@ -1,4 +1,4 @@
-DESENVOLVIMENTO DE UM AMBIENTE COLABORATIVO PARA GERENCIAMENTO DE PROJETOS ACADÊMICOS
+DESENVOLVIMENTO de UM AMBIENTE COLABORATIVO PARA GERENCIAMENTO de PROJETOS ACADÊMICOS
 Este trabalho propõe um ambiente colaborativo de apoio ao desenvolvimento de projetos 
 acadêmicos, baseado no Modelo 3C de colaboração. Esse ambiente, denominado Colab-UFV, 
 oferece suporte ao trabalho de equipes multidisciplinares, no que compete à coordenação 
