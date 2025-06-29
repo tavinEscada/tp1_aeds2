@@ -543,6 +543,15 @@ int comparaRel(const void *a, const void *b) {
     return 0;
 }
 
+/**
+ * @brief Essa função calcula a relevância dos documentos para a pesquisa a partir da patricia.
+ * @param TipoArvore raiz ponteiro para raiz da árvore Patrícia.
+ * @param char **input termos a serem pesquisados.
+ * @param Relevancias *doc informações sobre a coleção de documentos.
+ * @param int nDOCS quantidade de documentos.
+ * @param int nTermos quantidade de termos a serem pesquisados.
+ * @param int* comp_pesquisa_pat ponteiro para o número de comparções.
+ */
 void tfidfpat(TipoArvore raiz, char **input, Relevancias *doc, int nDOCS, int nTermos,int* comp_pesquisa_pat){
 
     for(int i = 0; i < nDOCS; i++){
@@ -556,6 +565,16 @@ void tfidfpat(TipoArvore raiz, char **input, Relevancias *doc, int nDOCS, int nT
 
 }
 
+/**
+ * @brief Calcula a relevância TF-IDF de cada documento com base nos termos da pesquisa na Patrícia.
+ * @param TipoArvore raiz ponteiro para raiz da árvore Patrícia.
+ * @param int nDOCS quantidade de documentos.
+ * @param char **input termos a serem pesquisados.
+ * @param int nTermos quantidade de termos a serem pesquisados.
+ * @param int idDoc identificador do documento i.
+ * @param int* comp_pesquisa_pat ponteiro para o número de comparções.
+ * @return Retorna a somatória do peso de cada termo para o documento i.
+ */
 float sumPtermoPat(TipoArvore raiz, int nDOCS, char **input, int nTermos, int idDoc,int* comp_pesquisa_pat){
     float res = 0;
     
@@ -674,7 +693,7 @@ void pesquisa(InfoBasica info, TipoArvore raiz, int*comp_pesquisa_pat){
 //////////////HASH/////////////////////
 
 /**
- * @brief Calcula a relevância TF-IDF de cada documento com base nos termos da pesquisa.
+ * @brief Calcula a relevância TF-IDF de cada documento com base nos termos da pesquisa na Hash.
  *
  * @param tabela Tabela hash contendo os termos indexados.
  * @param input Vetor de strings contendo as palavras da pesquisa.
@@ -689,7 +708,7 @@ void tfidfhash(TipoDicionario tabela, char **input, Relevancias *doc, int nDOCS,
     for(int i = 0; i < nDOCS; i++){
 
         int total = 0;
-        int termosDistintos = termos_distintos_hash(tabela,doc[i].id, &total); // PesquisaTermosDistintos(raiz, doc[i].id, &total);
+        int termosDistintos = termos_distintos_hash(tabela,doc[i].id, &total); 
         
         doc[i].relevancia = (1.0/termosDistintos) * sumPtermoHash(tabela, nDOCS, input, nTermos, doc[i].id,p, comp_pequisa_hash);
 
