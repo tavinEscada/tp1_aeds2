@@ -8,7 +8,7 @@
 #include <sys/time.h>
 #include "Palavra.h"
 
-#define M 223 //tamanho da tabela mudar de acordo com o Tp
+#define M 233//tamanho da tabela mudar de acordo com o Tp
 #define N 50 // tamanho para a maior palavrea em ingles e portugues
 #define TAMALFABETO 256 // num possivel de caracters ASCII
 
@@ -47,13 +47,13 @@ void Imprimir(TipoDicionario tabela);
 
 short Vazia(TipoLista Lista);
 
-void Insere(Tipopalavra word, int idDoc, TipoDicionario T, TipoPesos p);
+void Insere(Tipopalavra word, int idDoc, TipoDicionario T, TipoPesos p,int *comp_insercao_hash);
 
 void Ins(TipoItemP *x, TipoLista *Lista);
 
-TipoItemP* Busca(Tipopalavra word, TipoLista *lista);
+TipoItemP* Busca(Tipopalavra word, TipoLista *lista, int *comp_pequisa_hash);
 
-TipoItemP pesquisa_na_hash(Tipopalavra palavra, TipoDicionario tabela, TipoPesos p);
+TipoItemP pesquisa_na_hash(Tipopalavra palavra, TipoDicionario tabela, TipoPesos p, int *comp_pequisa_hash);
 
 int termos_distintos_hash(TipoDicionario tabela, int idDoc, int * res);
 #endif

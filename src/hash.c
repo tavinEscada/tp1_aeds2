@@ -4,8 +4,7 @@ TipoDicionario Tabela;
 TipoItemP Elemento;
 TipoPesos p;
 TipoApontador i;
-extern unsigned long long int comp_insercao_hash;
-extern unsigned long long int comp_busca_hash;
+
 
 short Vazia(TipoLista Lista)
 { return (Lista.Primeiro == Lista.Ultimo); }
@@ -107,12 +106,12 @@ void Imprimir(TipoDicionario tabela) {
 }
 
 
-TipoItemP* Busca(Tipopalavra word, TipoLista *lista){
+TipoItemP* Busca(Tipopalavra word, TipoLista *lista, int *comp_pequisa_hash){
 
 
     TipoApontador no_atual = lista->Primeiro->Prox;
     while (no_atual != NULL) {
-		comp_busca_hash++;
+		(*comp_pequisa_hash)++;
         if (strcmp(word, no_atual->Item.palavra) == 0) {
             //se a palavra for encontrada retorna o endereço do TipoItem
             return &no_atual->Item;
@@ -123,7 +122,7 @@ TipoItemP* Busca(Tipopalavra word, TipoLista *lista){
 }
 
 
-void Insere(Tipopalavra word, int idDoc, TipoDicionario T, TipoPesos p)
+void Insere(Tipopalavra word, int idDoc, TipoDicionario T, TipoPesos p,int *comp_insercao_hash)
 { TipoIndice i;
     i = h(word, p);
     TipoLista* atalho = &T[i];
@@ -131,7 +130,7 @@ void Insere(Tipopalavra word, int idDoc, TipoDicionario T, TipoPesos p)
     TipoApontador no_atual = atalho->Primeiro->Prox;
     TipoItemP* item_encontrado = NULL;
     while (no_atual != NULL) {
-        comp_insercao_hash++;
+        (*comp_insercao_hash)++;
         if (strcmp(word, no_atual->Item.palavra) == 0) {
             item_encontrado = &no_atual->Item;
             break;
@@ -155,15 +154,6 @@ void Ins(TipoItemP *x, TipoLista *Lista){
     Lista->Ultimo->Item = *x;
     Lista->Ultimo->Prox = NULL;
 }
-void comparacoes(){
-	printf("--- Relatorio de Comparacoes ---\n");
-    printf("HASH - Comparacoes na Insercao: %llu\n", comp_insercao_hash);
-    printf("HASH - Comparacoes na Busca: %llu\n", comp_busca_hash);
-    printf("--------------------------------\n");
-    // Zere os contadores para a próxima rodada de testes
-    comp_insercao_hash = 0;
-    comp_busca_hash = 0;
-}
 
 int termos_distintos_hash(TipoDicionario tabela, int idDoc, int * res){
 
@@ -180,10 +170,10 @@ int termos_distintos_hash(TipoDicionario tabela, int idDoc, int * res){
     return *res;
 }
 
-TipoItemP pesquisa_na_hash(Tipopalavra palavra, TipoDicionario tabela, TipoPesos p){
+TipoItemP pesquisa_na_hash(Tipopalavra palavra, TipoDicionario tabela, TipoPesos p, int *comp_pequisa_hash){
     int i = h(palavra,p);
 
-    TipoItemP* item = Busca(palavra, &tabela[i]);
+    TipoItemP* item = Busca(palavra, &tabela[i],comp_pequisa_hash);
     
     if(item != NULL){
         TipoItemP aux = *item;

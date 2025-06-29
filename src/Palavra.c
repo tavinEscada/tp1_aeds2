@@ -3,8 +3,7 @@
 #include <string.h>
 #include "../include/Palavra.h"
 
-extern unsigned long long int comp_insercao_hash;
-extern unsigned long long int comp_busca_hash;
+
 
 
 void faz_palavra_vazia(TipoItemP * item, char * palavra){
@@ -41,7 +40,7 @@ void insere_palavra (TipoItemP * item, int idDoc){
 
 
     while(aux->prox != NULL){
-		comp_insercao_hash++;
+
         if(aux->prox->idDoc == idDoc){ //se esse documento ja teve essa palavra antes, a quantidade só incrementa
             aux->prox->qtde++;
             item->total_ocorrencias++;

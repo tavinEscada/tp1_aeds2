@@ -39,17 +39,17 @@ int ehRelevante(char *p);
 int ehValida(char *p);
 void removerArqs(int nArqAtual);
 InfoBasica receberArquivo();
-void pesquisa_geral(InfoBasica info, TipoArvore raiz, TipoDicionario Tabela, TipoPesos p,int *comp_pesquisa_pat);
-void constroiIndices(TipoArvore *patricia,int *comp_insercao_pat);
+void pesquisa_geral(InfoBasica info, TipoArvore raiz, TipoDicionario Tabela, TipoPesos p,int *comp_pesquisa_pat, int *comp_pesquisa_hash);
+void constroiIndices(TipoArvore *patricia,int *comp_insercao_pat,int *comp_insercao_hash);
 void imprimeIndices(TipoArvore patricia);
 void pesquisa(InfoBasica info, TipoArvore raiz,int *comp_pesquisa_pat);
 void menu();
 void tfidfpat(TipoArvore raiz, char **input, Relevancias *doc, int nDOCS, int nTermos,int *comp_pesquisa_pat);
 float sumPtermoPat(TipoArvore raiz, int nDOCS, char **input, int nTermos, int idDoc,int *comp_pesquisa_pat);
 //HASH
-void tfidfhash(TipoDicionario Tabela, char **input, Relevancias *doc, int nDOCS, int nTermos, TipoPesos p);
-float sumPtermoHash(TipoDicionario tabela, int nDOCS, char **input, int nTermos, int idDoc, TipoPesos p);
-float sumPtermo_hash(TipoDicionario Tabela, TipoPesos p, int nDOCS, char **input, int nTermos, int idDoc);
-void pesquisa_hash(TipoDicionario Tabela, InfoBasica info, TipoPesos p);
+void tfidfhash(TipoDicionario Tabela, char **input, Relevancias *doc, int nDOCS, int nTermos, TipoPesos p, int *comp_pequisa_hash);
+float sumPtermoHash(TipoDicionario tabela, int nDOCS, char **input, int nTermos, int idDoc, TipoPesos p, int *comp_pequisa_hash);
+//float sumPtermo_hash(TipoDicionario Tabela, TipoPesos p, int nDOCS, char **input, int nTermos, int idDoc);
+void pesquisa_hash(TipoDicionario Tabela, InfoBasica info, TipoPesos p, int *comp_pequisa_hash);
 #endif
 

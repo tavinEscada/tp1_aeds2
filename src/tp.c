@@ -426,17 +426,17 @@ InfoBasica receberArquivo(){
     return info;
 }
 
-void pesquisa_geral(InfoBasica info, TipoArvore raiz, TipoDicionario tabela, TipoPesos p,int* comp_pesquisa_pat){
+void pesquisa_geral(InfoBasica info, TipoArvore raiz, TipoDicionario tabela, TipoPesos p,int* comp_pesquisa_pat, int *comp_pequisa_hash){
 
     printf("\n----------- Hash -------------\n");
-    pesquisa_hash(tabela, info, p);
+    pesquisa_hash(tabela, info, p, comp_pequisa_hash);
     printf("\n--------- Patricia -----------\n");
     pesquisa(info, raiz,comp_pesquisa_pat);
     
     
 }
 
-void constroiIndices(TipoArvore *patricia, int* comp_insercao_pat){
+void constroiIndices(TipoArvore *patricia, int* comp_insercao_pat,int *comp_insercao_hash){
     char enderecoTextos[50] = "./arquivosTratados/";
     char nomeCompleto[TMAX];
 
@@ -452,7 +452,7 @@ void constroiIndices(TipoArvore *patricia, int* comp_insercao_pat){
         char nNome[40];
         while(fgets(palavra, sizeof(palavra), arqAtual) != NULL){
             palavra[strcspn(palavra, "\n")] = '\0';
-            Insere(palavra, i, Tabela, p);
+            Insere(palavra, i, Tabela, p, comp_insercao_hash);
 
 
             (*patricia) = InserePat(palavra, i, patricia, comp_insercao_pat);
@@ -632,7 +632,7 @@ void pesquisa(InfoBasica info, TipoArvore raiz, int*comp_pesquisa_pat){
 //////////////HASH/////////////////////
 
 
-void tfidfhash(TipoDicionario tabela, char **input, Relevancias *doc, int nDOCS, int nTermos, TipoPesos p){
+void tfidfhash(TipoDicionario tabela, char **input, Relevancias *doc, int nDOCS, int nTermos, TipoPesos p, int *comp_pequisa_hash){
 
     for(int i = 0; i < nDOCS; i++){
 
@@ -641,17 +641,17 @@ void tfidfhash(TipoDicionario tabela, char **input, Relevancias *doc, int nDOCS,
         int termosDistintos = termos_distintos_hash(tabela,doc[i].id, &total); // PesquisaTermosDistintos(raiz, doc[i].id, &total);
         //printf("DEBUG: Termos distintos: %d\n", termosDistintos);
         //laço para o documento e outro para as palavras????
-        doc[i].relevancia = (1.0/termosDistintos) * sumPtermoHash(tabela, nDOCS, input, nTermos, doc[i].id,p);
+        doc[i].relevancia = (1.0/termosDistintos) * sumPtermoHash(tabela, nDOCS, input, nTermos, doc[i].id,p, comp_pequisa_hash);
 
         //printf("DEBUG: Relevancia calculada: %.2f\n", doc[i].relevancia);
     }
 
 }
 
-float sumPtermoHash(TipoDicionario tabela, int nDOCS, char **input, int nTermos, int idDoc, TipoPesos p){
+float sumPtermoHash(TipoDicionario tabela, int nDOCS, char **input, int nTermos, int idDoc, TipoPesos p, int *comp_pequisa_hash){
     float res = 0;
     for (int i = 0; i < nTermos; i++){
-        TipoItemP item = pesquisa_na_hash(input[i], tabela, p); //PesquisaPat(input[i], raiz);
+        TipoItemP item = pesquisa_na_hash(input[i], tabela, p, comp_pequisa_hash); //PesquisaPat(input[i], raiz);
         //printf("%s\n", input[i]);
         if (strcmp(item.palavra,"\0") != 0){
          
@@ -667,7 +667,7 @@ float sumPtermoHash(TipoDicionario tabela, int nDOCS, char **input, int nTermos,
     }
     return res;
 }
-
+/*
 float sumPtermo_hash(TipoDicionario tabela, TipoPesos p, int nDOCS, char **input, int nTermos, int idDoc){
     float res = 0;
 
@@ -691,8 +691,8 @@ float sumPtermo_hash(TipoDicionario tabela, TipoPesos p, int nDOCS, char **input
     }
     return res;
 }
-
-void pesquisa_hash(TipoDicionario tabela, InfoBasica info, TipoPesos p){
+*/
+void pesquisa_hash(TipoDicionario tabela, InfoBasica info, TipoPesos p, int *comp_pequisa_hash){
     //linha de entrada
     char entrada[900];
 
@@ -758,7 +758,7 @@ void pesquisa_hash(TipoDicionario tabela, InfoBasica info, TipoPesos p){
         vet[i-1].relevancia = 0.0;
     }
 
-    tfidfhash(tabela, strings, vet, nArquivos, nTermos, p);
+    tfidfhash(tabela, strings, vet, nArquivos, nTermos, p, comp_pequisa_hash);
 
     //ordenação do vetor a partir da relevancia para printar na ordem
     qsort(vet, nArquivos, sizeof(Relevancias), comparaRel);
