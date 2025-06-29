@@ -426,17 +426,17 @@ InfoBasica receberArquivo(){
     return info;
 }
 
-void pesquisa_geral(InfoBasica info, TipoArvore raiz, TipoDicionario tabela, TipoPesos p){
+void pesquisa_geral(InfoBasica info, TipoArvore raiz, TipoDicionario tabela, TipoPesos p,int* comp_pesquisa_pat){
 
     printf("\n----------- Hash -------------\n");
     pesquisa_hash(tabela, info, p);
     printf("\n--------- Patricia -----------\n");
-    pesquisa(info, raiz);
+    pesquisa(info, raiz,comp_pesquisa_pat);
     
     
 }
 
-void constroiIndices(TipoArvore *patricia){
+void constroiIndices(TipoArvore *patricia, int* comp_insercao_pat){
     char enderecoTextos[50] = "./arquivosTratados/";
     char nomeCompleto[TMAX];
 
@@ -455,7 +455,7 @@ void constroiIndices(TipoArvore *patricia){
             Insere(palavra, i, Tabela, p);
 
 
-            (*patricia) = InserePat(palavra, i, patricia);
+            (*patricia) = InserePat(palavra, i, patricia, comp_insercao_pat);
             
         }
         i++;
@@ -489,7 +489,7 @@ int comparaRel(const void *a, const void *b) {
     return 0;
 }
 
-void tfidfpat(TipoArvore raiz, char **input, Relevancias *doc, int nDOCS, int nTermos){
+void tfidfpat(TipoArvore raiz, char **input, Relevancias *doc, int nDOCS, int nTermos,int* comp_pesquisa_pat){
 
     
     
@@ -499,18 +499,18 @@ void tfidfpat(TipoArvore raiz, char **input, Relevancias *doc, int nDOCS, int nT
         int termosDistintos = PesquisaTermosDistintos(raiz, doc[i].id, &total);
         //printf("DEBUG: Termos distintos: %d\n", termosDistintos);
         //laço para o documento e outro para as palavras????
-        doc[i].relevancia = (1.0/termosDistintos) * sumPtermoPat(raiz, nDOCS, input, nTermos, doc[i].id);
+        doc[i].relevancia = (1.0/termosDistintos) * sumPtermoPat(raiz, nDOCS, input, nTermos, doc[i].id,comp_pesquisa_pat);
         //printf("DEBUG: Relevancia calculada: %.2f\n", doc[i].relevancia);
     }
 
 }
 
-float sumPtermoPat(TipoArvore raiz, int nDOCS, char **input, int nTermos, int idDoc){
+float sumPtermoPat(TipoArvore raiz, int nDOCS, char **input, int nTermos, int idDoc,int* comp_pesquisa_pat){
     float res = 0;
     
     for (int i = 0; i < nTermos; i++){
         //parece que não está retornando itens ("elemento nao encontrado")
-        TipoItemP item = PesquisaPat(input[i], raiz);
+        TipoItemP item = PesquisaPat(input[i], raiz,comp_pesquisa_pat);
         //printf("%s\n", input[i]);
         if (strcmp(item.palavra,"\0") != 0){
         
@@ -525,7 +525,7 @@ float sumPtermoPat(TipoArvore raiz, int nDOCS, char **input, int nTermos, int id
     return res;
 }
 
-void pesquisa(InfoBasica info, TipoArvore raiz){
+void pesquisa(InfoBasica info, TipoArvore raiz, int*comp_pesquisa_pat){
     //linha de entrada
     char entrada[900];
     
@@ -612,7 +612,7 @@ void pesquisa(InfoBasica info, TipoArvore raiz){
         vet[i-1].relevancia = 0.0;
     }
     
-    tfidfpat(raiz, strings, vet, nArquivos, nTermos);
+    tfidfpat(raiz, strings, vet, nArquivos, nTermos,comp_pesquisa_pat);
 
     //ordenação do vetor a partir da relevancia para printar na ordem
     qsort(vet, nArquivos, sizeof(Relevancias), comparaRel);
@@ -776,42 +776,3 @@ void pesquisa_hash(TipoDicionario tabela, InfoBasica info, TipoPesos p){
     free(strings);
 }
 
-/**função que faz o loop do menu até que o usuário digite 0*/
-void menu(){
-    TipoArvore a = NULL;
-    InfoBasica info;
-    int op = 0;
-    do{
-        printf("--- Menu ---\n1 - Ler o arquivo com os textos\n2 - Construir os indices invertidos\n3 - Exibir os indices invertidos\n4 - Busca\n0 - Fechar\n");
-        scanf("%d", &op);
-
-        switch(op){
-            case 1:
-                info = receberArquivo();
-                if(info.sucesso != 1){
-                    printf("Leitura sem sucesso. Entre com outro arquivo ou o concerte para executar de novo.\n");
-                }
-                break;
-
-            case 2:
-                constroiIndices(&a);
-                break;
-
-            case 3:
-                imprimeIndices(a);
-                break;
-
-            case 4:
-                pesquisa_geral(info, a, Tabela, p);
-
-                break;
-            case 0:
-                return;
-                break;
-
-            default:
-                printf("Entrada invalida.\n");
-                break;
-        }
-    }while(op != 0);
-}

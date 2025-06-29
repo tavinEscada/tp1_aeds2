@@ -26,9 +26,9 @@ typedef struct NO_patricia {
 
 TipoArvore Cria_NO_ExternoPat(char* palavra,int idDoc);
 TipoArvore Cria_NO_InternoPat(int i, TipoArvore *esq, TipoArvore *dir, char caractere);
-TipoArvore InsereEntrePat(char* palavra, int idDoc, TipoArvore *NoAtual, int i, char caractere_interno);
-TipoArvore InserePat(char* palavra,int idDoc, TipoArvore *NoRaiz);
-TipoItemP PesquisaPat(char* palavra, TipoArvore NoRaiz);
+TipoArvore InsereEntrePat(char* palavra, int idDoc, TipoArvore *NoAtual, int i, char caractere_interno,int *comp_insercao_pat);
+TipoArvore InserePat(char* palavra,int idDoc, TipoArvore *NoRaiz,int *comp_insercao_pat);
+TipoItemP PesquisaPat(char* palavra, TipoArvore NoRaiz,int *comp_pesquisa_pat);
 short Eh_ExternoPat(TipoArvore NO);
 void ImprimeOrdemPat(TipoArvore t);
 int PesquisaTermosDistintos(TipoArvore t, int idDoc, int * res);
