@@ -71,6 +71,9 @@ Note que acima estão apenas os documentos relevantes em relação à pesquisa. 
 Em suma, é nisso que consiste o uso do projeto.
 
 ## Funções importantes
+### Leitura de arquivos
+
+
 ### Tratamento de acentos e cedilha
 É usada uma mesma função de remoção de acentos para a entrada de arquivos da primeira opção do menu e para a entrada por terminal do Linux na pesquisa da opção 4 (a diferença para o terminal do Windows é detalhada mais adiante). Tal função recebe um vetor de caracteres e interpreta eles na codificação [UTF-8](https://www.utf8-chartable.de/) em sua representação hexadecimal com caracteres referentes ao bloco Unicode 'Basic Latin'. De acordo com tal tabela, as letras com acento e outros caracteres especiais pouco comuns são representados por dois códigos, um prefixo comum a um grupo de caracteres e o código propriamente dito que difere cada um; no caso das letras com acento (os caracteres que nos interessam) o prefixo é 'C3' para todas, e o que difere para identificar cada letra com cada acento é o byte seguinte. Então, por exemplo, o caractere 'á' é representado como 'C3 A1', e o caractere 'à' é 'C3 A0'. Assim, é feita uma primeira avaliação: se o caractere atual do vetor tem código 'C3', temos de avaliar qual letra substituir com base no próximo byte:
 
@@ -101,6 +104,16 @@ Já para remover acentos pelo terminal do Windows na pesquisa, interpretamos a c
 Atribuimos, então, o byte atual de acordo com a tabela, de maneira semelhante para cada letra. Ao final, realizamos a substituição:
 
 ![image](https://github.com/user-attachments/assets/71baa806-0121-4c63-9e06-f55ebfbfe7d0)
+
+Observação: a diferença das codificações abordadas podem ser observadas com prints: ao executar o trecho abaixo, dado um vetor de caracteres, é possível visualizar qual código está sendo usado
+
+![image](https://github.com/user-attachments/assets/440f63e1-e374-4546-becc-44cb8e5560a9)
+
+É possível, também, observar que, ao printar normalmente algum caractere especial, como em um aviso pelo terminal para o usuário, nos deparamos com coisas do tipo:
+
+![image](https://github.com/user-attachments/assets/365926ef-03ce-4aa0-aadc-cfef904f8fae)
+
+Isso se dá porque, ao digitar o caractere 'á' no código, por exemplo, ele é interpretado em UTF-8 como 'C3 A1', mas no terminal ele é interpretado em CP850, e de acordo com tal tabela, 'C3' corresponde ao símbolo '├', e 'A1' corresponde a 'í'.
 
 ### TF-IDF
 
