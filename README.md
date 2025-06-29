@@ -119,7 +119,7 @@ Isso se dá porque, ao digitar o caractere 'á' no código, por exemplo, ele é 
 
 A partir dos textos já indexados, podem ser realizadas pesquisas com base em termos de busca para se calcular a relevância do documento. Para tanto, criou-se dois cálculos TF-IDF (Term frequency – Inverse Document Frequency), um que percorre a estrutura da patrícia e outro que percorre a tabela hash. De modo geral, ambas implementações são semelhantes e seguem uma mesma lógica.
 
-Os principais argumentos da função são: o endereço da origem da estrutura a ser percorrida (raiz da Patrícia ou a tabela), a entrada a ser pesquisada, a quantidade de termos pesquisados e as informações da coleção de documentos onde deseja-se pesquisar. Sendo assim, busca-se iterar sobre cada documento atribuindo um valor numerico referente a sua relevância seguindo os cálculos propostos pela especificação do Trabalho. Segue abaixo a implementação do grupo para esse procedimento.
+Os principais argumentos da função são: o endereço da origem da estrutura a ser percorrida (raiz da Patrícia ou a tabela), a entrada a ser pesquisada, a quantidade de termos pesquisados e as informações da coleção de documentos onde deseja-se pesquisar. Sendo assim, busca-se iterar sobre cada documento atribuindo um valor numerico referente a sua relevância seguindo os cálculos propostos pela especificação do Trabalho. Segue abaixo a implementação do TF-IDF para a Patrícia e em sequência a explicação dos principais tópicos.
 
 ![image](https://github.com/user-attachments/assets/3fe8785a-a0e6-4662-b72d-c3fa496b4797)
 
