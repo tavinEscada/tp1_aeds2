@@ -655,6 +655,8 @@ void pesquisa(InfoBasica info, TipoArvore raiz, int*comp_pesquisa_pat){
         if(vet[i-1].relevancia > 0.0000){
             printf("'%s' (arquivo%d.txt): relev.: %.3f\n", getNomeOriginal(&info, vet[i-1].id), vet[i-1].id, vet[i-1].relevancia);
             nResult++;
+        }else{
+            break;
         }
         
     }
@@ -811,6 +813,8 @@ void pesquisa_hash(TipoDicionario tabela, InfoBasica info, TipoPesos p, int *com
         if(vet[i-1].relevancia > 0.0000){
             printf("'%s' (arquivo%d.txt): relev.: %.3f\n", getNomeOriginal(&info, vet[i-1].id), vet[i-1].id, vet[i-1].relevancia);
             nResult++;
+        }else{
+            break;
         }
     }
     if(nResult == 0){
