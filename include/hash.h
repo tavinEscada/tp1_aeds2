@@ -8,7 +8,7 @@
 #include <sys/time.h>
 #include "Palavra.h"
 
-#define M 233//tamanho da tabela mudar de acordo com o Tp
+#define M 223//tamanho da tabela mudar de acordo com o Tp
 #define N 50 // tamanho para a maior palavrea em ingles e portugues
 #define TAMALFABETO 256 // num possivel de caracters ASCII
 
