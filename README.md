@@ -70,7 +70,7 @@ Terminadas as inserções, voltamos ao menu e, ao escolher a opção 3, temos um
   </tr>
 </table>
 
-Após a impressão, o menu é apresentado novamente, e resta realizar a opção 4, que é a pesquisa. Ao executar tal operação, é necessário que o usuário digite as palavras envolvidas na busca, todas na mesma linha e seraradas por espaço. Note que se a entrada contiver acentos ou letras maiúsculas, eles serão adaptados, uma vez que nas estruturas são inseridas palavras sem acento e com todas as letras minúsculas. Assim, se a entrada for
+Após a impressão, o menu é apresentado novamente, e resta realizar a opção 4, que é a pesquisa. Ao executar tal operação, é necessário que o usuário digite as palavras envolvidas na busca, todas na mesma linha e separaradas por espaço. Note que se a entrada contiver acentos ou letras maiúsculas, eles serão adaptados, uma vez que nas estruturas são inseridas palavras sem acento e com todas as letras minúsculas. Assim, se a entrada for
 ```
 ABóbora martÍrio ôniBUS
 ```
