@@ -242,7 +242,7 @@ Após isso, criamos um vetor dinâmico do tipo relevâncias, para armazenar as r
 
 <p align="center">
   <img src="https://github.com/user-attachments/assets/a522a023-f482-47a9-a567-50d6627e184a"><br>
-  <b>Figura 26 - Endereço dos arquivos auxiliares.</b>
+  <b>Figura 26 - Inicialização das relevâncias.</b>
 </p>
 Depois, calculamos o TF-IDF de cada arquivo, ordenamos usando o 'qsort', e podemos então printar os resultados da pesquisa. Note que apenas printamos os documentos com relevância não desprezível e, caso nenhum arquivo tenha tal característica, escrevemos que nenhum documento atende aos termos digitados.
 <p align="center">
