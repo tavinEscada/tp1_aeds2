@@ -1,0 +1,11 @@
+10
+Padrao Strategy aplicado a geracao de multiplas visoes de dados na biblioteca ColMinerRT.txt
+Predicao de Pesos de Bovinos de Corte Utilizando Visao Computacional.txt
+Teste de Usabilidade de simulacoes do UFV Virtual Labs com o modelo MEEGA+.txt
+Toward Nanometric Scale Integration.txt
+Uma Ferramenta para Analise Exploratoria.txt
+Segmentacao Semantica Multiclasse de Carcacas Bovinas.txt
+Identificacao de Cruzamentos de Eucalyptus Resistentes a Seca e Produtivos utilizando Imagens de Folhas.txt
+Investigando informacoes demograficas e temporais para o desempenho de filtros colaborativos e cadeias de Markov na recomendacao de aplicativos moveis.txt
+Investigando o uso de RNN e GNN para previsao de churn de aplicativos.txt
+OTIMIZACAO MULTIOBJETIVO BASEADA EM.txt

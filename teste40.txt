@@ -1,0 +1,41 @@
+40
+Algoritmo genetico aplicado a otimizacao de um perfil aerodinamico de uma aeronave radio controlada.txt
+Algoritmo Genetico para o Problema do Despacho Economico de Energia Eletrica com Incertezas.txt
+Analise de focos de retrabalho em.txt
+Analise de satisfacao de uso de.txt
+Analise de Sentimentos em Opinioes sobre Eventos.txt
+Analise de uma solucao de rotas seguras para coletivos urbanos centrada no usuario.txt
+Analise quali-quantitativa sobre a influencia da diversidade na produtividade de equipes ageis um estudo na industria.txt
+Analyzing the Impact of Bots During the 2018 Brazilian Presidential Election Based on Youtube Comments.txt
+ANIN Investment Analysis Environment.txt
+DESENVOLVIMENTO DE UM AMBIENTE COLABORATIVO PARA GERENCIAMENTO DE PROJETOS ACADEMICOS.txt
+Desenvolvimento de um Sistema Web para Coleta e Analise Quantitativa de Dados de Alunos Egressos.txt
+Desenvolvimento de uma Aplicacao para Auxiliar no Processo do Ensino-Aprendizagem de Teoria dos Grafos.txt
+Deteccao de cancer de pele do tipo melanoma utilizando tecnicas de processamento digital de imagem e redes neurais artificiais.txt
+Draw the Function um jogo educacion.txt
+EasyTest An approach for automatic test cases generation from UML Activity Diagrams.txt
+Estudo de Tecnicas de Deep Learning na Classificacao de Amostras de Audio de Instrumentos Musicais.txt
+EVOLUCAO DIFERENCIAL APLICADA AO.txt
+Mapeamento sistematico sobre transtornos e neurodivergencias em Engenharia de Software no contexto academico e da industria.txt
+Migrating a System for Event Participation Assistance to the Microservices Architecture.txt
+MoreData Enriquecimento Semantico para Grandes Volumes de Dados Geolocalizados.txt
+Novel Three-Input Gates for Silicon Quantum Dot.txt
+Obstacle-Aware On-Track Bus Routing.txt
+OTIMIZACAO MULTIOBJETIVO BASEADA EM.txt
+Padrao Strategy aplicado a geracao de multiplas visoes de dados na biblioteca ColMinerRT.txt
+Predicao de Pesos de Bovinos de Corte Utilizando Visao Computacional.txt
+Roteador em hardware com politicas.txt
+Segmentacao Semantica Multiclasse de Carcacas Bovinas.txt
+SENDAS Scalable ENrichment for mobility DAta Sets.txt
+Sistema de Deteccao de Intrusao Serverlessem uma SmartNIC.txt
+SmartSet Um Dataset de Contratos Inteligentes da Rede Blockchain Polygon.txt
+TACTICS SCRUM.txt
+Toward Nanometric Scale Integration.txt
+UC-GeM UMA METODOLOGIA DE DESIGN CENTRADO EM USABILIDADE.txt
+Um Album de Figurinhas via Instagram como Estrategia de Incentivo a Participacao no Sistema MyMobiConf.txt
+Um Ambiente para anotacao e enriquecimento de dados biologicos.txt
+Um forum de discussao gamificado para o UFV Virtual Labs afim de melhorar a interacao e o engajamento dos estudantes.txt
+Um Protocolo Multicast para Comunicacao por Luz Visivel (VLC).txt
+Um sistema de recomendacao orientado a relevancia de amigos.txt
+Uma Abordagem Baseada em Analises de Redes Sociais para Medir a Participacao Colaborativa em Projetos de Software.txt
+Uma abordagem de gamificacao com base em game studies aplicada a um curso de Ciencia da Computacao.txt

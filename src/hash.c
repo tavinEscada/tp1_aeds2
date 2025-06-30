@@ -1,3 +1,10 @@
+/**
+ * @author Beatriz Queiroz - 5890
+ * @author Heitor Porto - 5895
+ * @author Pâmela Lúcia - 5898
+ * @author Júlio César - 5903
+ * @author Otávio Tavares - 5912
+ */
 #include "../include/hash.h"
 
 TipoDicionario Tabela;

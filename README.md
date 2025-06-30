@@ -178,20 +178,26 @@ O arquivo de entrada especificado anteriormente deve estar na pasta do projeto; 
 
 Vale citar ainda que o bloco de código da imagem acima define também a variável *sistema*, que será importante para adaptar a leitura dos termos de pesquisa, a ser especificada posteriormente.
 Na leitura dos arquivos, as palavras são separadas por alguns marcadores:
+
 <p align="center">
   <img src="https://github.com/user-attachments/assets/27772e6a-9008-4475-b461-fcb44661b865"><br>
   <b>Figura 16 - Separadores de palavra.</b>
 </p>
+
 Além disso, só são inseridas palavras que se considera válidas; após retirar os acentos e minúsculas, conferimos também se a palavra em questão não está na lista de palavras consideradas irrelevantes (como 'the', 'como', 'de', etc). Então, escrevemos as palavras válidas nos arquivos auxiliares. Note também que o endereço dos arquivos auxiliares é construído com a concatenação de strings:
+
 <p align="center">
   <img src="https://github.com/user-attachments/assets/6cbc5f2b-c3d6-4b0b-9146-b0f9ce68750b"><br>
   <b>Figura 17 - Endereço dos arquivos auxiliares.</b>
 </p>
+
 Isso é feito para cada um dos arquivos, no padrão já citado (arquivo*i*.txt). Depois de ler, então, cada arquivo (considerando que não haja erro nos nomes, no número de documentos, etc), o arquivo de entrada é fechado, e os possíveis documentos remanescentes são excluídos, com o uso da função:
+
 <p align="center">
   <img src="https://github.com/user-attachments/assets/32d5ce57-6abe-44ee-98b7-644152849daf"><br>
   <b>Figura 18 - Exclusão dos arquivos remanescentes.</b>
 </p>
+
 Na função de leitura, a função acima é usada tendo como parâmetro justamente o *n*, número de arquivos da execução atual; dessa forma, se existem arquivos *idDoc* > *n*, eles são excluídos.
 Outros pontos que valem ser citados sobre a leitura: armazenamos os nomes de cada POC na execuçao em uma matriz, pois precisamos deles no print da pesquisa:
 
@@ -204,6 +210,7 @@ Uma vez que a inserção se dá a partir dos arquivos auxiliares, temos que recu
 
 ### Construção dos índices
 Como já temos os arquivos pré-processados após a leitura, precisamos apenas abrir cada um e inserir as palavras nas estruturas. Assim, pegamos, a partir do 'arquivo1.txt', as palavras de cada um:
+
 <p align="center">
   <img src="https://github.com/user-attachments/assets/4ccb935d-84b7-4839-8835-e9fa77445d13"><br>
   <b>Figura 20 - Momento da inserção.</b>
@@ -211,11 +218,14 @@ Como já temos os arquivos pré-processados após a leitura, precisamos apenas a
 
 ### Exibição dos índices
 Para exibir tanto os índices da Hash quanto os da PATRICIA, é usada a função abaixo, que, para cada termo, percorre a lista encadeada em que cada posição tem um par *<qtde, idDoc>*, como foi citado anteriormente.
+
 <p align="center">
   <img src="https://github.com/user-attachments/assets/2cbbd473-4c59-4263-9749-820a87ad841f"><br>
   <b>Figura 21 - Impressão dos índices.</b>
 </p>
+
 As funções são, então, acionadas separadamente para cada estrutura.
+
 <p align="center">
   <img src="https://github.com/user-attachments/assets/7e9114ae-4e66-4213-b48a-0e5599c6dc04"><br>
   <b>Figura 22 - Função que imprime os índices de cada estrutura.</b>
@@ -235,6 +245,7 @@ Para efetuar esses cálculos, fez-se necessário percorrer a estrutura (patríci
 
 ### Pesquisa
 Aqui, temos uma função de pesquisa para a PATRICIA e uma para a Hash e ambas se comportam de maneira semelhante. Lemos a entrada do usuário pelo terminal e retiramos os acentos de acordo com o sistema operacional, a partir da definição citada (na Figura 15) anteriormente:
+
 <p align="center">
   <img src="https://github.com/user-attachments/assets/112f6e4c-9daf-4569-90eb-cb8f49250a08"><br>
   <b>Figura 24 - Escolhendo a função de tratamento de acentos.</b>
@@ -246,7 +257,9 @@ Após isso, criamos um vetor dinâmico do tipo relevâncias, para armazenar as r
   <img src="https://github.com/user-attachments/assets/a522a023-f482-47a9-a567-50d6627e184a"><br>
   <b>Figura 25 - Inicialização das relevâncias.</b>
 </p>
+
 Depois, calculamos o TF-IDF de cada arquivo, ordenamos usando o 'qsort', e podemos então printar os resultados da pesquisa. Note que apenas printamos os documentos com relevância não desprezível e, caso nenhum arquivo tenha tal característica, escrevemos que nenhum documento atende aos termos digitados.
+
 <p align="center">
   <img src="https://github.com/user-attachments/assets/9ceb222e-1d24-428d-8211-cb2cae19aa4f"><br>
   <b>Figura 26 - Printando o resultado da pesquisa.</b>

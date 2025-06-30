@@ -1,10 +1,14 @@
+/**
+ * @author Beatriz Queiroz - 5890
+ * @author Heitor Porto - 5895
+ * @author Pâmela Lúcia - 5898
+ * @author Júlio César - 5903
+ * @author Otávio Tavares - 5912
+ */
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include "../include/Palavra.h"
-
-
-
 
 void faz_palavra_vazia(TipoItemP * item, char * palavra){
     item->primeiro = (Ccelula*)malloc(sizeof(Ccelula));

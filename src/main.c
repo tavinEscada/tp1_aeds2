@@ -8,8 +8,6 @@
 
 #include "../include/tp.h"
 
-
-
 int main(){
     
     TipoArvore a = NULL;
@@ -32,7 +30,7 @@ int main(){
             case 2:
                 constroiIndices(&a,&comp_insercao_pat,&comp_insercao_hash);
                 printf("Quantidade de comparacoes na inserção da Patricia: %d\n", comp_insercao_pat);
-                printf("Quantidade de comparacoes na inserção da Hash: %d\n", comp_insercao_hash);
+                //printf("Quantidade de comparacoes na inserção da Hash: %d\n", comp_insercao_hash);
                 break;
 
             case 3:
@@ -40,9 +38,9 @@ int main(){
                 break;
 
             case 4:
-                pesquisa_geral(info, a, Tabela, p,&comp_pesquisa_pat,&comp_pesquisa_hash);
+                pesquisa_geral(info, a, Tabela, p, &comp_pesquisa_pat, &comp_pesquisa_hash);
                 printf("Quantidade de comparacoes na pesquisa da Patricia: %d\n", comp_pesquisa_pat);
-                printf("Quantidade de comparacoes na pesquisa da Hash: %d\n", comp_pesquisa_hash);
+                //printf("Quantidade de comparacoes na pesquisa da Hash: %d\n", comp_pesquisa_hash);
                 break;
             case 0:
                 return 0;

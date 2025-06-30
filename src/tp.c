@@ -10,7 +10,7 @@
 /**
  * Dada uma palavra, substitui 
  * caracteres especiais (letras com acentos e cedilha) 
- * por minúsculas sem acento (especificamente para utf-8 - 
+ * por minúsculas sem acento (especificamente para UTF-8 - 
  * leitura dos arquivos e terminal linux)
  * 
  * @param p vetor de caracteres com a palavra que será adaptada
@@ -132,7 +132,7 @@ void removeAcentosTerminal(char *p){
         if(c == 0x87 || c == 0x80){ //ç e Ç
             sub = 'c';
         }
-        if(c == 0xA5 || c == 0xA4){
+        if(c == 0xA5 || c == 0xA4){ //ñ e Ñ
             sub = 'n';
         }
         

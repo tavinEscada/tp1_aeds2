@@ -1,3 +1,10 @@
+/**
+ * @author Beatriz Queiroz - 5890
+ * @author Heitor Porto - 5895
+ * @author Pâmela Lúcia - 5898
+ * @author Júlio César - 5903
+ * @author Otávio Tavares - 5912
+ */
 #ifndef HASH_H
 #define HASH_H
 
@@ -14,7 +21,7 @@
 
 /* typedef unsigned int  TipoPesos[n]; */
 typedef char Tipopalavra[N]; //palavra
-typedef unsigned TipoPesos[N][TAMALFABETO]; //nao sei pq esta assim
+typedef unsigned TipoPesos[N][TAMALFABETO];
 //tipoitem esta na Palavra.h
 typedef unsigned int TipoIndice;
 typedef struct TipoCelula* TipoApontador;
