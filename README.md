@@ -1,7 +1,7 @@
 # Trabalho prático de Algoritmos e Estruturas de Dados 2 - Pesquisa em Hash e PATRICIA com índice invertido
 Observações: 
 * O presente arquivo readme é mais legível no GitHub. Se não estiver nele, é recomendado que o acesse para leitura (<https://github.com/tavinEscada/tp1_aeds2/blob/main/README.md>).
-* Este arquivo apresenta aspectos gerais do projeto; para mais detalhes sobre as estruturas em si, acesse o relatório presente no repositório (****link da doc).
+* Este arquivo apresenta aspectos gerais do projeto; para mais detalhes sobre as estruturas em si, acesse o [relatório presente no repositório](https://github.com/tavinEscada/tp1_aeds2/blob/main/documentacao%20-%20aeds2.pdf).
 
 O projeto consiste em um sistema que recebe *n* documentos, construídos com base nos [TCCs do curso de Ciência da Computação da UFV Campus Florestal](https://ccp.caf.ufv.br/tccs/), e realiza buscas de termos que possam estar presentes nesses TCCs. Em cada documento da pasta 'pocs', armazenamos o título, o resumo e, em alguns casos, as palavras chave de cada um dos artigos, e suas palavras são inseridas em estruturas do tipo tabela Hash e árvore PATRICIA. Com isso, é possível realizar buscas por termos e, com base nos índices invertidos a serem especificados adiante, o programa retorna o nome dos arquivos lidos por ordem de relevância em relação aos termos pesquisados.
 ## Compilação e execução
