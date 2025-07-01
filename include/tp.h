@@ -42,8 +42,7 @@ InfoBasica receberArquivo();
 void pesquisa_geral(InfoBasica info, TipoArvore raiz, TipoDicionario Tabela, TipoPesos p,int *comp_pesquisa_pat, int *comp_pesquisa_hash);
 void constroiIndices(TipoArvore *patricia,int *comp_insercao_pat,int *comp_insercao_hash);
 void imprimeIndices(TipoArvore patricia);
-void pesquisa(InfoBasica info, TipoArvore raiz,int *comp_pesquisa_pat);
-void menu();
+void pesquisaPat(InfoBasica info, TipoArvore raiz,int *comp_pesquisa_pat);
 void tfidfpat(TipoArvore raiz, char **input, Relevancias *doc, int nDOCS, int nTermos,int *comp_pesquisa_pat);
 float sumPtermoPat(TipoArvore raiz, int nDOCS, char **input, int nTermos, int idDoc,int *comp_pesquisa_pat);
 //HASH

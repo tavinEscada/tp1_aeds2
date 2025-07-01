@@ -470,7 +470,7 @@ void pesquisa_geral(InfoBasica info, TipoArvore raiz, TipoDicionario tabela, Tip
     printf("\n----------- Hash -------------\n");
     pesquisa_hash(tabela, info, p, comp_pequisa_hash);
     printf("\n--------- Patricia -----------\n");
-    pesquisa(info, raiz,comp_pesquisa_pat);
+    pesquisaPat(info, raiz,comp_pesquisa_pat);
     
     
 }
@@ -601,7 +601,7 @@ float sumPtermoPat(TipoArvore raiz, int nDOCS, char **input, int nTermos, int id
  * @param raiz raiz da patricia a ser percorrida
  * @param comp_pesquisa_pat controle de comparações usadas na pesquisa da patricia
  */
-void pesquisa(InfoBasica info, TipoArvore raiz, int*comp_pesquisa_pat){
+void pesquisaPat(InfoBasica info, TipoArvore raiz, int*comp_pesquisa_pat){
     //linha de entrada
     char entrada[900];
     
